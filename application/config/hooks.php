@@ -12,4 +12,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$hook = Luthier\Hook::getHooks();
+// $hook = Luthier\Hook::getHooks();
