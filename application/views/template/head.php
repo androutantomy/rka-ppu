@@ -19,6 +19,7 @@
         
         <!-- Custom Css -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.min.css?v=1.0.1">
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
         <!-- Dark Css -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dark.min.css?v=1.0.1">
         

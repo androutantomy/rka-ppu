@@ -33,7 +33,7 @@
                             <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
                             
                         </div>
-                    </div>               
+                    </div>                <!-- Nav Header Component End -->
             <!--Nav End-->
             </div>
             <div class="content-inner container-fluid pb-0" id="page_layout">
@@ -52,29 +52,11 @@
                         <form>
                            <div class="row">
                               <div class="form-group col-md-6">
-                                 <label class="form-label" for="fname">Kode Rekening</label>
-                                 <input type="text" class="form-control" id="kode" value="4.1.1.1.1" name="kode">
-                              </div>
-                              <div class="form-group col-md-6">
-                                 <label class="form-label" for="lname">Name</label>
-                                 <input type="text" class="form-control" id="name" name="name" value="Pendapatan SPP Program Sarjana">
-                              </div>
-                              <div class="form-group col-md-6">
-                                 <label class="form-label" for="lname">Jumlah (Rp)</label>
-                                 <input type="text" class="form-control" id="harga" name="harga" value="5.000.000">
-                              </div>
-                              
-                              <div class="form-group col-md-6">
-                                 <label class="form-label">Status</label>
-                                 <select name="type" value="Active" class="selectpicker form-control" data-style="py-0">
-                                    <option>Choose Option</option>
-                                    <option>Active</option>
-                                    <option>Non Active</option>
-                                 </select>
-                              </div>
-                             
-                           </div>
-                           <button type="submit" class="btn btn-primary" style="margin-top:20px;">Update</button>
+                                <label for="customFile" class="form-label custom-file-input"><strong>*File Excel Max. 5MB</strong></label>
+                                <input class="form-control" type="file" id="customFile">
+                            </div>
+                            </div>
+                           <button type="submit" class="btn btn-primary" style="margin-top:20px;">Import</button>
                         </form>
                      </div>
                   </div>

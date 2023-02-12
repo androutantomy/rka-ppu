@@ -1,4 +1,4 @@
-<nav class="nav navbar navbar-expand-xl navbar-light iq-navbar">
+<nav class="nav navbar navbar-expand-xl navbar-light iq-navbar" style="background: rgba(0,0,0,0);">
                    <div class="container-fluid navbar-inner">
                       <a href="<?php echo base_url() ?>dashboard/index.html" class="navbar-brand">
                          
@@ -52,8 +52,8 @@
                                <a class="py-0 nav-link d-flex align-items-center ps-3" href="#" id="profile-setting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   <img src="<?php echo base_url() ?>assets/images/avatars/01.png" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded" loading="lazy">
                                   <div class="caption ms-3 d-none d-md-block ">
-                                     <h6 class="mb-0 caption-title">Krisnawan Adi</h6>
-                                     <p class="mb-0 caption-sub-title">Super Admin</p>
+                                     <h6 class="mb-0 caption-title" style="color:#f3f3f3;">Krisnawan Adi</h6>
+                                     <p class="mb-0 caption-sub-title" style="color:#FAF400;">Super Admin</p>
                                   </div>
                                </a>
                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-setting">

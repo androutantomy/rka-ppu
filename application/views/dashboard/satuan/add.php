@@ -21,7 +21,7 @@
                                 <div class="col-md-12">
                                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                                         <div>
-                                            <h1>Pendapatan</h1>
+                                            <h1>Master Satuan</h1>
                                             <p>Universitas 17 Agustus Samarinda</p>
                                         </div>
                                         
@@ -33,7 +33,7 @@
                             <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
                             
                         </div>
-                    </div>               
+                    </div>                <!-- Nav Header Component End -->
             <!--Nav End-->
             </div>
             <div class="content-inner container-fluid pb-0" id="page_layout">
@@ -52,18 +52,9 @@
                         <form>
                            <div class="row">
                               <div class="form-group col-md-6">
-                                 <label class="form-label" for="fname">Kode Rekening</label>
-                                 <input type="text" class="form-control" id="kode" value="4.1.1.1.1" name="kode">
+                                 <label class="form-label" for="fname">Name</label>
+                                 <input type="text" class="form-control" id="tahun" value="..." name="name">
                               </div>
-                              <div class="form-group col-md-6">
-                                 <label class="form-label" for="lname">Name</label>
-                                 <input type="text" class="form-control" id="name" name="name" value="Pendapatan SPP Program Sarjana">
-                              </div>
-                              <div class="form-group col-md-6">
-                                 <label class="form-label" for="lname">Jumlah (Rp)</label>
-                                 <input type="text" class="form-control" id="harga" name="harga" value="5.000.000">
-                              </div>
-                              
                               <div class="form-group col-md-6">
                                  <label class="form-label">Status</label>
                                  <select name="type" value="Active" class="selectpicker form-control" data-style="py-0">
@@ -78,7 +69,7 @@
                         </form>
                      </div>
                   </div>
-                </div>
+               </div>
             </div>
          </div>
       </div>

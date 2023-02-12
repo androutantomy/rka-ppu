@@ -11,4 +11,9 @@ class AuthController extends CI_Controller
     {
         $this->load->view('index');
     }
+    
+    function forgotPassword()
+    {
+        $this->load->view('forgot-password');
+    }
 }

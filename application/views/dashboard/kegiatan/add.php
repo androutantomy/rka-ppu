@@ -1,58 +1,5 @@
 
 <?php $this->load->view('template/head'); ?>
-<style>
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
-
-#myInput {
-  box-sizing: border-box;
-  background-image: url('searchicon.png');
-  background-position: 14px 12px;
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding: 14px 20px 12px 45px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
-
-#myInput:focus {outline: 3px solid #ddd;}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-</style>
     <body class="  ">
         <!-- loader Start -->
         <div id="loading">
@@ -163,19 +110,19 @@
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="lname">Satuan</label>
-                                 <input type="text" class="form-control" id="Satuan" name="Satuan" value="mm">
+                                 <input type="text" class="form-control" id="Satuan" name="Satuan" value="...">
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="lname">Harga Satuan (Rp)</label>
-                                 <input type="text" class="form-control" id="harga" name="harga" value="805.000">
+                                 <input type="text" class="form-control" id="harga" name="harga" value="...">
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="lname">Koefisien</label>
-                                 <input type="text" class="form-control" id="harga" name="koefisien" value="2">
+                                 <input type="text" class="form-control" id="harga" name="koefisien" value="...">
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="lname">Volume</label>
-                                 <input type="text" class="form-control" id="harga" name="koefisien" value="2">
+                                 <input type="text" class="form-control" id="harga" name="koefisien" value="...">
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label">Input Pajak</label>

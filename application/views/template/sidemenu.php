@@ -3,9 +3,9 @@
                 <a href="<?php echo site_url('dashboard') ?>" class="navbar-brand">
                     
                     <!--Logo start-->
-                    <img src="<?php echo base_url() ?>assets/images/logo.png" style="width:40%;">
+                    <img src="<?php echo base_url() ?>assets/images/logo.png" style="width:40%;text-align:center;">
                     <!--logo End-->            
-                    <h4 class="logo-title">UNTAG<br/>Samarinda</h4>
+                    
                 </a>
                 <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
                     <i class="icon">

@@ -21,7 +21,7 @@
                                 <div class="col-md-12">
                                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                                         <div>
-                                            <h1>Add User Management</h1>
+                                            <h1>User Management</h1>
                                             <p>Universitas 17 Agustus Samarinda</p>
                                         </div>
                                         
@@ -30,14 +30,10 @@
                             </div>
                         </div>
                         <div class="iq-header-img">
-                            <img src="<?php echo base_url() ?>assets/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-                            <img src="<?php echo base_url() ?>assets/images/dashboard/top-header1.png" alt="header" class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-                            <img src="<?php echo base_url() ?>assets/images/dashboard/top-header2.png" alt="header" class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-                            <img src="<?php echo base_url() ?>assets/images/dashboard/top-header3.png" alt="header" class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-                            <img src="<?php echo base_url() ?>assets/images/dashboard/top-header4.png" alt="header" class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-                            <img src="<?php echo base_url() ?>assets/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+                            <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+                            
                         </div>
-                    </div>                <!-- Nav Header Component End -->
+                    </div>                
             <!--Nav End-->
             </div>
             <div class="content-inner container-fluid pb-0" id="page_layout">

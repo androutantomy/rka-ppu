@@ -17,9 +17,9 @@ class SatuanController extends CI_Controller
         $this->load->view('dashboard/satuan/edit');
     }
     
-    function import()
+    function add()
     {
-        $this->load->view('dashboard/satuan/import');
+        $this->load->view('dashboard/satuan/add');
     }
     
 }

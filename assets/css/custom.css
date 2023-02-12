@@ -1045,3 +1045,76 @@ body.uikit .btn-download {
     font-size: 70px;
   }
 }
+.iq-nav-menu li .nav-link.active{
+  background: rgba(0,0,0,0);
+    border: 2px #FAF400 solid;
+}
+
+.sidebar .navbar-brand {
+  display: -webkit-box;
+  /* display: -webkit-flex; */
+  display: -ms-flexbox;
+  /* display: flex; */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center !important;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* background: #D2042D !important; */
+}
+.iq-navbar {
+  z-index: 1 !important;
+}
+.sidebar.sidebar-default .nav-link:not(.static-item).active, .sidebar.sidebar-default .nav-link:not(.static-item)[aria-expanded=true] {
+  background: #9B0D23;
+}
+.sidebar {
+  display: block;
+  position: fixed;
+  width: 100%;
+  max-width: var(--sidebar-width);
+  top: 0;
+  background: #f2f2f2 !important;
+  bottom: 0;
+  -webkit-transition: var(--sidebar-transition);
+  -o-transition: var(--sidebar-transition);
+  transition: var(--sidebar-transition);
+  -webkit-transition-duration: var(--sidebar-transition-duration);
+  -o-transition-duration: var(--sidebar-transition-duration);
+  transition-duration: var(--sidebar-transition-duration);
+  -webkit-transition-timing-function: var(--sidebar-transition-function-ease);
+  -o-transition-timing-function: var(--sidebar-transition-function-ease);
+  transition-timing-function: var(--sidebar-transition-function-ease);
+  z-index: 910;
+  background-color: #fff;
+  color: var(--bs-primary);
+  -webkit-box-shadow: 0 0 30px rgba(var(--bs-primary-rgb), 0.05);
+  box-shadow: 0 0 30px rgba(var(--bs-primary-rgb), 0.05);
+}
+.sidebar .sidebar-toggle {
+  position: absolute;
+  right: -12px;
+  top: 16px;
+  cursor: pointer;
+  background: #000;
+}
+.btn.btn-primary {
+  color: var(--bs-white);
+  background-color: #9B0D23 !important;
+  border-color: #9B0D23 !important;
+}
+.footer {
+  font-size: 14px;
+  background: #9B0D23;
+  color: #fff;
+}
+.center {
+  margin: auto !important;
+  width: 50% !important;
+  padding: 10px;
+}
+.iq-auth-form {
+  background: rgba(255,255,255,0.5);
+}
