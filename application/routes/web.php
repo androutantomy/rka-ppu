@@ -23,13 +23,13 @@ Route::group('user', ['middleware' => ['AuthMiddleware']], function() {
 
 Route::group('biaya', ['middleware' => ['AuthMiddleware']], function() {
     Route::get('/', 'StandarBiayaController@index')->name('biaya.home');
-    Route::get('tambah', 'StandarBiayaController@add')->name('biaya.tambah');
+    Route::get('import', 'StandarBiayaController@import')->name('biaya.import');
     Route::get('ubah', 'StandarBiayaController@edit')->name('biaya.ubah');
 });
 
 Route::group('pendapatan', ['middleware' => ['AuthMiddleware']], function() {
     Route::get('/', 'PendapatanController@index')->name('pendapatan.home');
-    Route::get('tambah', 'PendapatanController@add')->name('pendapatan.tambah');
+    Route::get('import', 'PendapatanController@import')->name('pendapatan.import');
     Route::get('ubah', 'PendapatanController@edit')->name('pendapatan.ubah');
 });
 

@@ -22,7 +22,7 @@
                                             <p>Universitas 17 Agustus Samarinda</p>
                                         </div>
                                         <div>
-                                            <a href="<?php echo site_url('import-pendapatan') ?>" class="btn btn-link btn-soft-light">
+                                            <a href="<?php echo route('pendapatan.import') ?>" class="btn btn-link btn-soft-light">
                                                 <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                                 </svg>
@@ -68,7 +68,7 @@
                                     <td></td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -95,7 +95,7 @@
                                     <td></td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -122,7 +122,7 @@
                                     <td></td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -149,7 +149,7 @@
                                     <td class="text-center">5.000.000</td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -176,7 +176,7 @@
                                     <td class="text-center">6.500.000</td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -203,7 +203,7 @@
                                     <td class="text-center">6.500.000</td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -230,7 +230,7 @@
                                     <td class="text-center">3.500.000</td>
                                     <td class="text-center">
                                         <div class="flex align-items-center list-user-action">
-                                            <a href="<?php echo site_url('edit-pendapatan') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
+                                            <a href="<?php echo route('pendapatan.ubah') ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>

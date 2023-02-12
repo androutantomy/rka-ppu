@@ -185,8 +185,10 @@
                                     
                                  </select>
                               </div>
-                              
-                             
+                              <div class="form-group col-md-6">
+                                 <label class="form-label" for="lname">Keterangan</label>
+                                 <textarea class="form-control" id="keterangan" value="keterangan" rows="5"></textarea>
+                              </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label">Status</label>
                                  <select name="type" value="Active" class="selectpicker form-control" data-style="py-0">
