@@ -845,7 +845,13 @@ body {
   .center {
     margin: auto !important;
     width: 90% !important;
-    padding: 10px;
+    
+  }
+  .card-body {
+    padding: 3rem 1.3rem !important;
+  }
+  .logo-custom{
+    width:40% !important;padding-top:23% !important;
   }
   .main-img .container h1 {
     font-size: 3.125rem;
@@ -1117,9 +1123,15 @@ body.uikit .btn-download {
 }
 .center {
   margin: auto !important;
-  width: 50%;
-  padding: 10px;
+  width: 45%;
+  
 }
 .iq-auth-form {
   background: rgba(255,255,255,0.5);
+}
+.logo-custom{
+  width:18%;padding-top:1%;
+}
+.card-body {
+  padding: 3rem 2rem;
 }

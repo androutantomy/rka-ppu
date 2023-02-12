@@ -1,6 +1,6 @@
 <?php $this->load->view('template/head'); ?>
 
-<body style="background-image:url(<?php echo base_url() ?>assets/images/bg.jpg);background-size:cover !important;background-repeat: no-repeat;">
+<body style="background-image:url(<?php echo base_url() ?>assets/images/bg.jpg);background-size:cover !important;background-repeat: no-repeat;min-height:100vh !important;text-align:center !important;">
    <!-- loader Start -->
    <div id="loading">
       <div class="loader simple-loader">
@@ -15,7 +15,7 @@
          <div class="row no-gutters align-items-center bg-white" style="background-color: rgba(0,0,0,0) !important;">
             <div class="col-md-12 align-self-center">
                <a href="<?php echo site_url('/') ?>" class="navbar-brand d-flex align-items-center mb-3 justify-content-center text-primary">
-                  <img src="<?php echo base_url() ?>assets/images/logo.png" style="width:18% !important;padding-top:1%;">
+                  <img class="logo-custom" src="<?php echo base_url() ?>assets/images/logo.png">
                </a>
                <h3 class="text-center" style="color:#f0f0f0;font-family:'Poppins';">Sistem Perencanaan Anggaran</h3>
                <div class="row justify-content-center pt-5">
@@ -23,17 +23,18 @@
                      <div class="card  d-flex justify-content-center mb-0 auth-card iq-auth-form">
                         <div class="card-body">
                            <h2 class="mb-2 text-center">Sign In</h2>
+                           <p style="color:black;padding-bottom:10px;">Silahkan masukan username dan password dengan benar</p>
                            <?php echo form_open(route('masuk')) ?>
                            <div class="row">
                               <div class="col-lg-12">
                                  <div class="form-group">
-                                    <label for="username" class="form-label" style="color:#000;">Username</label>
-                                    <input type="text" name="username" value="<?php echo set_value('username') ?>" class="form-control" id="username" aria-describedby="username" placeholder="Username">
+                                    <!-- <label for="username" class="form-label" style="color:#000;">Username</label> -->
+                                    <input type="text" name="username" value="<?php echo set_value('username') ?>" class="form-control" id="username" aria-describedby="username" placeholder="Email">
                                  </div>
                               </div>
                               <div class="col-lg-12">
                                  <div class="form-group">
-                                    <label for="password" class="form-label" style="color:#000;">Password</label>
+                                    <!-- <label for="password" class="form-label" style="color:#000;">Password</label> -->
                                     <input type="password" name="password" value="<?php echo set_value('password') ?>" class="form-control" id="password" aria-describedby="password" placeholder="Password">
                                  </div>
                               </div>
@@ -42,7 +43,7 @@
                                     <input type="checkbox" class="form-check-input" id="customCheck1">
                                     <label class="form-check-label" for="customCheck1" style="color:#000;">Remember Me</label>
                                  </div>
-                                 <a href="recoverpw.html" style="color:#000;">Forgot Password?</a>
+                                 <a href="<?php echo route('lupa-password') ?>" style="color:#000;">Forgot Password?</a>
                               </div>
                            </div>
                            <div class="d-flex justify-content-center">
@@ -65,11 +66,12 @@
          </div>
 
       </section>
+      <div class="col-sm-12 center" style="position:absolute !important;text-align:center !important;bottom:8px;">
+         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
+      </div>
 
    </div>
-   <div class="text-center" style="position:relative">
-      <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
-   </div>
+   
    <script src="<?php echo base_url() ?>assets/js/core/libs.min.js"></script>
    <script src="<?php echo base_url() ?>assets/js/plugins/slider-tabs.js"></script>
    <script src="<?php echo base_url() ?>assets/vendor/lodash/lodash.min.js"></script>
