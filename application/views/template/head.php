@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Judul | Universitas 17 Agustus Samarinda</title>
+        <title><?php echo ucfirst($this->uri->segment(1)) ?> | <?php echo $this->config->item('client_name') ?></title>
         <meta name="description" content="Sistem perencanaan anggaran Universitas 17 Agustus Samarinda">
         <meta name="keywords" content="Sistem perencanaan anggaran, Universitas 17 Agustus Samarinda">
         <meta name="author" content="Purcode">

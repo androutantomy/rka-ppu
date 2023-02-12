@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SshController extends CI_Controller
+class StandarBiayaController extends CI_Controller
 {
     /**
      * Luthier CI fake index method

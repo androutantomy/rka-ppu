@@ -1,17 +1,49 @@
 <?php
 
-Route::get('/', 'AuthController@index')->name('index');
-Route::get('/', 'AuthController@forgot-password')->name('forgot-password');
-Route::get('dashboard', 'DashboardController@index')->name('index');
-Route::get('tahunAnggaran', 'TahunAnggaranController@index')->name('index');
-Route::get('user', 'UserController@index')->name('index');
-Route::get('ssh', 'SshController@index')->name('index');
-Route::get('pendapatan', 'PendapatanController@index')->name('index');
-Route::get('satuan', 'SatuanController@index')->name('index');
-Route::get('kegiatan', 'KegiatanController@index')->name('index');
+Route::get('/', 'AuthController@index')->name('login');
+Route::get('lupa-password', 'AuthController@forgotPassword')->name('lupa-password');
+Route::post('masuk','AuthController@doLogin')->name('masuk');
+Route::get('keluar', 'AuthController@doLogout')->name('logout');
 
-Route::get('/', function () {
-})->name('index');
+Route::group('dashboard', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'DashboardController@index')->name('home');
+});
+
+Route::group('anggaran', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'TahunAnggaranController@index')->name('anggaran.home');
+    Route::get('tambah', 'TahunAnggaranController@add')->name('anggaran.tambah');
+    Route::get('ubah', 'TahunAnggaranController@edit')->name('anggaran.ubah');
+});
+
+Route::group('user', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'UserController@index')->name('user.home');
+    Route::get('tambah', 'UserController@add')->name('user.tambah');
+    Route::get('ubah', 'UserController@edit')->name('user.ubah');
+});
+
+Route::group('biaya', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'StandarBiayaController@index')->name('biaya.home');
+    Route::get('tambah', 'StandarBiayaController@add')->name('biaya.tambah');
+    Route::get('ubah', 'StandarBiayaController@edit')->name('biaya.ubah');
+});
+
+Route::group('pendapatan', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'PendapatanController@index')->name('pendapatan.home');
+    Route::get('tambah', 'PendapatanController@add')->name('pendapatan.tambah');
+    Route::get('ubah', 'PendapatanController@edit')->name('pendapatan.ubah');
+});
+
+Route::group('satuan', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'SatuanController@index')->name('satuan.home');
+    Route::get('tambah', 'SatuanController@add')->name('satuan.tambah');
+    Route::get('ubah', 'SatuanController@edit')->name('satuan.ubah');
+});
+
+Route::group('kegiatan', ['middleware' => ['AuthMiddleware']], function() {
+    Route::get('/', 'KegiatanController@index')->name('kegiatan.home');
+    Route::get('tambah', 'KegiatanController@add')->name('kegiatan.tambah');
+    Route::get('ubah', 'KegiatanController@edit')->name('kegiatan.ubah');
+});
 
 Route::set('404_override', function () {
     show_404();

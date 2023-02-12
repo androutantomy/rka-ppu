@@ -2,7 +2,7 @@
 <footer class="footer">
     <div class="footer-body">
         <div class="right-panel">
-            ©<script>2023</script> <span>Universitas 17 Agustus Samarinda
+            ©<script>2023</script> <span><?php echo $this->config->item('client_name') ?>
         </div>
     </div>
 </footer>
