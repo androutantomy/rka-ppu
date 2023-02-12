@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // $route = Luthier\Route::getRoutes();
 $route['default_controller'] = 'AuthController/index';
+$route['forgot-password'] = 'AuthController/forgotPassword';
 $route['dashboard'] = 'DashboardController/index';
 
 //tahun anggaran

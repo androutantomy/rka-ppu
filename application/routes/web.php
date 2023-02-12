@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'AuthController@index')->name('index');
+Route::get('/', 'AuthController@forgot-password')->name('forgot-password');
 Route::get('dashboard', 'DashboardController@index')->name('index');
 Route::get('tahunAnggaran', 'TahunAnggaranController@index')->name('index');
 Route::get('user', 'UserController@index')->name('index');
