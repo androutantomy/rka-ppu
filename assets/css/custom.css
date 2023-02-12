@@ -847,11 +847,22 @@ body {
     width: 90% !important;
     
   }
+  
+  .padding-tahun{
+    padding-left:80px !important;
+    padding-right:80px !important;
+  }
+  .width1{
+    width:100% !important;
+  }
   .card-body {
     padding: 3rem 1.3rem !important;
   }
   .logo-custom{
     width:40% !important;padding-top:23% !important;
+  }
+  .logo-custom2{
+    width:40% !important;padding-top:5% !important;
   }
   .main-img .container h1 {
     font-size: 3.125rem;
@@ -861,6 +872,11 @@ body {
   .header .container {
     max-width: unset !important;
   }
+  .nav .sidebar-toggle {
+    
+    background: #000 !important;
+    color: white !important;
+   }
   aside.mobile-offcanvas {
     margin-top: unset !important;
   }
@@ -1134,4 +1150,16 @@ body.uikit .btn-download {
 }
 .card-body {
   padding: 3rem 2rem;
+}
+.width1{
+  width:40%;
+}
+.page-item.active .page-link {
+  color: yellow !important;
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+.page-item .page-link {
+  border: 1px #eee solid !important;
+  color: #000 !important;
 }

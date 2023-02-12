@@ -2,6 +2,7 @@
 
 Route::get('/', 'AuthController@index')->name('login');
 Route::get('lupa-password', 'AuthController@forgotPassword')->name('lupa-password');
+Route::get('pilih-tahun-anggaran', 'AuthController@pilihTahunAnggaran')->name('pilih-tahun-anggaran');
 Route::post('masuk','AuthController@doLogin')->name('masuk');
 Route::get('keluar', 'AuthController@doLogout')->name('logout');
 

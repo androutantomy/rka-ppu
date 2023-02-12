@@ -54,12 +54,17 @@ class AuthController extends CI_Controller
 
         $this->session->set_userdata($session);
 
-        route_redirect('home');
+        route_redirect('pilih-tahun-anggaran');
     }
     
     function forgotPassword()
     {
         $this->load->view('forgot-password');
+    }
+    
+    function pilihTahunAnggaran()
+    {
+        $this->load->view('pilih-tahun-anggaran');
     }
 
     public function doLogout()
