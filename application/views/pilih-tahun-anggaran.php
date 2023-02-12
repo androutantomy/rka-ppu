@@ -60,13 +60,13 @@
                 </div>
                 </a>
             </div>
-            
+            <div class="col-sm-12 center" style="position:absolute !important;text-align:center !important;bottom:8px;">
+         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
+    </div>
         </div>
     </div>   
   
-    <div class="col-sm-12 center" style="position:absolute !important;text-align:center !important;bottom:8px;">
-         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
-      </div>
+    
    <script src="<?php echo base_url() ?>assets/js/core/libs.min.js"></script>
    <script src="<?php echo base_url() ?>assets/js/plugins/slider-tabs.js"></script>
    <script src="<?php echo base_url() ?>assets/vendor/lodash/lodash.min.js"></script>
