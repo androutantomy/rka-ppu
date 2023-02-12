@@ -1,5 +1,5 @@
 <?php $this->load->view('template/head'); ?>
-  <body style="background-image:url(<?php echo base_url() ?>assets/images/bg.jpg);background-size:cover !important;background-repeat: no-repeat;">
+  <body style="background-image:url(<?php echo base_url() ?>assets/images/bg.jpg);background-size:cover !important;background-repeat: no-repeat;min-height:100vh !important;">
     <!-- loader Start -->
     <div id="loading">
       <div class="loader simple-loader">
@@ -21,7 +21,8 @@
                   <div class="col-md-9">
                      <div class="card  d-flex justify-content-center mb-0 auth-card iq-auth-form">
                         <div class="card-body">                          
-                           <h2 class="mb-2 text-center">Sign In</h2>
+                           <h2 class="mb-2 text-center">Reset Password</h2>
+                           <p style="color:#000;text-align:center;">Enter your email address and we'll send you an email with instructions to reset your password.</p>
                            <form>
                               <div class="row">
                                  <div class="col-lg-12">
@@ -30,22 +31,10 @@
                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="xyz@example.com">
                                     </div>
                                  </div>
-                                 <div class="col-lg-12">
-                                    <div class="form-group">
-                                       <label for="password" class="form-label" style="color:#000;">Password</label>
-                                       <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="xxxx">
-                                    </div>
-                                 </div>
-                                 <div class="col-lg-12 d-flex justify-content-between">
-                                    <div class="form-check mb-3">
-                                       <input type="checkbox" class="form-check-input" id="customCheck1">
-                                       <label class="form-check-label" for="customCheck1" style="color:#000;">Remember Me</label>
-                                    </div>
-                                    <a href="recoverpw.html" style="color:#000;">Forgot Password?</a>
-                                 </div>
+                                 
                               </div>
                               <div class="d-flex justify-content-center">
-                                 <button type="submit" class="btn btn-primary">Sign In</button>
+                                 <button type="submit" class="btn btn-primary">Reset Password</button>
                               </div>
                            </form>
                         </div>
@@ -59,8 +48,8 @@
       </section>
       
     </div>
-    <div class="text-center" style="position:relative">
-         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
+    <div class="text-center" style="position:absolute">
+         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';bottom:5px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
       </div>
     <script src="<?php echo base_url() ?>assets/js/core/libs.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/plugins/slider-tabs.js"></script>
