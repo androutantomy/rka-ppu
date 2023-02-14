@@ -8,6 +8,7 @@ class AuthController extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('AuthModel');
     }
 
     function loginValidation()
@@ -56,15 +57,24 @@ class AuthController extends CI_Controller
 
         route_redirect('pilih-tahun-anggaran');
     }
+
+    public function pilihTahunAnggaran()
+    {
+        $data['anggaran'] = $this->AuthModel->get_all_active_tahun_anggaran();
+        $this->load->view('tahun_anggaran', $data);
+    }
+
+    public function setTahunAnggaran()
+    {
+        $tahun_anggaran = $this->route->param('anggaran');
+        $this->session->set_userdata(['anggaran' => $tahun_anggaran]);
+
+        route_redirect('home');
+    }
     
     function forgotPassword()
     {
         $this->load->view('forgot-password');
-    }
-    
-    function pilihTahunAnggaran()
-    {
-        $this->load->view('pilih-tahun-anggaran');
     }
 
     public function doLogout()

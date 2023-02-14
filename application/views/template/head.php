@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?php echo ucfirst($this->uri->segment(1)) ?> | <?php echo $this->config->item('client_name') ?></title>
-        <meta name="description" content="Sistem perencanaan anggaran Universitas 17 Agustus Samarinda">
-        <meta name="keywords" content="Sistem perencanaan anggaran, Universitas 17 Agustus Samarinda">
+        <meta name="description" content="Sistem perencanaan anggaran Universitas 17 Agustus 1945 Samarinda">
+        <meta name="keywords" content="Sistem perencanaan anggaran, Universitas 17 Agustus 1945 Samarinda">
         <meta name="author" content="Purcode">
         
         <!-- Favicon -->

@@ -534,4 +534,4 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 // CUSTOM CONFIG SESSION
-$config['client_name'] = 'Universitas 17 Agustus Samarinda';
+$config['client_name'] = 'Universitas 17 Agustus 1945 Samarinda';
