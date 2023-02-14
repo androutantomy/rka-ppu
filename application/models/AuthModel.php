@@ -7,4 +7,11 @@ class AuthModel extends CI_Model {
 
         return $data;
     }
+
+    function get_user_by_username($filter)
+    {
+        $data = $this->db->get_where("mst_users", $filter);
+
+        return $data;
+    }
 }

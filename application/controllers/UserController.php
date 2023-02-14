@@ -61,7 +61,7 @@ class UserController extends CI_Controller
                 'rules' => 'required|matches[password]',
                 'errors' => [
                     'required' => 'Tulis Ulang Password tidak boleh kosong',
-                    'matches' => 'Tulis Ulang Password harus sesuai dengan Password'
+                    'matches' => 'Tulis Ulang Password harus sama dengan Password'
                 ]
             ]
         ];

@@ -22,7 +22,7 @@
                   <div class="col-md-9">
                      <div class="card  d-flex justify-content-center mb-0 auth-card iq-auth-form">
                         <div class="card-body">
-                           <h2 class="mb-2 text-center">Sign In</h2>
+                           <h2 class="mb-2 text-center">Masuk</h2>
                            <p style="color:black;padding-bottom:10px;">Silahkan masukan username dan password dengan benar</p>
                            <?php echo form_open(route('masuk')) ?>
                            <div class="row">
@@ -40,10 +40,8 @@
                               </div>
                               <div class="col-lg-12 d-flex justify-content-between">
                                  <div class="form-check mb-3">
-                                    <input type="checkbox" class="form-check-input" id="customCheck1">
-                                    <label class="form-check-label" for="customCheck1" style="color:#000;">Remember Me</label>
                                  </div>
-                                 <a href="<?php echo route('lupa-password') ?>" style="color:#000;">Forgot Password?</a>
+                                 <a href="<?php echo route('lupa-password') ?>" style="color:#000;">Lupa password?</a>
                               </div>
                            </div>
                            <div class="d-flex justify-content-center">
@@ -67,11 +65,11 @@
 
       </section>
       <div class="col-sm-12 center" style="position:absolute !important;text-align:center !important;bottom:8px;">
-         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
+         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ <?php echo $this->config->item('client_name') ?> </p>
       </div>
 
    </div>
-   
+
    <script src="<?php echo base_url() ?>assets/js/core/libs.min.js"></script>
    <script src="<?php echo base_url() ?>assets/js/plugins/slider-tabs.js"></script>
    <script src="<?php echo base_url() ?>assets/vendor/lodash/lodash.min.js"></script>

@@ -56,13 +56,14 @@
                      <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
                            <h4 class="card-title">Personal Information</h4>
+                           <span class="mandatory"></span>
                         </div>
                      </div>
                      <div class="card-body">
                         <div class="new-user-info">
                            <div class="row">
                               <div class="form-group col-md-6">
-                                 <label class="form-label" for="fname">Nama</label>
+                                 <label class="form-label" for="fname">Nama <span style="color: red;">*</span></label>
                                  <input type="hidden" value="<?php echo $uuid_user ?>" name="uuid_user">
                                  <input type="text" class="form-control" value="<?php echo $nama_pengguna; ?>" name="nama_pengguna" id="tahun" placeholder="Nama Pengguna">
                                  <div style="color:red">
@@ -77,7 +78,7 @@
                                  </div>
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label">Role Pengguna</label>
+                                 <label class="form-label">Role Pengguna <span style="color: red;">*</span></label>
                                  <select name="role_pengguna" class="selectpicker form-control" data-style="py-0">
                                     <option value="">---- Pilih ----</option>
                                     <option <?php echo $role_pengguna == '1' ? 'selected' : ''; ?> value="1">Super Admin</option>
@@ -89,7 +90,7 @@
                                  </div>
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label">Status</label>
+                                 <label class="form-label">Status <span style="color: red;">*</span></label>
                                  <div class="d-flex align-items-center form-group mb-0">
                                     <div class="form-check">
                                        <input class="form-check-input" type="radio" value="0" name="status_pengguna" id="flexRadioDefault1" <?php echo $status_pengguna == '0' ? 'checked' : ''; ?>>

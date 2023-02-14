@@ -50,8 +50,30 @@ class AuthController extends CI_Controller
             route_redirect('login', [], ['errors' => validation_errors()]);
         }
 
+        $filter = [
+            'username' => $this->input->post('username')
+        ];
+
+        $get_user = $this->AuthModel->get_user_by_username($filter);
+
+        if ($get_user->num_rows() == 0) {
+            route_redirect('login', [], ['errors' => 'User tidak ditemukan']);
+        }
+
+        $user = $get_user->row();
+        if ($user->flag == "0") {
+            route_redirect('login', [], ['errors' => 'User tidak aktif']);
+        }
+
+        if (!password_verify($this->input->post('password'), $user->password)) {
+            route_redirect('login', [], ['errors' => 'Password salah']);
+        }
+
         $session = [];
         $session['isLogin'] = true;
+        $session['nama_user'] = $user->nama_user;
+        $session['level_user'] = $user->level_user;
+        $session['nama_level'] = $user->nama_level;
 
         $this->session->set_userdata($session);
 
