@@ -80,8 +80,8 @@
                                             <?php
                                             $next = $total > 0 ? round($total / 10) : 0;
                                             if ($datatabel->num_rows() > 0) {
-                                                $no = 0;
                                                 $mulai = isset($start) ? ($start * $datatabel->num_rows()) - 9 : 1;
+                                                $no = $mulai-1;
                                                 $sampai = ($mulai + $datatabel->num_rows()) - 1;
                                                 foreach ($datatabel->result() as $result) {
                                             ?>
@@ -102,7 +102,7 @@
                                                                         </svg>
                                                                     </span>
                                                                 </a>
-                                                                <a class="btn btn-sm btn-icon btn-danger rounded btn-delete-user" data-uuid-user="<?php echo $result->uuid_user ?>" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                                                                <a class="btn btn-sm btn-icon btn-danger rounded btn-delete-user" data-uuid="<?php echo $result->uuid_user ?>" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
                                                                     <span class="btn-inner">
                                                                         <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                                                                             <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -143,7 +143,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button>
                         </div>
-                        <input type="hidden" value="" name="uuid_user" id="uuid_user">
+                        <input type="hidden" value="" name="uuid_data" id="uuid_data">
                         <input type="hidden" name="offset" value="<?php echo $this->uri->segment(2); ?>">
                         <input type="hidden" name="query" value="<?php echo $this->uri->segment(3); ?>">
                         <div class="modal-footer">
@@ -161,8 +161,8 @@
                 }
 
                 function setUrl() {
-                    let uuid = this.getAttribute("data-uuid-user");
-                    document.getElementById('uuid_user').value = uuid;
+                    let uuid = this.getAttribute("data-uuid");
+                    document.getElementById('uuid_data').value = uuid;
                 }
             </script>
         </div>

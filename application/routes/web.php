@@ -20,7 +20,11 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
     Route::group('anggaran', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'TahunAnggaranController@index')->name('anggaran.home');
         Route::get('tambah', 'TahunAnggaranController@add')->name('anggaran.tambah');
-        Route::get('ubah', 'TahunAnggaranController@edit')->name('anggaran.ubah');
+        Route::get('ubah/{uuid}', 'TahunAnggaranController@edit')->name('anggaran.ubah');
+        Route::get('{num:offset?}/{q?}', 'TahunAnggaranController@index')->name('anggaran.home2');
+        Route::post('simpan', 'TahunAnggaranController@doSimpan')->name('anggaran.simpan');
+        Route::post('simpan-ubah', 'TahunAnggaranController@doUbah')->name('anggaran.simpan-ubah');
+        Route::post('hapus', 'TahunAnggaranController@doHapus')->name('anggaran.hapus');
     });
     
     Route::group('user', ['middleware' => ['AuthMiddleware']], function() {
@@ -32,6 +36,24 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
         Route::post('simpan-ubah', 'UserController@doUbah')->name('user.simpan-ubah');
         Route::post('hapus', 'UserController@doHapus')->name('user.hapus');
     });
+
+    Route::group('satuan', ['middleware' => ['AuthMiddleware']], function() {
+        Route::get('/', 'SatuanController@index')->name('satuan.home');
+        Route::get('tambah', 'SatuanController@add')->name('satuan.tambah');
+        Route::get('ubah/{uuid}', 'SatuanController@edit')->name('satuan.ubah');
+        Route::get('{num:offset?}/{q?}', 'SatuanController@index')->name('satuan.home2');
+        Route::post('simpan', 'SatuanController@doSimpan')->name('satuan.simpan');
+        Route::post('simpan-ubah', 'SatuanController@doUbah')->name('satuan.simpan-ubah');
+        Route::post('hapus', 'SatuanController@doHapus')->name('satuan.hapus');
+    });
+    
+    Route::group('pendapatan', ['middleware' => ['AuthMiddleware']], function() {
+        Route::get('/', 'PendapatanController@index')->name('pendapatan.home');
+        Route::get('import', 'PendapatanController@import')->name('pendapatan.import');
+        Route::get('ubah', 'PendapatanController@edit')->name('pendapatan.ubah');
+        Route::get('tambah', 'PendapatanController@add')->name('pendapatan.tambah');
+        Route::post('simpan', 'PendapatanController@doSimpan')->name('pendapatan.simpan');
+    });
     
     Route::group('biaya', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'StandarBiayaController@index')->name('biaya.home');
@@ -39,17 +61,6 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
         Route::get('ubah', 'StandarBiayaController@edit')->name('biaya.ubah');
     });
     
-    Route::group('pendapatan', ['middleware' => ['AuthMiddleware']], function() {
-        Route::get('/', 'PendapatanController@index')->name('pendapatan.home');
-        Route::get('import', 'PendapatanController@import')->name('pendapatan.import');
-        Route::get('ubah', 'PendapatanController@edit')->name('pendapatan.ubah');
-    });
-    
-    Route::group('satuan', ['middleware' => ['AuthMiddleware']], function() {
-        Route::get('/', 'SatuanController@index')->name('satuan.home');
-        Route::get('tambah', 'SatuanController@add')->name('satuan.tambah');
-        Route::get('ubah', 'SatuanController@edit')->name('satuan.ubah');
-    });
     
     Route::group('kegiatan', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'KegiatanController@index')->name('kegiatan.home');

@@ -35,7 +35,7 @@
                 if ($anggaran->num_rows() > 0) {
                     foreach ($anggaran->result() as $anggaran) {
                 ?>
-                        <div class="col-lg-2 col-md-2 padding-tahun">
+                        <div class="col-lg-4 col-md-2">
                             <a href="<?php echo route('set-tahun-anggaran', ['anggaran' => $anggaran->nama_tahun_anggaran]) ?>">
                                 <div class="card text-center" style="background: rgba(255,255,255,0.4);">
                                     <div class="card-body" style="padding: 2rem 0rem !important;">
@@ -52,8 +52,8 @@
                     }
                 }
                 ?>
-                <div class="col-sm-12 center" style="position:absolute !important;text-align:center !important;bottom:8px;">
-                    <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ Universitas 17 Agustus Samarinda </p>
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;"><?php echo $this->config->item('client_name') ?> </p>
                 </div>
             </div>
         </div>

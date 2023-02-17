@@ -25,6 +25,13 @@
                            <h2 class="mb-2 text-center">Masuk</h2>
                            <p style="color:black;padding-bottom:10px;">Silahkan masukan username dan password dengan benar</p>
                            <?php echo form_open(route('masuk')) ?>
+                           <?php if ($this->session->flashdata('errors') != "") { ?>
+                              <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                                 <span><i class="far fa-life-ring"></i></span>
+                                 <span> <?php echo $this->session->flashdata('errors') ? $this->session->flashdata('errors') : 'Error : '; ?></span>
+                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                           <?php } ?>
                            <div class="row">
                               <div class="col-lg-12">
                                  <div class="form-group">
@@ -49,24 +56,15 @@
                            </div>
                            <?php echo form_close(); ?>
                         </div>
-                        <?php if ($this->session->flashdata('errors') != "") { ?>
-                           <div class="alert alert-danger alert-dismissible fade show " role="alert">
-                              <span><i class="far fa-life-ring"></i></span>
-                              <span> <?php echo $this->session->flashdata('errors') ? $this->session->flashdata('errors') : 'Error : '; ?></span>
-                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                           </div>
-                        <?php } ?>
                      </div>
+                  </div>
+                  <div class="col-sm-12 d-flex justify-content-center">
+                     <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;"><?php echo $this->config->item('client_name') ?> </p>
                   </div>
                </div>
             </div>
-
          </div>
-
       </section>
-      <div class="col-sm-12 center" style="position:absolute !important;text-align:center !important;bottom:8px;">
-         <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;">@ <?php echo $this->config->item('client_name') ?> </p>
-      </div>
 
    </div>
 

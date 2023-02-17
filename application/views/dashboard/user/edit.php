@@ -37,13 +37,13 @@
          <!--Nav End-->
       </div>
       <?php
-      $user = $data->row();
-      $nama_pengguna = set_value('nama_pengguna') == "" ? $user->nama_user : set_value('nama_pengguna');
-      $email_pengguna = set_value('email_pengguna') == "" ? $user->email_user : set_value('email_pengguna');
-      $status_pengguna = set_value('status_pengguna') == "" ? $user->flag : set_value('status_pengguna');
-      $role_pengguna = set_value('role_pengguna') == "" ? $user->level_user : set_value('role_pengguna');
-      $role_pengguna = set_value('role_pengguna') == "" ? $user->level_user : set_value('role_pengguna');
-      $uuid_user = $user->uuid_user;
+      $update = $data->row();
+      $nama_pengguna = set_value('nama_pengguna') == "" && !empty($update) ? $update->nama_user : set_value('nama_pengguna');
+      $email_pengguna = set_value('email_pengguna') == "" && !empty($update) ? $update->email_user : set_value('email_pengguna');
+      $status_pengguna = set_value('status_pengguna') == "" && !empty($update) ? $update->flag : set_value('status_pengguna');
+      $role_pengguna = set_value('role_pengguna') == "" && !empty($update) ? $update->level_user : set_value('role_pengguna');
+      $role_pengguna = set_value('role_pengguna') == "" && !empty($update) ? $update->level_user : set_value('role_pengguna');
+      $uuid_user = set_value('uuid_user') == "" && !empty($update) ? $update->uuid_user : set_value('uuid_user');
       ?>
 
       <div class="content-inner container-fluid pb-0" id="page_layout">
@@ -110,7 +110,7 @@
                                  </div>
                               </div>
                            </div>
-                           <button type="submit" class="btn btn-primary" style="margin-top:20px;">Tambahkan</button>
+                           <button type="submit" class="btn btn-primary" style="margin-top:20px;">Perbaharui</button>
                         </div>
                      </div>
 

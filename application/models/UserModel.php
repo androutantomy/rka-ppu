@@ -23,6 +23,7 @@ Class UserModel extends CI_Model
             $offset = ($filter['start']*$limit)-10;
         }
         $this->db->limit($limit, isset($offset)?$offset:0);
+        $this->db->order_by('id_user', 'desc');
 
         $data = $this->db->get('mst_users');
 

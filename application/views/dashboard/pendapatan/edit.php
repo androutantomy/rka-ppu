@@ -22,7 +22,7 @@
                                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                                         <div>
                                             <h1>Pendapatan</h1>
-                                            <p>Universitas 17 Agustus Samarinda</p>
+                                            <p><?php echo ucwords($this->config->item('client_name')) ?></p>
                                         </div>
                                         
                                     </div>

@@ -183,7 +183,7 @@ class UserController extends CI_Controller
             $simpan = $this->UserModel->edit_user_by_uuid($data, $this->input->post("uuid_user"));
 
             if (!$simpan) {
-                route_redirect('user.tambah', [], ['error' => 'Gagal simpan data']);
+                route_redirect('user.ubah', ['uuid' => $this->input->post("uuid_user")], ['error' => 'Gagal simpan data']);
             }
 
             route_redirect('user.home', [], ['message' => 'Berhasil simpan data']);
@@ -192,11 +192,11 @@ class UserController extends CI_Controller
 
     public function doHapus()
     {
-        if ($this->input->post('uuid_user') == "") {
-            route_redirect('user.tambah', [], ['error' => 'Uuid User tidak valid']);
+        if ($this->input->post('uuid_data') == "") {
+            route_redirect('user.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid User tidak valid']);
         }
 
-        $uuid = $this->input->post('uuid_user');
+        $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
         $offset = $this->input->post('offset');
 
