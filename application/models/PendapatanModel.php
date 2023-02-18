@@ -12,7 +12,7 @@ Class PendapatanModel extends CI_Model {
 
     function get_all_data($filter)
     {
-        $this->db->select('uuid_pendapatan, nama_pendapatan, flag');
+        $this->db->select('uuid_pendapatan, no_rekening_pendapatan, is_utama, nama_pendapatan, flag, jumlah_pendapatan');
         if ($filter['search'] != '') {
             $this->db->like('nama_pendapatan', $filter['search'], 'both');
         }
@@ -40,7 +40,7 @@ Class PendapatanModel extends CI_Model {
 
     function get_pendapatan_by_uuid($uuid) 
     {
-        $this->db->select('uuid_pendapatan, nama_pendapatan, flag');
+        $this->db->select('uuid_pendapatan, no_rekening_pendapatan, is_utama, nama_pendapatan, flag, jumlah_pendapatan');
         $data = $this->db->get_where('mst_pendapatan', ['uuid_pendapatan' => $uuid]);
 
         return $data;

@@ -49,16 +49,25 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
     
     Route::group('pendapatan', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'PendapatanController@index')->name('pendapatan.home');
-        Route::get('import', 'PendapatanController@import')->name('pendapatan.import');
-        Route::get('ubah', 'PendapatanController@edit')->name('pendapatan.ubah');
+        Route::get('import/{random}', 'PendapatanController@import')->name('pendapatan.import');
+        Route::get('ubah/{uuid}', 'PendapatanController@edit')->name('pendapatan.ubah');
         Route::get('tambah', 'PendapatanController@add')->name('pendapatan.tambah');
         Route::post('simpan', 'PendapatanController@doSimpan')->name('pendapatan.simpan');
+        Route::get('{num:offset?}/{q?}', 'PendapatanController@index')->name('pendapatan.home2');
+        Route::post('hapus', 'PendapatanController@doHapus')->name('pendapatan.hapus');
+        Route::post('simpan-ubah', 'PendapatanController@doUbah')->name('pendapatan.simpan-ubah');
+        Route::post('import-data', 'PendapatanController@doImport')->name('pendapatan.import-data');
     });
     
     Route::group('biaya', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'StandarBiayaController@index')->name('biaya.home');
         Route::get('import', 'StandarBiayaController@import')->name('biaya.import');
-        Route::get('ubah', 'StandarBiayaController@edit')->name('biaya.ubah');
+        Route::get('ubah/{uuid}', 'StandarBiayaController@edit')->name('biaya.ubah');
+        Route::get('tambah', 'StandarBiayaController@add')->name('biaya.tambah');
+        Route::post('simpan', 'StandarBiayaController@doSimpan')->name('biaya.simpan');
+        Route::get('{num:offset?}/{q?}', 'StandarBiayaController@index')->name('biaya.home2');
+        Route::post('hapus', 'StandarBiayaController@doHapus')->name('biaya.hapus');
+        Route::post('simpan-ubah', 'StandarBiayaController@doUbah')->name('biaya.simpan-ubah');
     });
     
     

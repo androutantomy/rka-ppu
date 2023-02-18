@@ -45,6 +45,7 @@
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
                                     <h4 class="card-title">Information</h4>
+                                    <span class="mandatory"></span>
                                 </div>
                                 <?php if ($this->session->flashdata('error') != "") { ?>
                                     <div class="alert alert-danger alert-dismissible fade show " role="alert">
@@ -59,7 +60,7 @@
                                     <?php echo form_open(route('pendapatan.simpan')) ?>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="fname">Kode Rekening</label>
+                                            <label class="form-label" for="fname">Kode Rekening <span style="color: red;">*</span></label>
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <input type="text" class="form-control" id="kode_rekening_1" value="<?php echo set_value('kode_rekening_1'); ?>" name="kode_rekening_1">
@@ -77,12 +78,24 @@
                                                     <input type="text" class="form-control" id="kode_rekening_5" value="<?php echo set_value('kode_rekening_5'); ?>" name="kode_rekening_5">
                                                 </div>
                                             </div>
+                                            <div style="color:red">
+                                                <?php echo form_error('kode_rekening_1'); ?>
+                                            </div>
                                         </div>
+                                        <div class="col-md-6"></div>
+
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="fname">Nama</label>
+                                            <label class="form-label" for="fname">Nama <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="nama_pendapatan" placeholder="Nama Pendapatan" value="<?php echo set_value('nama_pendapatan'); ?>" name="nama_pendapatan">
                                             <div style="color:red">
                                                 <?php echo form_error('nama_pendapatan'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label" for="fname">Nominal Pendapatan</label>
+                                            <input type="text" class="form-control" id="jumlah_pendapatan" placeholder="Nominal Pendapatan" value="<?php echo set_value('jumlah_pendapatan'); ?>" name="jumlah_pendapatan">
+                                            <div style="color:red">
+                                                <?php echo form_error('jumlah_pendapatan'); ?>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -95,7 +108,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="fname">Status</label>
+                                            <label class="form-label" for="fname">Status <span style="color: red;">*</span></label>
                                             <div class="d-flex align-items-center form-group mb-0">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" value="0" name="flag" id="flexRadioDefault1" <?php echo set_value('flag') == '0' ? 'checked' : ''; ?>>

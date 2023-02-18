@@ -45,6 +45,7 @@
                      <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
                            <h4 class="card-title">Information</h4>
+                           <span class="mandatory"></span>
                         </div>
                         <?php if ($this->session->flashdata('error') != "") { ?>
                            <div class="alert alert-danger alert-dismissible fade show " role="alert">
@@ -59,21 +60,21 @@
                            <?php echo form_open(route('anggaran.simpan')) ?>
                            <div class="row">
                               <div class="form-group col-md-12">
-                                 <label class="form-label" for="fname">Tahun Anggaran</label>
+                                 <label class="form-label" for="fname">Tahun Anggaran <span style="color: red;">*</span></label>
                                  <input type="text" name="nama_tahun_anggaran" value="<?php echo set_value('nama_tahun_anggaran'); ?>" class="form-control" id="tahun" placeholder="Nama Tahun Anggaran">
                                  <div style="color:red">
                                     <?php echo form_error('nama_tahun_anggaran'); ?>
                                  </div>
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label" for="lname">Budget Anggaran</label>
+                                 <label class="form-label" for="lname">Budget Anggaran <span style="color: red;">*</span></label>
                                  <input type="text" name="budget_tahun_anggaran" value="<?php echo set_value('budget_tahun_anggaran'); ?>" class="form-control" id="budget" placeholder="Budget Tahun Anggaran">
                                  <div style="color:red">
                                     <?php echo form_error('budget_tahun_anggaran'); ?>
                                  </div>
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label">Status</label>
+                                 <label class="form-label">Status <span style="color: red;">*</span></label>
                                  <div class="d-flex align-items-center form-group mb-0">
                                     <div class="form-check">
                                        <input class="form-check-input" type="radio" value="0" name="status_tahun_anggaran" id="flexRadioDefault1" <?php echo set_value('status_tahun_anggaran') == '0' ? 'checked' : ''; ?>>
