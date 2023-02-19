@@ -23,7 +23,7 @@
                      <div class="card  d-flex justify-content-center mb-0 auth-card iq-auth-form">
                         <div class="card-body">
                            <h2 class="mb-2 text-center">Masuk</h2>
-                           <p style="color:black;padding-bottom:10px;">Silahkan masukan username dan password dengan benar</p>
+                           <p style="color:black;padding-bottom:10px;">Silahkan masukan username dan kata sandi dengan benar</p>
                            <?php echo form_open(route('masuk')) ?>
                            <?php if ($this->session->flashdata('errors') != "") { ?>
                               <div class="alert alert-danger alert-dismissible fade show " role="alert">
@@ -36,7 +36,7 @@
                               <div class="col-lg-12">
                                  <div class="form-group">
                                     <!-- <label for="username" class="form-label" style="color:#000;">Username</label> -->
-                                    <input type="text" name="username" value="<?php echo set_value('username') ?>" class="form-control" id="username" aria-describedby="username" placeholder="Email">
+                                    <input type="text" name="username" value="<?php echo set_value('username') ?>" class="form-control" id="username" aria-describedby="username" placeholder="Username">
                                  </div>
                               </div>
                               <div class="col-lg-12">
@@ -48,19 +48,19 @@
                               <div class="col-lg-12 d-flex justify-content-between">
                                  <div class="form-check mb-3">
                                  </div>
-                                 <a href="<?php echo route('lupa-password') ?>" style="color:#000;">Lupa password?</a>
+                                 <a href="<?php echo route('lupa-password') ?>" style="color:#000;">Lupa kata sandi?</a>
                               </div>
                            </div>
                            <div class="d-flex justify-content-center">
-                              <button type="submit" class="btn btn-primary">Sign In</button>
+                              <button type="submit" class="btn btn-primary">Masuk</button>
                            </div>
                            <?php echo form_close(); ?>
                         </div>
                      </div>
                   </div>
-                  <div class="col-sm-12 d-flex justify-content-center">
-                     <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;"><?php echo $this->config->item('client_name') ?> </p>
-                  </div>
+                  <div class="col-sm-12 d-flex justify-content-center" style="position:absolute;bottom:10px;">
+                    <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';font-size:15px;"><?php echo $this->config->item('client_name') ?> </p>
+                </div>
                </div>
             </div>
          </div>

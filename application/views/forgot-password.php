@@ -22,7 +22,7 @@
                   <div class="col-md-9">
                      <div class="card  d-flex justify-content-center mb-0 auth-card iq-auth-form">
                         <div class="card-body">
-                           <h2 class="mb-2 text-center">Reset Password</h2>
+                           <h2 class="mb-2 text-center">Atur Ulang Kata Sandi</h2>
                            <p style="color:black;padding-bottom:10px;">Masukkan alamat email Anda dan kami akan mengirimkan email berisi instruksi untuk mereset kata sandi Anda.</p>
                            <?php echo form_open(route('masuk')) ?>
                            <div class="row">

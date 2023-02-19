@@ -52,8 +52,8 @@
                     }
                 }
                 ?>
-                <div class="col-sm-12 d-flex justify-content-center">
-                    <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';padding-top:30px;font-size:15px;"><?php echo $this->config->item('client_name') ?> </p>
+                <div class="col-sm-12 d-flex justify-content-center" style="position:absolute;bottom:10px;">
+                    <p class="text-center" style="color:#f0f0f0 !important;font-family:'Poppins';font-size:15px;"><?php echo $this->config->item('client_name') ?> </p>
                 </div>
             </div>
         </div>
