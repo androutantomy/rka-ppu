@@ -1,7 +1,7 @@
 <script>
    window.onload = function() {
       const mandatory = document.getElementsByClassName('mandatory');
-      
+
       for (let i = 0; i < mandatory.length; i++) {
          mandatory[i].innerHTML = '<small>Tanda ( <span style="color: red;">*</span> ) wajib diisi</small>';
       }
@@ -62,39 +62,44 @@
                </a>
                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-setting">
                   <li><a class="dropdown-item" href="<?php echo route('profil.home') ?>">Profile</a></li>
-                  
-                     <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="<?php echo route('logout') ?>">Logout</a></li>
-               </ul>
+
+                  <hr class="dropdown-divider">
             </li>
+            <li><a class="dropdown-item" href="<?php echo route('logout') ?>">Logout</a></li>
+         </ul>
+         </li>
          </ul>
       </div>
    </div>
 </nav>
 <div class="iq-navbar-header " style="height: 215px;">
    <div class="container-fluid iq-container">
-         <div class="row">
-            <div class="col-md-12">
-               <div class="flex-wrap d-flex justify-content-between align-items-center">
-                     <div>
-                        <h1>Judul Page</h1>
-                        <p>Universitas 17 Agustus Samarinda</p>
-                     </div>
-                     <div>
-                        <a href="<?php echo route('kegiatan.tambah') ?>" class="btn btn-link btn-soft-light">
-                           <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                           </svg>
-                           Add New
-                        </a>
-                     </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="flex-wrap d-flex justify-content-between align-items-center">
+               <?php
+               $url = $this->uri->segment(1);
+               ?>
+               <div>
+                  <h1><?php echo menu_list($url); ?></h1>
+                  <p><?php echo $this->config->item('client_name'); ?></p>
                </div>
+               <?php if ($this->uri->segment(2) == "") { ?>
+                  <div>
+                     <a href="<?php echo $url != "" ? route($url . '.tambah') : '' ?>" class="btn btn-link btn-soft-light">
+                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        Add New
+                     </a>
+                  </div>
+               <?php } ?>
             </div>
          </div>
+      </div>
    </div>
    <div class="iq-header-img">
-         <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-         
+      <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+
    </div>
-</div> 
+</div>

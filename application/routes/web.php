@@ -14,7 +14,8 @@ Route::group('', ['middleware' => ['AuthMiddleware']], function() {
 
 Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
     Route::group('dashboard', ['middleware' => ['AuthMiddleware']], function() {
-        Route::get('/', 'DashboardController@index')->name('home');
+        Route::get('/', 'DashboardController@index')->name('dashboard.home');
+        Route::get('tambah', 'DashboardController@index')->name('dashboard.tambah');
     });
     
     Route::group('anggaran', ['middleware' => ['AuthMiddleware']], function() {
@@ -91,11 +92,13 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
     
     Route::group('aktifitas', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'AktifitasController@index')->name('aktifitas.home');
+        Route::get('tambah', 'AktifitasController@index')->name('aktifitas.tambah');
         
     });
     
     Route::group('profil', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'ProfilController@index')->name('profil.home');
+        Route::get('tambah', 'ProfilController@index')->name('profil.tambah');
         
     });
 });

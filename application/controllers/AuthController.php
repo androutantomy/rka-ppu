@@ -91,7 +91,7 @@ class AuthController extends CI_Controller
         $tahun_anggaran = $this->route->param('anggaran');
         $this->session->set_userdata(['anggaran' => $tahun_anggaran]);
 
-        route_redirect('home');
+        route_redirect('dashboard.home');
     }
     
     function forgotPassword()
