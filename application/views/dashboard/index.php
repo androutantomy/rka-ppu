@@ -72,60 +72,28 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex align-items-top">
-                                <h6 class="mb-0 text-left">19 Feb</h6>
-                                <div class="profile-media ms-3 d-flex">
-                                    <div class="profile-dots-pills border-success"></div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0">Tambah rincian belanja</h6>
+                            <?php
+                            if ($datatabel->num_rows() > 0) {
+                                foreach ($datatabel->result() as $result) {
+                                    $border = 'success';
+                                    $exp = explode(' ', strtolower($result->keterangan));
+                                    if ($exp[0] == 'hapus') {
+                                        $border = 'danger';
+                                    } else if ($exp[0] == 'update') {
+                                        $border = 'warning';
+                                    }
+                            ?>
+                                    <div class="d-flex align-items-top">
+                                        <h6 class="mb-0 text-left"><?php echo date("j M y, ", strtotime($result->tanggal)); ?> </h6>
+                                        <div class="profile-media ms-3 d-flex">
+                                            <div class="profile-dots-pills border-<?php echo $border; ?>"></div>
+                                            <div class="ms-3">
+                                            <?php echo $result->nama_pengguna ?> <h6 class="mb-0"><?php echo $result->keterangan; ?></h6>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-top">
-                                <h6 class="mb-0 text-left">19 Feb</h6>
-                                <div class="profile-media ms-3 d-flex">
-                                    <div class="profile-dots-pills border-warning"></div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0">Update rincian belanja</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-top">
-                                <h6 class="mb-0 text-left">19 Feb</h6>
-                                <div class="profile-media ms-3 d-flex">
-                                    <div class="profile-dots-pills border-info"></div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0">Hapus rincian belanja</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-top">
-                                <h6 class="mb-0 text-left">19 Feb</h6>
-                                <div class="profile-media ms-3 d-flex">
-                                    <div class="profile-dots-pills border-success"></div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0">Tambah rincian belanja</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-top">
-                                <h6 class="mb-0 text-left">19 Feb</h6>
-                                <div class="profile-media ms-3 d-flex">
-                                    <div class="profile-dots-pills border-warning"></div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0">Update rincian belanja</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-top">
-                                <h6 class="mb-0 text-left">19 Feb</h6>
-                                <div class="profile-media ms-3 d-flex">
-                                    <div class="profile-dots-pills border-info"></div>
-                                    <div class="ms-3">
-                                        <h6 class="mb-0">Hapus rincian belanja</h6>
-                                    </div>
-                                </div>
-                            </div>
+                                <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

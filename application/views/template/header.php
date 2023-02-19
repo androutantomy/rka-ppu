@@ -84,7 +84,7 @@
                   <h1><?php echo menu_list($url); ?></h1>
                   <p><?php echo $this->config->item('client_name'); ?></p>
                </div>
-               <?php if ($this->uri->segment(2) == "") { ?>
+               <?php if ($this->uri->segment(2) == "" && !in_array($this->uri->segment(2), ['tambah', 'ubah']) && !in_array($this->uri->segment(1), ['aktifitas', 'dashboard'])) { ?>
                   <div>
                      <a href="<?php echo $url != "" ? route($url . '.tambah') : '' ?>" class="btn btn-link btn-soft-light">
                         <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

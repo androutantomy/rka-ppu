@@ -12,16 +12,26 @@
     <main class="main-content">
         <div class="position-relative  iq-banner ">
             <?php $this->load->view('template/header'); ?>
-            
+
         </div>
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-between">
+                            <div class="card-header">
                                 <div class="header-title">
-                                    <h4 class="card-title">List Data</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="card-title float-left">List Data</h4>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control float-right" value="<?php echo $search ?>" name="search" id="search" placeholder="Search...">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" onclick="search()" class="btn btn-primary float-right">Cari</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -53,12 +63,12 @@
                                             $next = $total > 0 ? round($total / 10) : 0;
                                             if ($datatabel->num_rows() > 0) {
                                                 $mulai = isset($start) ? ($start * $datatabel->num_rows()) - 9 : 1;
-                                                $no = $mulai-1;
+                                                $no = $mulai - 1;
                                                 $sampai = ($mulai + $datatabel->num_rows()) - 1;
                                                 foreach ($datatabel->result() as $result) {
                                             ?>
                                                     <tr>
-                                                        <td class="text-center"><?php echo $no+=1; ?>.</td>
+                                                        <td class="text-center"><?php echo $no += 1; ?>.</td>
                                                         <td class="text-center"><?php echo $result->nama_satuan ?></td>
                                                         <td class="text-center"><span class="badge bg-<?php echo $result->flag == "1" ? "success" : "danger" ?>"><?php echo $result->flag == "1" ? "Aktif" : "Tidak Aktif" ?></span></td>
                                                         <td class="text-center">
@@ -126,6 +136,13 @@
             </div>
             <script>
                 const deleteClass = document.getElementsByClassName('btn-delete-user');
+
+                function search() {
+                    const searchValue = document.getElementById('search');
+
+                    window.location = '<?php echo site_url("satuan/") ?>' + '1/' + searchValue.value;
+                }
+
                 for (let i = 0; i < deleteClass.length; i++) {
                     deleteClass[i].addEventListener('click', setUrl, false);
                 }

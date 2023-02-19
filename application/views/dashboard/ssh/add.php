@@ -15,7 +15,6 @@
         <div class="position-relative  iq-banner ">
             <!--Nav Start-->
             <?php $this->load->view('template/header'); ?>
-        
         </div>
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div>
@@ -26,14 +25,22 @@
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
                                     <h4 class="card-title">Information</h4>
+                                    <span class="mandatory"></span>
                                 </div>
+                                <?php if ($this->session->flashdata('error') != "") { ?>
+                                    <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                                        <span><i class="far fa-life-ring"></i></span>
+                                        <span> <?php echo $this->session->flashdata('error') ? $this->session->flashdata('error') : 'Error : '; ?></span>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                <?php } ?>
                             </div>
                             <div class="card-body">
                                 <div class="new-user-info">
                                     <?php echo form_open(route('biaya.simpan')) ?>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="fname">Kode Rekening</label>
+                                            <label class="form-label" for="fname">Kode Rekening <span style="color: red;">*</span></label>
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <input type="text" class="form-control" id="kode_rekening_1" value="<?php echo set_value('kode_rekening_1'); ?>" name="kode_rekening_1">
@@ -58,7 +65,7 @@
                                         <div class="col-md-6"></div>
 
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="fname">Nama</label>
+                                            <label class="form-label" for="fname">Nama <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="nama_standar_biaya" placeholder="Nama Standar Harga" value="<?php echo set_value('nama_standar_biaya'); ?>" name="nama_standar_biaya">
                                             <div style="color:red">
                                                 <?php echo form_error('nama_standar_biaya'); ?>
@@ -81,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="fname">Status</label>
+                                            <label class="form-label" for="fname">Status <span style="color: red;">*</span></label>
                                             <div class="d-flex align-items-center form-group mb-0">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" value="0" name="flag" id="flexRadioDefault1" <?php echo set_value('flag') == '0' ? 'checked' : ''; ?>>

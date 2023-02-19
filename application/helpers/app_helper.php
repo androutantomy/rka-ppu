@@ -47,6 +47,9 @@ function menu_list($menu)
         case 'profil':
             return 'Profil Pengguna';
             break;
+        case 'kegiatan':
+            return 'Kegiatan';
+            break;
 
         default:
             return 'Dashboard';
