@@ -71,10 +71,32 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
     });
     
     
+    Route::group('belanja', ['middleware' => ['AuthMiddleware']], function() {
+        Route::get('/', 'BelanjaController@index')->name('belanja.home');
+        Route::get('tambah', 'BelanjaController@add')->name('belanja.tambah');
+        Route::get('ubah', 'BelanjaController@edit')->name('belanja.ubah');
+    });
+    
     Route::group('kegiatan', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'KegiatanController@index')->name('kegiatan.home');
         Route::get('tambah', 'KegiatanController@add')->name('kegiatan.tambah');
         Route::get('ubah', 'KegiatanController@edit')->name('kegiatan.ubah');
+    });
+    
+    Route::group('subkegiatan', ['middleware' => ['AuthMiddleware']], function() {
+        Route::get('/', 'SubKegiatanController@index')->name('subkegiatan.home');
+        Route::get('tambah', 'SubKegiatanController@add')->name('subkegiatan.tambah');
+        Route::get('ubah', 'SubKegiatanController@edit')->name('subkegiatan.ubah');
+    });
+    
+    Route::group('aktifitas', ['middleware' => ['AuthMiddleware']], function() {
+        Route::get('/', 'AktifitasController@index')->name('aktifitas.home');
+        
+    });
+    
+    Route::group('profil', ['middleware' => ['AuthMiddleware']], function() {
+        Route::get('/', 'ProfilController@index')->name('profil.home');
+        
     });
 });
 

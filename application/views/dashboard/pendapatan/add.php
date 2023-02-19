@@ -15,26 +15,7 @@
         <div class="position-relative  iq-banner ">
             <!--Nav Start-->
             <?php $this->load->view('template/header'); ?>
-            <div class="iq-navbar-header " style="height: 215px;">
-                <div class="container-fluid iq-container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="flex-wrap d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h1>Pendapatan</h1>
-                                    <p><?php echo ucwords($this->config->item('client_name')) ?></p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="iq-header-img">
-                    <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-
-                </div>
-            </div> <!-- Nav Header Component End -->
-            <!--Nav End-->
+            
         </div>
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div>
@@ -128,7 +109,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" style="margin-top:20px;">Tambahkan</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-top:20px;">Kembali</button>
                                     </form>
                                 </div>
                             </div>

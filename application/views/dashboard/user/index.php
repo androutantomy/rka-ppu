@@ -12,33 +12,7 @@
     <main class="main-content">
         <div class="position-relative  iq-banner ">
             <?php $this->load->view('template/header'); ?>
-            <div class="iq-navbar-header " style="height: 215px;">
-                <div class="container-fluid iq-container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="flex-wrap d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h1>User Management</h1>
-                                    <p><?php echo ucwords($this->config->item('client_name')) ?></p>
-                                </div>
-                                <div>
-                                    <a href="<?php echo route('user.tambah') ?>" class="btn btn-link btn-soft-light">
-                                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                        </svg>
-                                        Add New
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="iq-header-img">
-                    <img src="<?php echo base_url() ?>assets/images/bg.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
-
-                </div>
-            </div> <!-- Nav Header Component End -->
-            <!--Nav End-->
+        
         </div>
         <div class="content-inner container-fluid pb-0" id="page_layout">
             <div>

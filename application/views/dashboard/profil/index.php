@@ -25,7 +25,7 @@
                   <div class="card">
                      <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                           <h4 class="card-title">Personal Information</h4>
+                           <h4 class="card-title">Profil</h4>
                            <span class="mandatory"></span>
                         </div>
                      </div>
@@ -47,37 +47,16 @@
                                  </div>
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label">Role Pengguna <span style="color: red;">*</span></label>
-                                 <select name="role_pengguna" class="selectpicker form-control" data-style="py-0">
-                                    <option value="">---- Pilih ----</option>
-                                    <option <?php echo set_value('role_pengguna') == '1' ? 'selected' : ''; ?> value="1">Super Admin</option>
-                                    <option <?php echo set_value('role_pengguna') == '2' ? 'selected' : ''; ?> value="2">Admin Prodi</option>
-                                    <option <?php echo set_value('role_pengguna') == '3' ? 'selected' : ''; ?> value="3">Staff</option>
-                                 </select>
-                                 <div style="color:red">
-                                    <?php echo form_error('role_pengguna'); ?>
-                                 </div>
+                                 <label class="form-label">Role Pengguna</label><br/>
+                                 <label class="form-label"><span class="badge bg-danger">Super Admin</span></label>
+                                 
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label">Status <span style="color: red;">*</span></label>
-                                 <div class="d-flex align-items-center form-group mb-0">
-                                    <div class="form-check">
-                                       <input class="form-check-input" type="radio" value="0" name="status_pengguna" id="flexRadioDefault1" <?php echo set_value('status_pengguna') == '0' ? 'checked' : ''; ?>>
-                                       <label class="form-check-label" for="flexRadioDefault1">
-                                          Tidak Aktif
-                                       </label>
-                                    </div>
-                                    <div class="form-check ms-3">
-                                       <input class="form-check-input" type="radio" value="1" name="status_pengguna" id="flexRadioDefault2" <?php echo set_value('status_pengguna') == '1' ? 'checked' : ''; ?>>
-                                       <label class="form-check-label" for="flexRadioDefault2">
-                                          Aktif
-                                       </label>
-                                    </div>
-                                 </div>
-                                 <div style="color:red">
-                                    <?php echo form_error('status_pengguna'); ?>
-                                 </div>
+                                 <label class="form-label">Status</label><br/>
+                                 <label class="form-label"><span class="badge bg-success">Aktif</span></label>
+                                 
                               </div>
+                              
                            </div>
                         </div>
                      </div>
@@ -114,7 +93,7 @@
                                  </div>
 
                               </div>
-                              <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button>
+                              <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Perbaharui</button>
                               <button type="submit" class="btn btn-primary" style="margin-top:20px;">Kembali</button>
                            </form>
                         </div>
