@@ -67,38 +67,7 @@
                     
                     <div class="card-body">
                     <div class="table-responsive border rounded">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3" style="padding:20px;">
-                                <label class="form-label">Kegiatan</label>
-                                <select name="type" class="selectpicker form-control" data-style="py-0">
-                                    <option>----- Pilih -----</option>
-                                    <option>Kegiatan Penunjang Administrasi Umum</option>
-                                    <option>Kegiatan Pengembangan Kapasitas</option>
-                                    <option>Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3" style="padding:20px;">
-                                <label class="form-label">Sub Kegiatan</label>
-                                <select name="type" class="selectpicker form-control" data-style="py-0">
-                                    <option>----- Pilih -----</option>
-                                    <option>Kegiatan Kepustakaan</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3" style="padding:20px;">
-                                <label class="form-label">Status</label>
-                                <select name="type" class="selectpicker form-control" data-style="py-0">
-                                    <option>----- Pilih -----</option>
-                                    <option>Aktif</option>
-                                    <option>Non Aktif</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3" style="padding:20px;">
-                                <label class="form-label">Search</label>
-                                <input type="text" class="form-control" id="search" name="search" placeholder="...">
-                            </div>
-                        </div>
-                    </div>
+                    
                         <table class="table">
                             <thead>
                                 <tr class="ligth">
@@ -113,27 +82,15 @@
                             <tbody>
                                
                                 <tr>
-                                    <td style="border-bottom-width:0px !important;padding:10px !important;"><strong>Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana</strong></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;padding-top:10px !important;padding-left:10px !important;"><strong>Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana</strong></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
-                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center">
-                                        <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                 </tr>
                                 <tr>
-                                    <td style="border-bottom-width:0px !important;padding:10px !important;"><strong>Kegiatan Kepustakaan</strong>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">Kegiatan Kepustakaan
                                     <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
                                     </td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
@@ -142,19 +99,18 @@
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">
                                         <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Print" href="#" style="background:green;">
+                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
                                                 <span class="btn-inner">
-                                                <svg fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.92574 16.39H14.3119C14.7178 16.39 15.0545 16.05 15.0545 15.64C15.0545 15.23 14.7178 14.9 14.3119 14.9H8.92574C8.5198 14.9 8.18317 15.23 8.18317 15.64C8.18317 16.05 8.5198 16.39 8.92574 16.39ZM12.2723 9.9H8.92574C8.5198 9.9 8.18317 10.24 8.18317 10.65C8.18317 11.06 8.5198 11.39 8.92574 11.39H12.2723C12.6782 11.39 13.0149 11.06 13.0149 10.65C13.0149 10.24 12.6782 9.9 12.2723 9.9ZM19.3381 9.02561C19.5708 9.02292 19.8242 9.02 20.0545 9.02C20.302 9.02 20.5 9.22 20.5 9.47V17.51C20.5 19.99 18.5099 22 16.0545 22H8.17327C5.59901 22 3.5 19.89 3.5 17.29V6.51C3.5 4.03 5.5 2 7.96535 2H13.2525C13.5099 2 13.7079 2.21 13.7079 2.46V5.68C13.7079 7.51 15.203 9.01 17.0149 9.02C17.4381 9.02 17.8112 9.02316 18.1377 9.02593C18.3917 9.02809 18.6175 9.03 18.8168 9.03C18.9578 9.03 19.1405 9.02789 19.3381 9.02561ZM19.6111 7.566C18.7972 7.569 17.8378 7.566 17.1477 7.559C16.0527 7.559 15.1507 6.648 15.1507 5.542V2.906C15.1507 2.475 15.6685 2.261 15.9646 2.572C16.5004 3.13476 17.2368 3.90834 17.9699 4.67837C18.7009 5.44632 19.4286 6.21074 19.9507 6.759C20.2398 7.062 20.0279 7.565 19.6111 7.566Z" fill="currentColor" />
-                                                </svg>
-                                                </span>
-                                            </a>
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></path>
+                                                    <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor"></path>
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    <mask id="mask0_18_1031" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="9" y="9" width="6" height="6">
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    </mask>
+                                                    <g mask="url(#mask0_18_1031)">
+                                                    <path opacity="0.53" d="M13.5 12C14.3284 12 15 11.3284 15 10.5C15 9.67157 14.3284 9 13.5 9C12.6716 9 12 9.67157 12 10.5C12 11.3284 12.6716 12 13.5 12Z" fill="white"></path>
+                                                    </g>
                                                 </svg>
                                                 </span>
                                             </a>
@@ -163,85 +119,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</td>
-                                    <td class="text-center">20 buah x  10 buah</td>
-                                    <td class="text-center">5.000</td>
-                                    <td class="text-center">11%</td>
-                                    <td class="text-center">1.000.000</td>
-                                    <td class="text-center">
-                                        <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-warning rounded" id="settingbutton" data-bs-toggle="offcanvas" data-bs-target="#live-customizer">
-                                                <span class="btn-inner">
-                                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5.1.1.2.3.002 Batterai Alkaline Kotak 11 Volt</td>
-                                    <td class="text-center">20 buah x  10 buah</td>
-                                    <td class="text-center">5.000</td>
-                                    <td class="text-center">11%</td>
-                                    <td class="text-center">1.000.000</td>
-                                    <td class="text-center">
-                                        <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-warning rounded" id="settingbutton" data-bs-toggle="offcanvas" data-bs-target="#live-customizer">
-                                                <span class="btn-inner">
-                                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="background:#F3F3F3 !important;">
-                                    <td style="border-bottom-width:0px !important;padding:10px !important;"><strong>Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana</strong></td>
-                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
-                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
-                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
-                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
-                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center">
-                                        <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="background:#F3F3F3 !important;">
-                                    <td style="border-bottom-width:0px !important;padding:10px !important;"><strong>Kegiatan Kepustakaan</strong>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">Kegiatan Kepustakaan 2
                                     <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
                                     </td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
@@ -250,80 +128,88 @@
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">
                                         <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Print" href="#" style="background:green;">
+                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
                                                 <span class="btn-inner">
-                                                <svg fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.92574 16.39H14.3119C14.7178 16.39 15.0545 16.05 15.0545 15.64C15.0545 15.23 14.7178 14.9 14.3119 14.9H8.92574C8.5198 14.9 8.18317 15.23 8.18317 15.64C8.18317 16.05 8.5198 16.39 8.92574 16.39ZM12.2723 9.9H8.92574C8.5198 9.9 8.18317 10.24 8.18317 10.65C8.18317 11.06 8.5198 11.39 8.92574 11.39H12.2723C12.6782 11.39 13.0149 11.06 13.0149 10.65C13.0149 10.24 12.6782 9.9 12.2723 9.9ZM19.3381 9.02561C19.5708 9.02292 19.8242 9.02 20.0545 9.02C20.302 9.02 20.5 9.22 20.5 9.47V17.51C20.5 19.99 18.5099 22 16.0545 22H8.17327C5.59901 22 3.5 19.89 3.5 17.29V6.51C3.5 4.03 5.5 2 7.96535 2H13.2525C13.5099 2 13.7079 2.21 13.7079 2.46V5.68C13.7079 7.51 15.203 9.01 17.0149 9.02C17.4381 9.02 17.8112 9.02316 18.1377 9.02593C18.3917 9.02809 18.6175 9.03 18.8168 9.03C18.9578 9.03 19.1405 9.02789 19.3381 9.02561ZM19.6111 7.566C18.7972 7.569 17.8378 7.566 17.1477 7.559C16.0527 7.559 15.1507 6.648 15.1507 5.542V2.906C15.1507 2.475 15.6685 2.261 15.9646 2.572C16.5004 3.13476 17.2368 3.90834 17.9699 4.67837C18.7009 5.44632 19.4286 6.21074 19.9507 6.759C20.2398 7.062 20.0279 7.565 19.6111 7.566Z" fill="currentColor" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></path>
+                                                    <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor"></path>
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    <mask id="mask0_18_1031" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="9" y="9" width="6" height="6">
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    </mask>
+                                                    <g mask="url(#mask0_18_1031)">
+                                                    <path opacity="0.53" d="M13.5 12C14.3284 12 15 11.3284 15 10.5C15 9.67157 14.3284 9 13.5 9C12.6716 9 12 9.67157 12 10.5C12 11.3284 12.6716 12 13.5 12Z" fill="white"></path>
+                                                    </g>
                                                 </svg>
                                                 </span>
                                             </a>
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
+                                            
                                         </div>
                                     </td>
                                 </tr>
                                 <tr style="background:#F3F3F3 !important;">
-                                    <td>5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</td>
-                                    <td class="text-center">20 buah x  10 buah</td>
-                                    <td class="text-center">5.000</td>
-                                    <td class="text-center">11%</td>
-                                    <td class="text-center">1.000.000</td>
-                                    <td class="text-center">
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;padding-top:10px !important;padding-left:10px !important;"><strong>Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana 2</strong></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                </tr>
+                                <tr style="background:#F3F3F3 !important;">
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">Kegiatan Kepustakaan
+                                    <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
+                                    </td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">
                                         <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-warning rounded" id="settingbutton" data-bs-toggle="offcanvas" data-bs-target="#live-customizer">
+                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
                                                 <span class="btn-inner">
-                                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></path>
+                                                    <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor"></path>
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    <mask id="mask0_18_1031" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="9" y="9" width="6" height="6">
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    </mask>
+                                                    <g mask="url(#mask0_18_1031)">
+                                                    <path opacity="0.53" d="M13.5 12C14.3284 12 15 11.3284 15 10.5C15 9.67157 14.3284 9 13.5 9C12.6716 9 12 9.67157 12 10.5C12 11.3284 12.6716 12 13.5 12Z" fill="white"></path>
+                                                    </g>
                                                 </svg>
                                                 </span>
                                             </a>
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
+                                            
                                         </div>
                                     </td>
                                 </tr>
                                 <tr style="background:#F3F3F3 !important;">
-                                    <td>5.1.1.2.3.002 Batterai Alkaline Kotak 11 Volt</td>
-                                    <td class="text-center">20 buah x  10 buah</td>
-                                    <td class="text-center">5.000</td>
-                                    <td class="text-center">11%</td>
-                                    <td class="text-center">1.000.000</td>
-                                    <td class="text-center">
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">Kegiatan Kepustakaan 2
+                                    <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
+                                    </td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">
                                         <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-warning rounded" id="settingbutton" data-bs-toggle="offcanvas" data-bs-target="#live-customizer">
+                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
                                                 <span class="btn-inner">
-                                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></path>
+                                                    <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor"></path>
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    <mask id="mask0_18_1031" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="9" y="9" width="6" height="6">
+                                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"></path>
+                                                    </mask>
+                                                    <g mask="url(#mask0_18_1031)">
+                                                    <path opacity="0.53" d="M13.5 12C14.3284 12 15 11.3284 15 10.5C15 9.67157 14.3284 9 13.5 9C12.6716 9 12 9.67157 12 10.5C12 11.3284 12.6716 12 13.5 12Z" fill="white"></path>
+                                                    </g>
                                                 </svg>
                                                 </span>
                                             </a>
-                                            <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete" href="#">
-                                                <span class="btn-inner">
-                                                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                                                    <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M20.708 6.23975H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                                </span>
-                                            </a>
+                                            
                                         </div>
                                     </td>
                                 </tr>

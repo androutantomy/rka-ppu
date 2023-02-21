@@ -22,4 +22,9 @@ class BelanjaController extends CI_Controller
         $this->load->view('dashboard/belanja/edit');
     }
     
+    function detail()
+    {
+        $this->load->view('dashboard/belanja/detail');
+    }
+    
 }

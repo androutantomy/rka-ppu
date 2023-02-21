@@ -76,6 +76,7 @@ Route::group('', ['middleware' => ['AnggaranMiddleware']], function() {
         Route::get('/', 'BelanjaController@index')->name('belanja.home');
         Route::get('tambah', 'BelanjaController@add')->name('belanja.tambah');
         Route::get('ubah', 'BelanjaController@edit')->name('belanja.ubah');
+        Route::get('detail', 'BelanjaController@detail')->name('belanja.detail');
     });
     
     Route::group('kegiatan', ['middleware' => ['AuthMiddleware']], function() {
