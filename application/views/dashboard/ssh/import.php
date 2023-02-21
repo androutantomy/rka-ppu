@@ -38,7 +38,7 @@
                             </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Import</button>
-                           <button type="submit" class="btn btn-primary" style="margin-top:20px;">Kembali</button>
+                           <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
                         </form>
                      </div>
                   </div>

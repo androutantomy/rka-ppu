@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-Class KegiatanModel extends CI_model {
+class SubKegiatanModel extends CI_Model
+{
 
     function simpan_kegiatan($data)
     {
@@ -13,21 +14,15 @@ Class KegiatanModel extends CI_model {
     function get_all_data($filter)
     {
         $this->db->select('nama_kegiatan, no_rekening_kegiatan, uuid_kegiatan, flag');
-        
-        $limit = $filter['limit'];
-        if (isset($filter['start']) && !empty($filter['start'])) {
-            $offset = ($filter['start']*$limit)-10;
-        }
-        
-        if (isset($filter['parent_kegiatan']) && $filter['parent_kegiatan'] != '') {
-            $this->db->where('parent_kegiatan', $filter['parent_kegiatan']);
-        }
-        
-        if (isset($filter['search']) && $filter['search'] != '') {
+        if ($filter['search'] != '') {
             $this->db->like('nama_kegiatan', $filter['search'], 'both');
         }
 
-        $this->db->limit($limit, isset($offset)?$offset:0);
+        $limit = $filter['limit'];
+        if (isset($filter['start']) && !empty($filter['start'])) {
+            $offset = ($filter['start'] * $limit) - 10;
+        }
+        $this->db->limit($limit, isset($offset) ? $offset : 0);
         $this->db->order_by('no_rekening_kegiatan', 'asc');
         $data = $this->db->get('mst_kegiatan');
 
@@ -36,19 +31,15 @@ Class KegiatanModel extends CI_model {
 
     function get_total_data($filter)
     {
-        if (isset($filter['search']) && $filter['search'] != '') {
+        if ($filter['search'] != '') {
             $this->db->like('nama_kegiatan', $filter['search'], 'both');
-        }
-
-        if (isset($filter['parent_kegiatan']) && $filter['parent_kegiatan'] != '') {
-            $this->db->where('parent_kegiatan', $filter['parent_kegiatan']);
         }
         $data = $this->db->select('nama_kegiatan')->from('mst_kegiatan')->count_all_results();
 
         return $data;
     }
 
-    function get_kegiatan_by_uuid($uuid) 
+    function get_kegiatan_by_uuid($uuid)
     {
         $this->db->select('uuid_kegiatan, nama_kegiatan, no_rekening_kegiatan, flag');
         $data = $this->db->get_where('mst_kegiatan', ['uuid_kegiatan' => $uuid]);
@@ -84,5 +75,4 @@ Class KegiatanModel extends CI_model {
 
         return $data;
     }
-
 }

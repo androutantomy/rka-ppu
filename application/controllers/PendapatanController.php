@@ -15,20 +15,28 @@ class PendapatanController extends CI_Controller
 
     public function index()
     {
-        $start = $this->route->param('start');
-        $search = $this->route->param('search');
+        $start = $this->route->param('start') != "" ? $this->route->param('start') : 1;
+        $search = str_replace('%20', ' ', $this->route->param('search'));
         $filter = [
-            'start' => $start != "" ? $start : 0,
+            'start' => $start,
             'limit' => 10,
             'search' => $search
         ];
 
+        
         $datatable = $this->PendapatanModel->get_all_data($filter);
+        $total =  $this->PendapatanModel->get_total_data($filter);
+        $num_of_pages = ceil($total / 10);
+        $next = $start+1 <= $num_of_pages ? $start+1 : '';
+        $prev = $start-1 <= $num_of_pages ? $start-1 : '';
 
         $data['datatabel'] = $datatable;
-        $data['total'] = $this->PendapatanModel->get_total_data($filter);
+        $data['total'] = $total;
         $data['start'] = $start;
         $data['search'] = $search;
+        $data['num_of_pages'] = $num_of_pages;
+        $data['next'] = $next;
+        $data['prev'] = $prev;
 
         $this->load->view('dashboard/pendapatan/index', $data);
     }
@@ -97,7 +105,7 @@ class PendapatanController extends CI_Controller
             $this->add();
         } else {
             $no_rekening = [];
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 6; $i++) {
                 if ($this->input->post('kode_rekening_' . $i) != "") {
                     array_push($no_rekening, $this->input->post('kode_rekening_' . $i));
                 }
@@ -142,7 +150,7 @@ class PendapatanController extends CI_Controller
             $this->edit();
         } else {
             $no_rekening = [];
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 6; $i++) {
                 if ($this->input->post('kode_rekening_' . $i) != "") {
                     array_push($no_rekening, $this->input->post('kode_rekening_' . $i));
                 }

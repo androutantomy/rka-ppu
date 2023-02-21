@@ -30,6 +30,7 @@
          $kode_rekening_3 = isset($exp[2]) ? $exp[2] : set_value('kode_rekening_3');;
          $kode_rekening_4 = isset($exp[3]) ? $exp[3] : set_value('kode_rekening_4');;
          $kode_rekening_5 = isset($exp[4]) ? $exp[4] : set_value('kode_rekening_5');;
+         $kode_rekening_6 = isset($exp[5]) ? $exp[5] : set_value('kode_rekening_6');;
       }
       $rekening_utama   = set_value('is_utama') == "" && !empty($update) ? $update->is_utama : set_value('is_utama');
       $flag             = set_value('flag') == "" && !empty($update) ? $update->flag : set_value('flag');
@@ -76,6 +77,9 @@
                                     </div>
                                     <div class="col-md-2">
                                        <input type="text" class="form-control" id="kode_rekening_5" value="<?php echo $kode_rekening_5; ?>" name="kode_rekening_5">
+                                    </div>
+                                    <div class="col-md-2">
+                                       <input type="text" class="form-control" id="kode_rekening_6" value="<?php echo $kode_rekening_6; ?>" name="kode_rekening_6">
                                     </div>
                                  </div>
                                  <div style="color:red">
@@ -128,7 +132,7 @@
                               </div>
                            </div>
                            <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Perbaharui</button>
-                           <button type="submit" class="btn btn-primary" style="margin-top:20px;">Kembali</button>
+                           <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
                            </form>
                         </div>
                      </div>

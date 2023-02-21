@@ -13,20 +13,28 @@ class UserController extends CI_Controller
 
     public function index()
     {
-        $start = $this->route->param('start');
-        $search = $this->route->param('search');
+        $start = $this->route->param('start') != "" ? $this->route->param('start') : 1;
+        $search = str_replace('%20', ' ', $this->route->param('search'));
         $filter = [
-            'start' => $start != "" ? $start : 0,
+            'start' => $start,
             'limit' => 10,
             'search' => $search
         ];
 
+        
         $datatable = $this->UserModel->get_all_data($filter);
+        $total =  $this->UserModel->get_total_data($filter);
+        $num_of_pages = ceil($total / 10);
+        $next = $start+1 <= $num_of_pages ? $start+1 : '';
+        $prev = $start-1 <= $num_of_pages ? $start-1 : '';
 
         $data['datatabel'] = $datatable;
-        $data['total'] = $this->UserModel->get_total_data($filter);
+        $data['total'] = $total;
         $data['start'] = $start;
         $data['search'] = $search;
+        $data['num_of_pages'] = $num_of_pages;
+        $data['next'] = $next;
+        $data['prev'] = $prev;
 
         $this->load->view('dashboard/user/index', $data);
     }

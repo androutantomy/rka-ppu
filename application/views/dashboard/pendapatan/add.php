@@ -58,6 +58,9 @@
                                                 <div class="col-md-2">
                                                     <input type="text" class="form-control" id="kode_rekening_5" value="<?php echo set_value('kode_rekening_5'); ?>" name="kode_rekening_5">
                                                 </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" id="kode_rekening_6" value="<?php echo set_value('kode_rekening_6'); ?>" name="kode_rekening_6">
+                                                </div>
                                             </div>
                                             <div style="color:red">
                                                 <?php echo form_error('kode_rekening_1'); ?>
@@ -110,7 +113,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button>
-                                    <button type="submit" class="btn btn-primary" style="margin-top:20px;">Kembali</button>
+                                    <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
                                     </form>
                                 </div>
                             </div>

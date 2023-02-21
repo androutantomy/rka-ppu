@@ -12,7 +12,7 @@
     <main class="main-content">
         <div class="position-relative  iq-banner ">
             <?php $this->load->view('template/header'); ?>
-            
+
         </div>
         <?php
 
@@ -72,6 +72,9 @@
                                         <tbody>
                                             <?php
                                             if ($datatabel->num_rows() > 0) {
+                                                $mulai = isset($start) ? ($start * 10) - 9 : 1;
+                                                $no = $mulai - 1;
+                                                $sampai = ($mulai + $datatabel->num_rows()) - 1;
                                                 foreach ($datatabel->result() as $result) {
                                             ?>
                                                     <tr>
@@ -110,9 +113,9 @@
                                         <span>Showing <?php echo isset($mulai) ? $mulai : 1 ?> to <?php echo isset($sampai) ? $sampai : 1 ?> of <?php echo isset($total) ? $total : 0 ?> entries</span>
                                         <nav class="d-flex justify-content-end" aria-label="Page navigation example">
                                             <ul class="pagination">
-                                                <li class="page-item"><a class="page-link" id="previousPage" href="<?php echo route('anggaran.home2', ['offset' => $start != '' && $start > 1 ? $start - 1 : '']) ?>">Sebelumnya</a></li>
-                                                <li class="page-item"><a class="page-link" id="currentPage" data-current="<?php echo $start != "" ? $start : 1; ?>" disabled><?php echo $start != "" ? $start : 1; ?></a></li>
-                                                <li class="page-item"><a class="page-link" id="nextPage" href="<?php echo route('anggaran.home2', ['offset' => $start != '' && $start < $next ? $start + 1 : '']) ?>">Selanjutnya</a></li>
+                                                <li class="page-item"><a class="page-link" id="previousPage" href="<?php echo route('anggaran.home2', ['start' => $prev, 'search' => $search]) ?>">Sebelumnya</a></li>
+                                                <li class="page-item"><a class="page-link" id="currentPage" disabled><?php echo $start != "" ? $start : 1; ?></a></li>
+                                                <li class="page-item"><a class="page-link" id="nextPage" href="<?php echo route('anggaran.home2', ['start' => $next, 'search' => $search]) ?>">Selanjutnya</a></li>
                                             </ul>
                                         </nav>
                                     </div>

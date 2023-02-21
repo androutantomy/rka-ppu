@@ -11,7 +11,7 @@
  Target Server Version : 100425
  File Encoding         : 65001
 
- Date: 19/02/2023 23:55:59
+ Date: 21/02/2023 14:22:06
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `log_aktifitas`  (
   `tanggal` datetime NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_aktifitas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of log_aktifitas
@@ -38,6 +38,27 @@ INSERT INTO `log_aktifitas` VALUES (1, 'kegiatan', 'Superadmin Untag', 'Superadm
 INSERT INTO `log_aktifitas` VALUES (2, 'kegiatan', 'Superadmin Untag', 'Superadmin', '2023-02-19 17:42:20', 'Update data Kegiatan');
 INSERT INTO `log_aktifitas` VALUES (3, 'anggaran', 'Superadmin Untag', 'Superadmin', '2023-02-19 17:43:14', 'Update data Tahun Anggaran');
 INSERT INTO `log_aktifitas` VALUES (4, 'satuan', 'Superadmin Untag', 'Superadmin', '2023-02-19 17:55:27', 'Update data Satuan');
+INSERT INTO `log_aktifitas` VALUES (5, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-19 18:03:47', 'Hapus data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (6, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-19 18:04:09', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (7, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-21 07:51:48', 'Hapus data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (8, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-21 07:51:50', 'Hapus data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (9, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-21 07:51:52', 'Hapus data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (10, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-21 07:51:54', 'Hapus data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (11, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-21 07:51:56', 'Hapus data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (12, 'biaya', 'Superadmin Untag', 'Superadmin', '2023-02-21 07:53:15', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (13, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:09:54', 'Hapus data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (14, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:09:57', 'Hapus data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (15, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:09:59', 'Hapus data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (16, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:10:19', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (17, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:10:33', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (18, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:10:59', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (19, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:17:03', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (20, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:17:46', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (21, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:18:04', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (22, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:18:30', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (23, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:18:52', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (24, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:20:30', 'Tambah data Pendapatan');
+INSERT INTO `log_aktifitas` VALUES (25, 'pendapatan', 'Superadmin Untag', 'Superadmin', '2023-02-21 08:21:01', 'Tambah data Pendapatan');
 
 -- ----------------------------
 -- Table structure for mst_kegiatan
@@ -90,15 +111,21 @@ CREATE TABLE `mst_pendapatan`  (
   `is_utama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `flag` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pendapatan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_pendapatan
 -- ----------------------------
-INSERT INTO `mst_pendapatan` VALUES (1, '55a8bee0-ae97-11ed-93fe-5c60ba3647e7', 'Pendapatan', NULL, '1', '2023', '1', 1);
-INSERT INTO `mst_pendapatan` VALUES (2, '78cf6b7e-ae97-11ed-93fe-5c60ba3647e7', 'Pendapatan Parkir', NULL, '1.1', '2023', NULL, 1);
-INSERT INTO `mst_pendapatan` VALUES (3, 'a6f6cad7-ae97-11ed-93fe-5c60ba3647e7', 'Pendpatan', '10000000', '1.2', '2023', NULL, 0);
-INSERT INTO `mst_pendapatan` VALUES (5, '5326ebe9-af73-11ed-99e4-5c60ba3647e7', 'Pendapatan Tidak tetap', '100000000', '1.3', NULL, NULL, 1);
+INSERT INTO `mst_pendapatan` VALUES (6, 'ccb301b0-b1b6-11ed-a156-5c60ba3647e7', 'ASET BERSIH TIDAK TERIKAT', NULL, '4.1', '2023', '1', 1);
+INSERT INTO `mst_pendapatan` VALUES (7, 'd553d245-b1b6-11ed-a156-5c60ba3647e7', 'PENDAPATAN AKADEMIK', NULL, '4.1.1', '2023', '1', 1);
+INSERT INTO `mst_pendapatan` VALUES (8, 'e498a5f5-b1b6-11ed-a156-5c60ba3647e7', 'PENDAPATAN SUMBANGAN MASYARAKAT (SUMAS)', NULL, '4.1.1.1', '2023', '1', 1);
+INSERT INTO `mst_pendapatan` VALUES (9, 'bd474aef-b1b7-11ed-a156-5c60ba3647e7', 'Pendapatan SPP Program Sarjana', NULL, '4.1.1.1.1', '2023', NULL, 1);
+INSERT INTO `mst_pendapatan` VALUES (10, 'd7432c02-b1b7-11ed-a156-5c60ba3647e7', 'Formulir Pendaftaran Program Sarjana', NULL, '4.1.1.1.2', '2023', NULL, 1);
+INSERT INTO `mst_pendapatan` VALUES (11, 'e218f088-b1b7-11ed-a156-5c60ba3647e7', 'Pendapatan Penelitian ', NULL, '4.1.1.1.3', '2023', NULL, 1);
+INSERT INTO `mst_pendapatan` VALUES (12, 'f19a324f-b1b7-11ed-a156-5c60ba3647e7', 'Pendapatan Skripsi', NULL, '4.1.1.1.4', '2023', NULL, 1);
+INSERT INTO `mst_pendapatan` VALUES (13, 'fe88edad-b1b7-11ed-a156-5c60ba3647e7', 'Pendapatan Kuliah Kerja Nyata', NULL, '4.1.1.1.5', '2023', NULL, 1);
+INSERT INTO `mst_pendapatan` VALUES (14, '38cd8691-b1b8-11ed-a156-5c60ba3647e7', 'PENDAPATAN AKADEMIK LAINNYA', NULL, '4.1.1.2', '2023', '1', 1);
+INSERT INTO `mst_pendapatan` VALUES (15, '4b70229f-b1b8-11ed-a156-5c60ba3647e7', 'Pendapatan Administrasi  Akademik Lainnya (blanko ijazah, legalisir dll)', NULL, '4.1.1.2.1', '2023', NULL, 1);
 
 -- ----------------------------
 -- Table structure for mst_satuan
@@ -134,15 +161,11 @@ CREATE TABLE `mst_standar_biaya`  (
   `is_utama` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `flag` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_standar_biaya`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_standar_biaya
 -- ----------------------------
-INSERT INTO `mst_standar_biaya` VALUES (1, 'dbeaa078-af81-11ed-99e4-5c60ba3647e7', 'Beban Belanja', '10000000', '1.1', NULL, '1', '1');
-INSERT INTO `mst_standar_biaya` VALUES (4, 'f47d34c9-af87-11ed-99e4-5c60ba3647e7', 'Belanja Beban ', NULL, '1.1.2', '2023', NULL, '1');
-INSERT INTO `mst_standar_biaya` VALUES (5, '672cf47a-b060-11ed-9174-5c60ba3647e7', 'Pemain', NULL, '2.1', '2023', NULL, '1');
-INSERT INTO `mst_standar_biaya` VALUES (6, '73208c22-b060-11ed-9174-5c60ba3647e7', 'pemain 2', NULL, '3', '2023', NULL, '0');
 
 -- ----------------------------
 -- Table structure for mst_tahun_anggaran
