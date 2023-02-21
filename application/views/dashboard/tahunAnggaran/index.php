@@ -36,10 +36,10 @@
                                             <h4 class="card-title float-left">List Data</h4>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control float-right" name="search" id="search" placeholder="Search...">
+                                            <input type="text" class="form-control float-right" value="<?php echo $search ?>" name="search" id="search" placeholder="Search...">
                                         </div>
                                         <div class="col-md-2">
-                                            <button type="button" class="btn btn-primary float-right">Cari</button>
+                                            <button type="button" onclick="search()" class="btn btn-primary float-right">Cari</button>
                                         </div>
                                     </div>
                                 </div>
@@ -144,6 +144,12 @@
             </div>
             <script>
                 const deleteClass = document.getElementsByClassName('btn-delete-user');
+
+                function search() {
+                    const searchValue = document.getElementById('search');
+
+                    window.location = '<?php echo site_url("anggaran/") ?>' + '1/' + searchValue.value;
+                }
 
                 for (let i = 0; i < deleteClass.length; i++) {
                     deleteClass[i].addEventListener('click', setUrl, false);

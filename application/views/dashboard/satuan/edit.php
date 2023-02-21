@@ -32,6 +32,7 @@
                      <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
                            <h4 class="card-title">Information</h4>
+                           <span class="mandatory"></span>
                         </div>
                         <?php if ($this->session->flashdata('error') != "") { ?>
                            <div class="alert alert-danger alert-dismissible fade show " role="alert">
@@ -46,7 +47,7 @@
                            <?php echo form_open(route('satuan.simpan-ubah')) ?>
                            <div class="row">
                               <div class="form-group col-md-6">
-                                 <label class="form-label" for="fname">Nama</label>
+                                 <label class="form-label" for="fname">Nama <span style="color: red;">*</span></label>
                                  <input type="hidden" value="<?php echo $uuid_satuan ?>" name="uuid_satuan">
                                  <input type="text" class="form-control" id="nama_satuan" placeholder="Nama Satuan" value="<?php echo $nama_satuan; ?>" name="nama_satuan">
                                  <div style="color:red">
@@ -54,7 +55,7 @@
                                  </div>
                               </div>
                               <div class="form-group col-md-6">
-                                 <label class="form-label">Status</label>
+                                 <label class="form-label">Status <span style="color: red;">*</span></label>
                                  <div class="d-flex align-items-center form-group mb-0">
                                     <div class="form-check">
                                        <input class="form-check-input" type="radio" value="0" name="flag" id="flexRadioDefault1" <?php echo $flag == '0' ? 'checked' : ''; ?>>

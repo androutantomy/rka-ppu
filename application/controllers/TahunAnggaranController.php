@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class TahunAnggaranController extends CI_Controller
 {
@@ -49,7 +49,7 @@ class TahunAnggaranController extends CI_Controller
                 'errors' => [
                     'required' => 'Budget Tahun Anggaran tidak boleh kosong'
                 ]
-                ],
+            ],
             [
                 'field' => 'status_tahun_anggaran',
                 'label' => 'Status',
@@ -64,12 +64,12 @@ class TahunAnggaranController extends CI_Controller
 
         return $this->form_validation->run();
     }
-    
+
     function add()
     {
         $this->load->view('dashboard/tahunAnggaran/add');
     }
-    
+
     public function doSimpan()
     {
         $validate = $this->simpanValidation();
@@ -79,7 +79,7 @@ class TahunAnggaranController extends CI_Controller
         } else {
             $data = [
                 'nama_tahun_anggaran' => $this->input->post('nama_tahun_anggaran'),
-                'budget_tahun_anggaran'  => str_replace('.', '',$this->input->post('budget_tahun_anggaran')),
+                'budget_tahun_anggaran'  => str_replace('.', '', $this->input->post('budget_tahun_anggaran')),
                 'flag'  => $this->input->post('status_tahun_anggaran')
             ];
 
@@ -102,7 +102,7 @@ class TahunAnggaranController extends CI_Controller
         } else {
             $data = [
                 'nama_tahun_anggaran' => $this->input->post('nama_tahun_anggaran'),
-                'budget_tahun_anggaran'  => str_replace('.', '',$this->input->post('budget_tahun_anggaran')),
+                'budget_tahun_anggaran'  => str_replace('.', '', $this->input->post('budget_tahun_anggaran')),
                 'flag'  => $this->input->post('status_tahun_anggaran')
             ];
 
@@ -115,7 +115,7 @@ class TahunAnggaranController extends CI_Controller
             route_redirect('anggaran.home', [], ['message' => 'Berhasil simpan data']);
         }
     }
-    
+
     function edit()
     {
         $uuid = $this->route->param('uuid');
@@ -123,7 +123,7 @@ class TahunAnggaranController extends CI_Controller
 
         $this->load->view('dashboard/tahunAnggaran/edit', $data);
     }
-    
+
     public function doHapus()
     {
         if ($this->input->post('uuid_data') == "") {
