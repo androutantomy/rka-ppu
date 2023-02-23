@@ -32,14 +32,37 @@
                         <div class="new-user-info">
                            <form>
                               <div class="row">
+                              <div class="form-group col-md-6">
+                                 <label class="form-label" for="fname">Kode Rekening <span style="color: red;">*</span></label>
+                                    <div class="row">
+                                       <div class="col-md-2">
+                                          <input type="hidden" name="uuid_kegiatan" value="">
+                                          <input type="text" class="form-control" id="kode_rekening_1" value="" name="kode_rekening_1">
+                                       </div>
+                                       <div class="col-md-2">
+                                          <input type="text" class="form-control" id="kode_rekening_2" value="" name="kode_rekening_2">
+                                       </div>
+                                       <div class="col-md-2">
+                                          <input type="text" class="form-control" id="kode_rekening_3" value="" name="kode_rekening_3">
+                                       </div>
+                                       <div class="col-md-2">
+                                          <input type="text" class="form-control" id="kode_rekening_4" value="" name="kode_rekening_4">
+                                       </div>
+                                       <div class="col-md-2">
+                                          <input type="text" class="form-control" id="kode_rekening_5" value="" name="kode_rekening_5">
+                                       </div>
+                                       <div class="col-md-2">
+                                          <input type="text" class="form-control" id="kode_rekening_6" value="" name="kode_rekening_6">
+                                       </div>
+                                    </div>
+                                 <div style="color:red">
+                                    <?php echo form_error('kode_rekening_1'); ?>
+                                 </div>
+                              </div>
+                              <div class="col-md-6"></div>
                                  <div class="form-group col-md-6">
                                     <label class="form-label">Nama Kegiatan</label>
-                                    <select name="type" class="selectpicker form-control" data-style="py-0">
-                                       <option>Kegiatan Penunjang Administrasi Umum</option>
-                                       <option>Kegiatan Pengembangan Kapasitas</option>
-                                       <option>Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana</option>
-
-                                    </select>
+                                    <input class="form-control" id="sub kegiatan" value="kegiatan 1" rows="5" readonly>
                                  </div>
                                  <div class="form-group col-md-6">
                                     <label class="form-label" for="lname">Sub Kegiatan</label>
@@ -54,7 +77,10 @@
                                  </div>
 
                               </div>
-                              <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button>
+                              <!-- <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button> -->
+                              <a href="<?php echo route('subkegiatan.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">
+                                 Perbaharui
+                              </a>
                               <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">
                                  Kembali
                               </a>
