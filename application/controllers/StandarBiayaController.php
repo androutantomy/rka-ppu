@@ -187,18 +187,18 @@ class StandarBiayaController extends CI_Controller
     {
         $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
-        $offset = $this->input->post('offset');
+        $start = $this->input->post('offset');
 
         if ($this->input->post('uuid_data') == "") {
-            route_redirect('biaya.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
+            route_redirect('biaya.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
         }
 
         $hapus = $this->StandarBiayaModel->hapus_standar_biaya_by_uuid($uuid);
 
         if (!$hapus) {
-            route_redirect('biaya.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
+            route_redirect('biaya.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
         }
 
-        route_redirect('biaya.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
+        route_redirect('biaya.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
     }
 }

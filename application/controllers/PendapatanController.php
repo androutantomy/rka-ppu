@@ -191,20 +191,19 @@ class PendapatanController extends CI_Controller
     {
         $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
-        $offset = $this->input->post('offset');
+        $start = $this->input->post('offset');
 
         if ($this->input->post('uuid_data') == "") {
-            route_redirect('pendapatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
+            route_redirect('pendapatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
         }
-
 
         $hapus = $this->PendapatanModel->hapus_pendapatan_by_uuid($uuid);
 
         if (!$hapus) {
-            route_redirect('pendapatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
+            route_redirect('pendapatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
         }
 
-        route_redirect('pendapatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
+        route_redirect('pendapatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
     }
 
     public function doImport()
@@ -224,7 +223,7 @@ class PendapatanController extends CI_Controller
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload('file')) {
-            route_redirect('pendapatan.import', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
+            route_redirect('pendapatan.import', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
             echo $this->upload->display_errors();
         }
 
@@ -241,8 +240,6 @@ class PendapatanController extends CI_Controller
         $sheet             = $objPHPExcel->getSheet(0);
         $highestRow     = $sheet->getHighestRow();
         $highestColumn     = $sheet->getHighestColumn();
-
-        print_r($highestRow);die;
 
         $response = new stdClass;
         $response->token = $this->security->get_csrf_hash();

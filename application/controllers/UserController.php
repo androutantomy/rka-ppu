@@ -202,18 +202,18 @@ class UserController extends CI_Controller
     {
         $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
-        $offset = $this->input->post('offset');
+        $start = $this->input->post('offset');
 
         if ($this->input->post('uuid_data') == "") {
-            route_redirect('user.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid User tidak valid']);
+            route_redirect('user.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid User tidak valid']);
         }
 
         $hapus = $this->UserModel->hapus_user_by_uuid($uuid);
 
         if (!$hapus) {
-            route_redirect('user.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
+            route_redirect('user.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
         }
 
-        route_redirect('user.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
+        route_redirect('user.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
     }
 }
