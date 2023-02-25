@@ -55,4 +55,29 @@ function menu_list($menu)
             return 'Dashboard';
             break;
     }
+
+    function update_session_user()
+    {
+        $CI =& get_instance();
+        $CI->load->model('AuthModel');
+
+        $filter = [
+            'username' => $CI->input->post('username')
+        ];
+
+        $get_user = $CI->AuthModel->get_user_by_username($filter);
+
+        $user = $get_user->row();
+
+        $session = [];
+        $session['isLogin'] = true;
+        $session['nama_user'] = $user->nama_user;
+        $session['level_user'] = $user->level_user;
+        $session['nama_level'] = $user->nama_level;
+        $session['uuid_user'] = $user->uuid_user;
+
+        $CI->session->set_userdata($session);
+
+        return true;
+    }
 }

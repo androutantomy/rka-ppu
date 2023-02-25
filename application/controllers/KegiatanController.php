@@ -173,20 +173,21 @@ class KegiatanController extends CI_Controller
 
     public function doHapus()
     {
-        if ($this->input->post('uuid_data') == "") {
-            route_redirect('kegiatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
-        }
-
+        
         $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
-        $offset = $this->input->post('offset');
+        $start = $this->input->post('start');
 
+        if ($this->input->post('uuid_data') == "") {
+            route_redirect('kegiatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
+        }
+        
         $hapus = $this->KegiatanModel->hapus_kegiatan_by_uuid($uuid);
 
         if (!$hapus) {
-            route_redirect('kegiatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
+            route_redirect('kegiatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
         }
 
-        route_redirect('kegiatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
+        route_redirect('kegiatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
     }
 }

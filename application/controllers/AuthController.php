@@ -74,6 +74,7 @@ class AuthController extends CI_Controller
         $session['nama_user'] = $user->nama_user;
         $session['level_user'] = $user->level_user;
         $session['nama_level'] = $user->nama_level;
+        $session['uuid_user'] = $user->uuid_user;
 
         $this->session->set_userdata($session);
 

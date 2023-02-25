@@ -27,6 +27,7 @@ Class KegiatanModel extends CI_model {
             $this->db->like('nama_kegiatan', $filter['search'], 'both');
         }
 
+        $this->db->where('parent_kegiatan', null);
         $this->db->limit($limit, isset($offset)?$offset:0);
         $this->db->order_by('no_rekening_kegiatan', 'asc');
         $data = $this->db->get('mst_kegiatan');

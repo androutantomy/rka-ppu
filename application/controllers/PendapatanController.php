@@ -189,13 +189,14 @@ class PendapatanController extends CI_Controller
 
     public function doHapus()
     {
+        $uuid = $this->input->post('uuid_data');
+        $query = $this->input->post('query');
+        $offset = $this->input->post('offset');
+
         if ($this->input->post('uuid_data') == "") {
             route_redirect('pendapatan.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
         }
 
-        $uuid = $this->input->post('uuid_data');
-        $query = $this->input->post('query');
-        $offset = $this->input->post('offset');
 
         $hapus = $this->PendapatanModel->hapus_pendapatan_by_uuid($uuid);
 

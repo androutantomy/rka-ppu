@@ -3,12 +3,13 @@
 <body style="background-image:url(<?php echo base_url() ?>assets/images/bg.jpg);background-size:cover !important;background-repeat: no-repeat;min-height:100vh !important;text-align:center !important;">
    <!-- loader Start -->
    <div id="loading">
-      <div class="loader simple-loader">
-         <div class="loader-body ">
-            <img src="<?php echo base_url() ?>assets/images/loader.webp" alt="loader" class="image-loader img-fluid ">
-         </div>
-      </div>
-   </div>
+        <div class="loader simple-loader">
+            <div class="loader-body" style="position: relative;">
+                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
+            </div>
+        </div>
+    </div>
    <!-- loader END -->
    <div class="wrapper center">
       <section class="login-content overflow-hidden">

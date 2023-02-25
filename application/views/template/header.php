@@ -61,7 +61,7 @@
                   </div>
                </a>
                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-setting">
-                  <li><a class="dropdown-item" href="<?php echo route('profil.home') ?>">Profile</a></li>
+                  <li><a class="dropdown-item" href="<?php echo route('profil.home', ['uuid' => $this->session->userdata('uuid_user')]) ?>">Profile</a></li>
 
                   <hr class="dropdown-divider">
             </li>
@@ -84,7 +84,7 @@
                   <h1><?php echo menu_list($url); ?></h1>
                   <p><?php echo $this->config->item('client_name'); ?></p>
                </div>
-               <?php if ($this->uri->segment(2) == "" && !in_array($this->uri->segment(2), ['tambah', 'ubah']) && !in_array($this->uri->segment(1), ['aktifitas', 'dashboard'])) { ?>
+               <?php if (!in_array($this->uri->segment(2), ['tambah', 'ubah']) && !in_array($this->uri->segment(1), ['aktifitas', 'dashboard'])) { ?>
                   <div>
                      <a href="<?php echo $url != "" ? route($url . '.tambah') : '' ?>" class="btn btn-link btn-soft-light">
                         <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

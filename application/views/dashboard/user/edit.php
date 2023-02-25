@@ -4,8 +4,9 @@
    <!-- loader Start -->
    <div id="loading">
       <div class="loader simple-loader">
-         <div class="loader-body ">
-            <img src="<?php echo base_url() ?>assets/images/loader.webp" alt="loader" class="image-loader img-fluid ">
+         <div class="loader-body" style="position: relative;">
+            <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+            <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
          </div>
       </div>
    </div>
@@ -15,7 +16,7 @@
       <div class="position-relative  iq-banner ">
          <!--Nav Start-->
          <?php $this->load->view('template/header'); ?>
-         
+
       </div>
       <?php
       $update = $data->row();
@@ -32,13 +33,20 @@
             <div class="row">
                <div class="col-xl-12 col-lg-8">
 
-                  <?php echo form_open(route('user.simpan-ubah', ['uuid' => $uuid_user])) ?>
+                  <?php echo form_open(route('user.simpan-ubah')) ?>
                   <div class="card">
                      <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
                            <h4 class="card-title">Personal Information</h4>
                            <span class="mandatory"></span>
                         </div>
+                        <?php if ($this->session->flashdata('error') != "") { ?>
+                           <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                              <span><i class="far fa-life-ring"></i></span>
+                              <span> <?php echo $this->session->flashdata('error') ? $this->session->flashdata('error') : 'Error : '; ?></span>
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                           </div>
+                        <?php } ?>
                      </div>
                      <div class="card-body">
                         <div class="new-user-info">
@@ -95,14 +103,6 @@
                            <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
                         </div>
                      </div>
-
-                     <?php if ($this->session->flashdata('error') != "") { ?>
-                        <div class="alert alert-danger alert-dismissible fade show " role="alert">
-                           <span><i class="far fa-life-ring"></i></span>
-                           <span> <?php echo $this->session->flashdata('error') ? $this->session->flashdata('error') : 'Error : '; ?></span>
-                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                     <?php } ?>
 
                   </div>
                   <?php form_close() ?>

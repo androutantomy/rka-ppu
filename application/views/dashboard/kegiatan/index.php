@@ -3,8 +3,9 @@
 <body class="  ">
     <div id="loading">
         <div class="loader simple-loader">
-            <div class="loader-body ">
-                <img src="<?php echo base_url() ?>assets/images/loader.webp" alt="loader" class="image-loader img-fluid ">
+            <div class="loader-body" style="position: relative;">
+                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
             </div>
         </div>
     </div>
@@ -73,7 +74,7 @@
                                                         <td><span class="badge bg-<?php echo $result->flag == "1" ? "success" : "danger" ?>"><?php echo $result->flag == "1" ? "Aktif" : "Tidak Aktif" ?></span></td>
                                                         <td class="text-center">
                                                             <div class="flex align-items-center list-user-action">
-                                                                <a class="btn btn-sm btn-icon btn-success rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Tambah Sub Kegiatan" href="<?php echo route('subkegiatan.home') ?>">
+                                                                <a class="btn btn-sm btn-icon btn-success rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Tambah Sub Kegiatan" href="<?php echo route('subkegiatan.home', ['_locale_uuid' => $result->uuid_kegiatan]) ?>">
                                                                     <span class="btn-inner">
                                                                     <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -109,9 +110,9 @@
                                         <span>Showing <?php echo isset($mulai) ? $mulai : 1 ?> to <?php echo isset($sampai) ? $sampai : 1 ?> of <?php echo isset($total) ? $total : 0 ?> entries</span>
                                         <nav class="d-flex justify-content-end" aria-label="Page navigation example">
                                             <ul class="pagination">
-                                                <li class="page-item"><a class="page-link" id="previousPage" href="<?php echo route('satuan.home2', ['start' => $prev, 'search' => $search]) ?>">Sebelumnya</a></li>
+                                                <li class="page-item"><a class="page-link" id="previousPage" href="<?php echo route('kegiatan.home2', ['start' => $prev, 'search' => $search]) ?>">Sebelumnya</a></li>
                                                 <li class="page-item"><a class="page-link" id="currentPage" disabled><?php echo $start != "" ? $start : 1; ?></a></li>
-                                                <li class="page-item"><a class="page-link" id="nextPage" href="<?php echo route('satuan.home2', ['start' => $next, 'search' => $search]) ?>">Selanjutnya</a></li>
+                                                <li class="page-item"><a class="page-link" id="nextPage" href="<?php echo route('kegiatan.home2', ['start' => $next, 'search' => $search]) ?>">Selanjutnya</a></li>
                                             </ul>
                                         </nav>
                                     </div>
