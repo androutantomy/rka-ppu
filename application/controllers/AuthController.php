@@ -90,7 +90,11 @@ class AuthController extends CI_Controller
     public function setTahunAnggaran()
     {
         $tahun_anggaran = $this->route->param('anggaran');
-        $this->session->set_userdata(['anggaran' => $tahun_anggaran]);
+        $session = [
+            'anggaran' => $tahun_anggaran
+        ];
+
+        $this->session->set_userdata($session);
 
         route_redirect('dashboard.home');
     }

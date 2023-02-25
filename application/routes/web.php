@@ -69,6 +69,7 @@ Route::group('', ['middleware' => ['AnggaranMiddleware', 'AktifitasMiddleware']]
         Route::get('{num:start?}/{search?}', 'StandarBiayaController@index')->name('biaya.home2');
         Route::post('hapus', 'StandarBiayaController@doHapus')->name('biaya.hapus');
         Route::post('simpan-ubah', 'StandarBiayaController@doUbah')->name('biaya.simpan-ubah');
+        Route::post('get-satuan', 'StandarBiayaController@doGetSatuan')->name('biaya.get-satuan');
     });
     
     

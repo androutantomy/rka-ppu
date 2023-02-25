@@ -535,3 +535,6 @@ $config['proxy_ips'] = '';
 
 // CUSTOM CONFIG SESSION
 $config['client_name'] = 'Universitas 17 Agustus 1945 Samarinda';
+$config['yayasan_name'] = 'Yayasan Universitas 17 Agustus 1945 Samarinda';
+$config['pendapatan_yayasan_name'] = 'Pendapatan Asli Yayasan Universitas 17 Agustus 1945 Samarinda';
+$config['alamat_yayasan'] = 'Jl. Ir. H. Juanda, No.80, Air Hitam, Kec. Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75123';

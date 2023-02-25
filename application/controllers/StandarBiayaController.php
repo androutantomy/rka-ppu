@@ -201,4 +201,13 @@ class StandarBiayaController extends CI_Controller
 
         route_redirect('biaya.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
     }
+
+    function doGetSatuan()
+    {
+        $res = new stdClass;
+
+        $res->newToken = $this->security->get_csrf_hash();
+
+        echo json_encode($res);
+    }
 }

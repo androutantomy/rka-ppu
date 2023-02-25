@@ -19,16 +19,16 @@
 
             <div>
                 <div class="row">
-                    <div class="card"  style="padding-top:30px;">
-                        <table class="table table-responsive border rounded">
+                    <div class="card">
+                        <table style="margin: 15px;">
                             <tbody >
                                 <tr>
                                     <td><strong>Unit Organisasi</strong></td>
-                                    <td> : Yayasan Universitas 17 Agustus 1945 Samarinda</td>
+                                    <td> : <?php echo $this->config->item('yayasan_name'); ?></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Sub Unit Organisasi</strong></td>
-                                    <td> : Krisnawan Adi</td>
+                                    <td> : <?php echo $this->session->userdata('nama_user') ?></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Kegiatan</strong></td>
@@ -40,11 +40,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Sumber Pendanaan</strong></td>
-                                    <td> : Pendapatan Asli Yayasan Universitas 17 Agustus 1945 Samarinda</td>
+                                    <td> : <?php echo $this->config->item('pendapatan_yayasan_name'); ?></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Lokasi Kegiatan</strong></td>
-                                    <td> : Jl. Ir. H. Juanda, No.80, Air Hitam, Kec. Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75123</td>
+                                    <td> : <?php echo $this->config->item('alamat_yayasan'); ?></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Waktu Pelaksanaan</strong></td>

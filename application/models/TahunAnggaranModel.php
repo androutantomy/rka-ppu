@@ -11,7 +11,7 @@ Class TahunAnggaranModel extends CI_Model {
 
     function get_all_data($filter)
     {
-        $this->db->select('nama_tahun_anggaran, budget_tahun_anggaran, uuid_tahun_anggaran, flag');
+        $this->db->select('nama_tahun_anggaran, budget_tahun_anggaran, uuid_tahun_anggaran, flag, akhir_input_anggaran, anggaran_prodi');
         if ($filter['search'] != '') {
             $this->db->like('nama_tahun_anggaran', $filter['search'], 'both');
         }
@@ -39,7 +39,7 @@ Class TahunAnggaranModel extends CI_Model {
 
     function get_anggaran_by_uuid($uuid) 
     {
-        $this->db->select('uuid_tahun_anggaran, nama_tahun_anggaran, budget_tahun_anggaran, flag');
+        $this->db->select('uuid_tahun_anggaran, nama_tahun_anggaran, budget_tahun_anggaran, flag, anggaran_prodi, akhir_input_anggaran');
         $data = $this->db->get_where('mst_tahun_anggaran', ['uuid_tahun_anggaran' => $uuid]);
 
         return $data;
