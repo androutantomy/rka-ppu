@@ -70,6 +70,7 @@
                                 <table id="user-list-table" class="table table-striped" role="grid" data-toggle="data-table">
                                     <thead>
                                         <tr class="ligth">
+                                            <th>Tanggal</th>
                                             <th>Uraian</th>
                                             <th class="text-center">Koefisien</th>
                                             <th class="text-center">Harga Satuan</th>
@@ -81,6 +82,7 @@
                                     <tbody>
 
                                         <tr>
+                                            <td>26-02-2023</td>
                                             <td>5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</td>
                                             <td class="text-center">20 buah</td>
                                             <td class="text-center">5.000</td>
@@ -110,6 +112,7 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td>26-02-2023</td>
                                             <td>5.1.1.2.3.002 Batterai Alkaline Kotak 9 Volt</td>
                                             <td class="text-center">20 buah</td>
                                             <td class="text-center">5.000</td>
@@ -148,12 +151,12 @@
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end live-customizer" tabindex="-1" id="live-customizer" data-bs-backdrop="false" data-bs-scroll="true" aria-labelledby="live-customizer-label" aria-modal="true" role="dialog" style="background:darkred;">
+        <div class="offcanvas offcanvas-end live-customizer" tabindex="-1" id="live-customizer" data-bs-backdrop="false" data-bs-scroll="true" aria-labelledby="live-customizer-label" aria-modal="true" role="dialog" style="background:#F2F2F2;">
             <div class="offcanvas-header pb-0">
                 <div class="d-flex align-items-center">
-                    <h4 class="offcanvas-title white" id="live-customizer-label" style="color:white;">Rincian Belanja</h4>
+                    <h4 class="offcanvas-title white" id="live-customizer-label" >Rincian Belanja</h4>
                 </div>
-                <div class="close-icon" data-bs-dismiss="offcanvas" style="color:white;">
+                <div class="close-icon" data-bs-dismiss="offcanvas" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
@@ -163,9 +166,12 @@
                 <div class="row">
                     <form>
                         <div class="row">
-
                             <div class="form-group col-md-6">
-                                <label class="form-label" style="color:white;">Komponen</label>
+                                <label class="form-label" for="exampleInputdate">Tanggal</label>
+                                <input type="date" class="form-control" id="exampleInputdate" value="26-02-2023">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label" >Komponen</label>
                                 <select name="type" class="selectpicker form-control select2" data-style="py-0">
                                     <option>5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</option>
                                     <option>5.1.1.2.3.002 Kabel Ties 25 mm</option>
@@ -174,40 +180,40 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="lname" style="color:white;">Satuan</label>
+                                <label class="form-label" for="lname">Satuan</label>
                                 <input type="text" class="form-control" id="Satuan" name="Satuan" value="mm">
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="lname" style="color:white;">Harga Satuan (Rp)</label>
+                                <label class="form-label" for="lname" >Harga Satuan (Rp)</label>
                                 <input type="text" class="form-control" id="harga" name="harga" value="805.000">
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="lname" style="color:white;">Koefisien</label>
+                                <label class="form-label" for="lname" >Koefisien</label>
                                 <input type="text" class="form-control" id="harga" name="koefisien" value="2">
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="lname" style="color:white;">Volume</label>
+                                <label class="form-label" for="lname" >Volume</label>
                                 <input type="text" class="form-control" id="harga" name="koefisien" value="2">
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" style="color:white;">PPN (11%)</label>
+                                <label class="form-label" >PPN (11%)</label>
                                 <div class="d-flex align-items-center form-group mb-0">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" value="0" name="status_pengguna" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1" style="color:white;">
+                                        <label class="form-check-label" for="flexRadioDefault1" >
                                             Ya
                                         </label>
                                     </div>
                                     <div class="form-check ms-3">
                                         <input class="form-check-input" type="radio" value="1" name="status_pengguna" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2" style="color:white;">
+                                        <label class="form-check-label" for="flexRadioDefault2" >
                                             Tidak
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label class="form-label" for="lname" style="color:white;">Keterangan</label>
+                                <label class="form-label" for="lname" >Keterangan</label>
                                 <textarea class="form-control" id="keterangan" value="keterangan" rows="5"></textarea>
                             </div>
 
