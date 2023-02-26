@@ -587,8 +587,8 @@ menyesuaikan akun</div>
             <td class="column8 style42 null style43" colspan="6"></td>
           </tr>
           <tr class="row35">
-            <td class="column0 style38 s style40" colspan="8">Prof. Dr. Awang Faroek Ishak, M.M</td>
-            <td class="column8 style39 s style40" colspan="6">Dayang Donna Walfiaries Tania, S.Psi, M.M</td>
+            <td class="column0 style38 s style40" colspan="8">Hj. Prof. Dr. Awang Faroek Ishak, M.M</td>
+            <td class="column8 style39 s style40" colspan="6">Hj. Dayang Donna Walfiaries Tania, S.Psi, M.M</td>
           </tr>
           <tr class="row36">
             <td class="column0 style44 null style46" colspan="8"></td>
