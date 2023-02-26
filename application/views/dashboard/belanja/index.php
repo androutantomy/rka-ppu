@@ -72,6 +72,9 @@
                             <thead>
                                 <tr class="ligth">
                                     <th>Uraian</th>
+                                    <th class="text-center">Koefisien</th>
+                                    <th class="text-center">Harga Satuan</th>
+                                    <th class="text-center">Pajak</th>
                                     <th class="text-center">Total</th>
                                     <th class="text-center" style="min-width: 100px">Action</th>
                                 </tr>
@@ -82,12 +85,18 @@
                                     <td style="border-bottom-width:0px !important;padding:5px !important;padding-top:10px !important;padding-left:10px !important;"><strong>1.1 Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana</strong></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                 </tr>
                                 <tr>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">1.1.1 Kegiatan Kepustakaan
                                     <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
                                     </td>
-                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">5.000.000</td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
@@ -105,7 +114,10 @@
                                     <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">1.1.2 Kegiatan Kepustakaan 2
                                     <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
                                     </td>
-                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">5.000.000</td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:10px !important;">
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
@@ -123,11 +135,17 @@
                                     <td style="border-bottom-width:0px !important;padding:5px !important;padding-top:10px !important;padding-left:10px !important;"><strong>1.2 Kegiatan Penyediaan dan Pemeliharaan Sarana & Prasarana 2</strong></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                     <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
+                                    <td style="border-bottom-width:0px !important;padding:5px !important;" class="text-center"></td>
                                 </tr>
                                 <tr style="background:#F3F3F3 !important;">
                                     <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">1.2.1 Kegiatan Kepustakaan
                                     <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
                                     </td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">
                                         <div class="flex align-items-center list-user-action">
@@ -146,7 +164,10 @@
                                     <td style="border-bottom-width:0px !important;padding:5px !important;padding-left:30px !important;">1.2.2 Kegiatan Kepustakaan 2
                                     <!-- 5.1.1.2.3.001 Batterai Alkaline Kotak 9 Volt</b> -->
                                     </td>
-                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;">5.000.000</td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
+                                    <td class="text-center" style="border-bottom-width:0px !important;padding:5px !important;"></td>
                                     <td class="text-center" style="border-bottom-width:0px !important;padding:10px !important;">
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-danger rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="View detail" href="<?php echo route('belanja.detail') ?>" style="background:green;border:1px solid green;">
