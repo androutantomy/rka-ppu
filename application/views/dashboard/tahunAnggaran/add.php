@@ -3,20 +3,20 @@
 <body class="  ">
    <!-- loader Start -->
    <div id="loading">
-        <div class="loader simple-loader">
-            <div class="loader-body" style="position: relative;">
-                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
-                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
-            </div>
-        </div>
-    </div>
+      <div class="loader simple-loader">
+         <div class="loader-body" style="position: relative;">
+            <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+            <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
+         </div>
+      </div>
+   </div>
    <!-- loader END -->
    <?php $this->load->view('template/sidemenu'); ?>
    <main class="main-content">
       <div class="position-relative  iq-banner ">
          <!--Nav Start-->
          <?php $this->load->view('template/header'); ?>
-         
+
       </div>
       <div class="content-inner container-fluid pb-0" id="page_layout">
          <div>
@@ -73,6 +73,22 @@
                                  </div>
                                  <div style="color:red">
                                     <?php echo form_error('status_tahun_anggaran'); ?>
+                                 </div>
+                              </div>
+                              <?php if ($admin->num_rows() > 0) {
+                                 foreach ($admin->result() as $admin) {
+                              ?>
+                                    <div class="form-group col-md-3">
+                                       <label class="form-label" for="lname">Anggaran <?php echo ucwords($admin->nama_user); ?></label>
+                                       <input type="text" name="budget_<?php echo str_replace(' ', '_', strtolower($admin->nama_user)); ?>" value="<?php echo set_value('budget_' . str_replace(' ', '_', strtolower($admin->nama_user))); ?>" class="form-control" id="budget_<?php echo str_replace(' ', '_', strtolower($admin->nama_user)); ?>" placeholder="Budget Tahun Anggaran">
+                                    </div>
+                                 <?php } ?>
+                              <?php } ?>
+                              <div class="form-group col-md-6">
+                                 <label class="form-label" for="lname">Akhir Input Anggaran <span style="color: red;">*</span></label>
+                                 <input type="date" name="akhir_input_anggaran" value="<?php echo set_value('akhir_input_anggaran'); ?>" class="form-control" placeholder="Akhir Input Anggaran">
+                                 <div style="color:red">
+                                    <?php echo form_error('akhir_input_anggaran'); ?>
                                  </div>
                               </div>
 

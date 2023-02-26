@@ -176,7 +176,7 @@ class KegiatanController extends CI_Controller
         
         $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
-        $start = $this->input->post('start');
+        $start = $this->input->post('offset');
 
         if ($this->input->post('uuid_data') == "") {
             route_redirect('kegiatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);

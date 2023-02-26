@@ -111,7 +111,15 @@
                                                 <?php echo form_error('flag'); ?>
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label" for="fname">Satuan Harga</label>
+                                            <select id="satuan_harga" name="satuan_harga" class="form-control"></select>
+                                            <div style="color:red">
+                                                <?php echo form_error('satuan_harga'); ?>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <input type="hidden" id="tokenCustom" value="">
                                     <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button>
                                     <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
                                     </form>
@@ -122,4 +130,28 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('#satuan_harga').select2({
+                    allowClear: true,
+                    placeholder: 'Satuan harga',
+                    ajax: {
+                        dataType: 'json',
+                        url: '<?php echo route('biaya.get-satuan') ?>',
+                        delay: 800,
+                        data: function(params) {
+                            return {
+                                query: params.term,
+                                <?php echo $this->security->get_csrf_token_name(); ?>: tokenCustom == '' ? '<?php echo $this->security->get_csrf_hash(); ?>' : tokenCustom
+                            }
+                        },
+                        processResults: function(data, page) {
+                            return {
+                                results: data
+                            };
+                        },
+                    }
+                });
+            });
+        </script>
         <?php $this->load->view('template/footer'); ?>

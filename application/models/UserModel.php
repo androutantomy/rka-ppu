@@ -61,4 +61,11 @@ Class UserModel extends CI_Model
 
         return $hapus;
     }
+
+    function get_all_admin_prodi()
+    {
+        $data = $this->db->select("uuid_user, nama_user")->where("level_user", "2")->get("mst_users");
+
+        return $data;
+    }
 }

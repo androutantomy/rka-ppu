@@ -2,7 +2,9 @@
 <footer class="footer">
     <div class="footer-body">
         <div class="right-panel">
-            Copyright © 2023 <script>2023</script> <span><?php echo $this->config->item('client_name') ?>
+            Copyright © 2023 <script>
+                2023
+            </script> <span><?php echo $this->config->item('client_name') ?>
         </div>
     </div>
 </footer>
@@ -22,5 +24,6 @@
 <script>
     $('.select2').select2();
 </script>
-    </body>
+</body>
+
 </html>

@@ -9,6 +9,7 @@ class TahunAnggaranController extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('TahunAnggaranModel');
+        $this->load->model('UserModel');
     }
 
     public function index()
@@ -75,12 +76,15 @@ class TahunAnggaranController extends CI_Controller
 
     function add()
     {
-        $this->load->view('dashboard/tahunAnggaran/add');
+        $data['admin'] = $this->UserModel->get_all_admin_prodi();
+
+        $this->load->view('dashboard/tahunAnggaran/add', $data);
     }
 
     public function doSimpan()
     {
         $validate = $this->simpanValidation();
+        $admin = $this->UserModel->get_all_admin_prodi();
 
         if (!$validate) {
             $this->add();
@@ -88,8 +92,23 @@ class TahunAnggaranController extends CI_Controller
             $data = [
                 'nama_tahun_anggaran' => $this->input->post('nama_tahun_anggaran'),
                 'budget_tahun_anggaran'  => str_replace('.', '', $this->input->post('budget_tahun_anggaran')),
-                'flag'  => $this->input->post('status_tahun_anggaran')
+                'flag'  => $this->input->post('status_tahun_anggaran'),
+                'akhir_input_anggaran' => $this->input->post('akhir_input_anggaran'),
             ];
+
+            if ($admin->num_rows() > 0) {
+                $budget_admin = [];
+                foreach ($admin->result() as $admin) {
+                    $budget = [
+                        'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))),
+                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))))
+                    ];
+
+                    array_push($budget_admin, $budget);
+                }
+
+                $data['anggaran_prodi'] = !empty($budget_admin) ? json_encode($budget_admin) : null;
+            }
 
             $simpan = $this->TahunAnggaranModel->simpan_tahun_anggaran($data);
 
@@ -104,6 +123,7 @@ class TahunAnggaranController extends CI_Controller
     function doUbah()
     {
         $validate = $this->simpanValidation();
+        $admin = $this->UserModel->get_all_admin_prodi();
 
         if (!$validate) {
             $this->edit();
@@ -111,8 +131,23 @@ class TahunAnggaranController extends CI_Controller
             $data = [
                 'nama_tahun_anggaran' => $this->input->post('nama_tahun_anggaran'),
                 'budget_tahun_anggaran'  => str_replace('.', '', $this->input->post('budget_tahun_anggaran')),
-                'flag'  => $this->input->post('status_tahun_anggaran')
+                'flag'  => $this->input->post('status_tahun_anggaran'),
+                'akhir_input_anggaran' => $this->input->post('akhir_input_anggaran'),
             ];
+
+            if ($admin->num_rows() > 0) {
+                $budget_admin = [];
+                foreach ($admin->result() as $admin) {
+                    $budget = [
+                        'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))),
+                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))))
+                    ];
+
+                    array_push($budget_admin, $budget);
+                }
+                
+                $data['anggaran_prodi'] = !empty($budget_admin) ? json_encode($budget_admin) : null;
+            }
 
             $simpan = $this->TahunAnggaranModel->edit_anggaran_by_uuid($data, $this->input->post("uuid_tahun_anggaran"));
 
@@ -128,6 +163,7 @@ class TahunAnggaranController extends CI_Controller
     {
         $uuid = $this->route->param('uuid');
         $data['data'] = $this->TahunAnggaranModel->get_anggaran_by_uuid($uuid);
+        $data['admin'] = $this->UserModel->get_all_admin_prodi();
 
         $this->load->view('dashboard/tahunAnggaran/edit', $data);
     }
@@ -136,18 +172,18 @@ class TahunAnggaranController extends CI_Controller
     {
         $uuid = $this->input->post('uuid_data');
         $query = $this->input->post('query');
-        $offset = $this->input->post('offset');
+        $start = $this->input->post('offset');
 
         if ($this->input->post('uuid_data') == "") {
-            route_redirect('anggaran.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
+            route_redirect('anggaran.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Uuid Anggaran tidak valid']);
         }
 
         $hapus = $this->TahunAnggaranModel->hapus_anggaran_by_uuid($uuid);
 
         if (!$hapus) {
-            route_redirect('anggaran.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
+            route_redirect('anggaran.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['error' => 'Gagal hapus data']);
         }
 
-        route_redirect('anggaran.home2', ['offset' => $offset != '' ? $offset : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
+        route_redirect('anggaran.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
     }
 }
