@@ -114,14 +114,6 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-3">
-                                        <label class="form-label" for="exampleFormControlSelect1">Status</label>
-                                        <select class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">----- Pilih -----</option>
-                                            <option>Sudah mengisi rincian </option>
-                                            <option>Belum mengisi rincian </option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-3">
                                         <label class="form-label" for="exampleInputText1">Search </label>
                                         <input type="text" class="form-control" id="exampleInputText1" value="">
                                     </div>
@@ -144,7 +136,7 @@
                                         <thead>
                                             <tr class="">
                                                 <th>Uraian</th>
-                                                <th class="text-center">Status</th>
+                                                <th class="text-center">Total</th>
                                                 <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
@@ -158,9 +150,7 @@
                                             ?>
                                                     <tr>
                                                         <td><?php echo $result->no_rekening_kegiatan . ' <strong>' . strtoupper($result->nama_kegiatan) . '' ?></strong></td>
-                                                        <td class="text-center"><span class="badge bg-success">Sudah mengisi rincian</span>
-                                                        <span class="badge bg-danger">Belum mengisi rincian</span>
-                                                        </td>
+                                                        <td class="text-center"></td>
                                                         <td class="text-center"></td>
                                                     </tr>
                                                     <?php if (!empty($result->child)) {

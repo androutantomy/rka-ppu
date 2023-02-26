@@ -78,6 +78,7 @@ Route::group('', ['middleware' => ['AnggaranMiddleware', 'AktifitasMiddleware']]
         Route::get('tambah', 'BelanjaController@add')->name('belanja.tambah');
         Route::get('ubah', 'BelanjaController@edit')->name('belanja.ubah');
         Route::get('detail', 'BelanjaController@detail')->name('belanja.detail');
+        Route::get('cetak', 'BelanjaController@cetak')->name('belanja.cetak');
     });
     
     Route::group('kegiatan', ['middleware' => ['AuthMiddleware']], function() {
