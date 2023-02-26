@@ -249,19 +249,19 @@
       th.style113 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Segoe UI'; font-size:10pt; background-color:white }
       td.style114 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:none #000000; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Segoe UI'; font-size:10pt; background-color:white }
       th.style114 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:none #000000; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Segoe UI'; font-size:10pt; background-color:white }
-      table.sheet0 col.col0 { width:111.15555428pt }
+      table.sheet0 col.col0 { width:159.95555372pt }
       table.sheet0 col.col1 { width:16.26666648pt }
       table.sheet0 col.col2 { width:111.15555428pt }
       table.sheet0 col.col3 { width:50.15555498pt }
       table.sheet0 col.col4 { width:46.76666613pt }
-      table.sheet0 col.col5 { width:42.02222174pt }
-      table.sheet0 col.col6 { width:23.72222195pt }
-      table.sheet0 col.col7 { width:77.94444355pt }
+      table.sheet0 col.col5 { width:46.76666613pt }
+      table.sheet0 col.col6 { width:35.24444404pt }
+      table.sheet0 col.col7 { width:100.31110996pt }
       table.sheet0 col.col8 { width:43.37777728pt }
       table.sheet0 col.col9 { width:42pt }
       table.sheet0 col.col10 { width:42pt }
       table.sheet0 col.col11 { width:42pt }
-      table.sheet0 col.col12 { width:87.43333233pt }
+      table.sheet0 col.col12 { width:105.73333212pt }
       table.sheet0 col.col13 { width:71.16666585pt }
       table.sheet0 tr { height:13.636363636364pt }
       table.sheet0 tr.row0 { height:33.25pt }
@@ -297,18 +297,49 @@
       table.sheet0 tr.row30 { height:16pt }
       table.sheet0 tr.row31 { height:12.75pt }
       table.sheet0 tr.row35 { height:16pt }
-      .padding-1{
+	  .padding-1{
         padding-left:20px !important;padding-bottom:5px !important;
       }
+      .align-items-center {
+        -webkit-box-align: center !important;
+        -webkit-align-items: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+     }
+     .justify-content-center {
+        -webkit-box-pack: center !important;
+        -webkit-justify-content: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+    .d-flex {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+    .navbar-brand {
+        padding-top: var(--bs-navbar-brand-padding-y);
+        padding-bottom: var(--bs-navbar-brand-padding-y);
+        margin-right: var(--bs-navbar-brand-margin-end);
+        font-size: var(--bs-navbar-brand-font-size);
+        color: var(--bs-navbar-brand-color);
+        white-space: nowrap;
+    }
     </style>
   </head>
 
   <body>
 <style>
-@page { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+@page { margin-left: 0.1in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
 body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
 </style>
-    
+    <a class="navbar-brand d-flex align-items-center mb-3 justify-content-center text-primary" style="margin-top:-60px;padding-bottom:30px !important;">
+        <div class="logo-normal style47 s style49">
+            <img src="<?php echo base_url() ?>assets/images/logo.png" style="width:85px !important;">
+        </div>
+        <h2 class="logo-title ms-3 mb-0" data-setting="app_name" style="margin-left:10px !important;"> YAYASAN UNIVERSITAS 17 AGUSTUS 1945 SAMARINDA</h2>
+	</a>
     <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
         <col class="col0">
         <col class="col1">
@@ -325,11 +356,12 @@ body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-botto
         <col class="col12">
         <col class="col13">
         <tbody>
+		
           <tr class="row0">
-            <td class="column0 style47 s style49" colspan="14">RINCIAN BELANJA SUB KEGIATAN UNIT KERJA YAYASAN UNIVERSITAS 17 AGUSTUS 1945 SAMARINDA</td>
+            <td class="column0 style47 s style49" colspan="14">RINCIAN BELANJA SUB KEGIATAN UNIT KERJA</td>
           </tr>
           <tr class="row1">
-            <td class="column0 style47 s style49" colspan="14">Yayasan Universitas 17 Agustus 1945 Samarinda Tahun Anggaran 2023</td>
+            <td class="column0 style47 s style49" colspan="14">TAHUN ANGGARAN 2023</td>
           </tr>
           <tr class="row2">
             <td class="column0 style28 s" style="padding-top:20px;padding-left:20px;padding-bottom:10px;">Unit Organisasi</td>
@@ -564,5 +596,8 @@ menyesuaikan akun</div>
           </tr>
         </tbody>
     </table>
+    <script>
+		window.print();
+	</script>
   </body>
 </html>
