@@ -58,4 +58,11 @@ Class TahunAnggaranModel extends CI_Model {
 
         return $hapus;
     }
+
+    function get_tahun_anggaran_by_name($name)
+    {
+        $data = $this->db->get_where('mst_tahun_anggaran', ['nama_tahun_anggaran' => $name])->row();
+
+        return $data;
+    }
 }

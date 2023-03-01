@@ -78,7 +78,7 @@ class KegiatanController extends CI_Controller
                 'errors' => [
                     'required' => 'Kode rekening tidak boleh kosong'
                 ]
-            ],
+            ]
         ];
 
         $this->form_validation->set_rules($config);
@@ -115,7 +115,8 @@ class KegiatanController extends CI_Controller
             $data = [
                 'nama_kegiatan' => $this->input->post('nama_kegiatan'),
                 'no_rekening_kegiatan' => implode('.', $no_rekening),
-                'flag'  => $this->input->post('flag')
+                'flag'  => $this->input->post('flag'),
+                'parent_kegiatan' => $this->input->post('komponen_kegiatan') != "" ? $this->input->post('komponen_kegiatan') : ''
             ];
 
             $simpan = $this->KegiatanModel->simpan_kegiatan($data);
@@ -158,7 +159,8 @@ class KegiatanController extends CI_Controller
             $data = [
                 'nama_kegiatan' => $this->input->post('nama_kegiatan'),
                 'no_rekening_kegiatan' => implode('.', $no_rekening),
-                'flag'  => $this->input->post('flag')
+                'flag'  => $this->input->post('flag'),
+                'parent_kegiatan' => $this->input->post('komponen_kegiatan') != "" ? $this->input->post('komponen_kegiatan') : ''
             ];
 
             $simpan = $this->KegiatanModel->edit_kegiatan_by_uuid($data, $this->input->post("uuid_kegiatan"));
@@ -189,5 +191,33 @@ class KegiatanController extends CI_Controller
         }
 
         route_redirect('kegiatan.home2', ['start' => $start != '' ? $start : '', 'search' => $query != '' ? $query : ''], ['message' => 'Berhasil hapus data']);
+    }
+
+    function doGetKegiatan()
+    {
+        $res = new stdClass;
+        $list = [];
+        $key = 1;
+        $filter = [
+            'search' => $this->input->post('query'),
+            'limit' => 10,
+        ];
+
+        $res->newToken = $this->security->get_csrf_hash();
+        $datatable = $this->KegiatanModel->get_all_data($filter);
+
+        if ($datatable->num_rows() > 0) {
+            $list[0]['text'] = '-- UTAMA --';
+            $list[0]['id'] = '-';
+            foreach ($datatable->result() as $result) {
+                $list[$key]['text'] = $result->no_rekening_kegiatan . ' ' . $result->nama_kegiatan;
+                $list[$key]['id'] = $result->uuid_kegiatan;
+                $key++;
+            }
+        }
+
+        $res->listSatuan = $list;
+
+        echo json_encode($res);
     }
 }

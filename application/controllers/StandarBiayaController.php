@@ -9,6 +9,7 @@ class StandarBiayaController extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('StandarBiayaModel');
+        $this->load->model('SatuanModel');
     }
 
     public function index()
@@ -83,7 +84,7 @@ class StandarBiayaController extends CI_Controller
                 'errors' => [
                     'required' => 'Kode rekening tidak boleh kosong'
                 ]
-            ],
+            ]
 
         ];
 
@@ -95,7 +96,6 @@ class StandarBiayaController extends CI_Controller
     public function doSimpan()
     {
         $validate = $this->simpanValidation();
-
 
         if (!$validate) {
             $this->add();
@@ -125,7 +125,8 @@ class StandarBiayaController extends CI_Controller
                 'no_rekening_standar_biaya' => implode('.', $no_rekening),
                 'tahun_anggaran'    => $this->session->userdata('anggaran'),
                 'is_utama' => $this->input->post('rekening_utama') != "" ? $this->input->post('rekening_utama') : null,
-                'flag'  => $this->input->post('flag')
+                'flag'  => $this->input->post('flag'),
+                'satuan_harga' => $this->input->post('satuan_harga') != "" ? $this->input->post('satuan_harga') : null
             ];
 
             $simpan = $this->StandarBiayaModel->simpan_standar_biaya($data);
@@ -170,7 +171,8 @@ class StandarBiayaController extends CI_Controller
                 'jumlah_standar_biaya' => $this->input->post('jumlah_standar_biaya') != "" ? str_replace('.', '', $this->input->post('jumlah_standar_biaya')) : null,
                 'no_rekening_standar_biaya' => implode('.', $no_rekening),
                 'is_utama' => $this->input->post('rekening_utama') != "" ? $this->input->post('rekening_utama') : null,
-                'flag'  => $this->input->post('flag')
+                'flag'  => $this->input->post('flag'),
+                'satuan_harga' => $this->input->post('satuan_harga') != "" ? $this->input->post('satuan_harga') : null
             ];
 
             $simpan = $this->StandarBiayaModel->edit_standar_biaya_by_uuid($data, $this->input->post("uuid_standar_biaya"));
@@ -205,8 +207,24 @@ class StandarBiayaController extends CI_Controller
     function doGetSatuan()
     {
         $res = new stdClass;
+        $list = [];
+        $key = 0;
+        $filter = [
+            'search' => $this->input->post('query'),
+            'limit' => 10
+        ];
 
         $res->newToken = $this->security->get_csrf_hash();
+        $datatable = $this->SatuanModel->get_all_data($filter);
+        if ($datatable->num_rows() > 0) {
+            foreach ($datatable->result() as $result) {
+                $list[$key]['text'] = $result->nama_satuan;
+                $list[$key]['id'] = $result->uuid_satuan;
+                $key++;
+            }
+        }
+
+        $res->listSatuan = $list;
 
         echo json_encode($res);
     }

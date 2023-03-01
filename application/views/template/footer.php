@@ -21,9 +21,6 @@
 <script src="<?php echo base_url() ?>assets/js/charts/dashboard.js?v=1.0.1" defer></script>
 <script src="<?php echo base_url() ?>assets/js/qompac-ui.js?v=1.0.1" defer></script>
 <script src="<?php echo base_url() ?>assets/js/sidebar.js?v=1.0.1" defer></script>
-<script>
-    $('.select2').select2();
-</script>
 </body>
 
 </html>

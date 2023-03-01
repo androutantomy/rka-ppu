@@ -67,13 +67,16 @@
                                     <?php echo form_error('kode_rekening_1'); ?>
                                  </div>
                               </div>
-                              <div class="col-md-6"></div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="lname">Nama Kegiatan <span style="color: red;">*</span></label>
                                  <input class="form-control" id="nama_kegiatan" name="nama_kegiatan" value=" <?php echo set_value('nama_kegiatan') ?>" placeholder="Nama Kegiatan">
                                  <div style="color:red">
                                     <?php echo form_error('nama_kegiatan'); ?>
                                  </div>
+                              </div>
+                              <div class="form-group col-md-6">
+                                 <label class="form-label">Kegiatan</label><br>
+                                 <select name="komponen_kegiatan" class="form-control" id="komponen_kegiatan" data-style="py-0"></select>
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="fname">Status <span style="color: red;">*</span></label>
@@ -109,5 +112,32 @@
       </div>
       <?php $this->load->view('template/footer'); ?>
       <script>
-         $('.select2').select2();
+         $(document).ready(function() {
+            $('#komponen_kegiatan').select2({
+               width: '100%',
+               placeholder: 'Pilih Kegiatan',
+               ajax: {
+                  url: "<?php echo route('kegiatan.get-kegiatan') ?>",
+                  method: 'POST',
+                  dataType: 'json',
+                  delay: 250,
+                  data: function(params) {
+                     const token = $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val();
+                     return {
+                        query: params.term,
+                        <?php echo $this->security->get_csrf_token_name(); ?>: token != '' ? token : '<?php echo $this->security->get_csrf_hash(); ?>'
+                     };
+                  },
+                  processResults: function(data, params) {
+                     const newToken = data.newToken;
+                     $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val(newToken);
+   
+                     return {
+                        results: data.listSatuan,
+                     };
+                  },
+                  cache: true
+               },
+            });
+         });
       </script>

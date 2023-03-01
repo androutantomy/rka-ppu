@@ -70,17 +70,17 @@
                                             ?>
                                                     <tr>
                                                         <td><?php echo ucwords(strtolower($result->no_rekening_kegiatan)) ?></td>
-                                                        <td><?php echo $result->nama_kegiatan ?></td>
+                                                        <td><?php echo $result->parent_kegiatan == "" || $result->parent_kegiatan == "-" ? strtoupper($result->nama_kegiatan) : $result->nama_kegiatan; ?></td>
                                                         <td><span class="badge bg-<?php echo $result->flag == "1" ? "success" : "danger" ?>"><?php echo $result->flag == "1" ? "Aktif" : "Tidak Aktif" ?></span></td>
                                                         <td class="text-center">
                                                             <div class="flex align-items-center list-user-action">
-                                                                <a class="btn btn-sm btn-icon btn-success rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Tambah Sub Kegiatan" href="<?php echo route('subkegiatan.home', ['_locale_uuid' => $result->uuid_kegiatan]) ?>">
+                                                                <!-- <a class="btn btn-sm btn-icon btn-success rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Tambah Sub Kegiatan" href="<?php echo route('subkegiatan.home', ['_locale_uuid' => $result->uuid_kegiatan]) ?>">
                                                                     <span class="btn-inner">
                                                                     <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                                                     </svg>
                                                                     </span>
-                                                                </a>
+                                                                </a> -->
                                                                 <a href="<?php echo route('kegiatan.ubah', ['uuid' => $result->uuid_kegiatan]) ?>" class="btn btn-sm btn-icon btn-warning rounded" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" href="#">
                                                                     <span class="btn-inner">
                                                                         <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

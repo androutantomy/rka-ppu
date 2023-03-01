@@ -3,13 +3,13 @@
 <body class="  ">
    <!-- loader Start -->
    <div id="loading">
-        <div class="loader simple-loader">
-            <div class="loader-body" style="position: relative;">
-                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
-                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
-            </div>
-        </div>
-    </div>
+      <div class="loader simple-loader">
+         <div class="loader-body" style="position: relative;">
+            <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+            <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
+         </div>
+      </div>
+   </div>
    <!-- loader END -->
    <?php $this->load->view('template/sidemenu'); ?>
    <main class="main-content">
@@ -22,7 +22,7 @@
       $update = $data->row();
       $nama_kegiatan  = set_value('nama_kegiatan') == "" && !empty($update) ? $update->nama_kegiatan : set_value('nama_kegiatan');
       $no_rekening      = set_value('kode_rekening_1') == "" && !empty($update) ? $update->no_rekening_kegiatan : set_value('kode_rekening_1');
-      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = '';
+      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = $kode_rekening_6 = '';
       if (!empty($update)) {
          $exp = explode('.', $update->no_rekening_kegiatan);
          $kode_rekening_1 = isset($exp[0]) ? $exp[0] : set_value('kode_rekening_1');;
@@ -34,6 +34,8 @@
       }
       $flag             = set_value('flag') == "" && !empty($update) ? $update->flag : set_value('flag');
       $uuid_kegiatan  = set_value('uuid_kegiatan') == "" && !empty($update) ? $update->uuid_kegiatan : set_value('uuid_kegiatan');
+      $child_uuid_kegiatan = !empty($update) ? $update->child_uuid_kegiatan : '';
+      $child_nama_kegiatan = !empty($update) ? $update->nama_child : '';
       ?>
       <div class="content-inner container-fluid pb-0" id="page_layout">
          <div class="row">
@@ -75,13 +77,20 @@
                                  <?php echo form_error('kode_rekening_1'); ?>
                               </div>
                            </div>
-                           <div class="col-md-6"></div>
                            <div class="form-group col-md-6">
                               <label class="form-label" for="lname">Nama Kegiatan <span style="color: red;">*</span></label>
                               <input class="form-control" id="nama_kegiatan" name="nama_kegiatan" value=" <?php echo $nama_kegiatan ?>" placeholder="Nama Kegiatan">
                               <div style="color:red">
                                  <?php echo form_error('nama_kegiatan'); ?>
                               </div>
+                           </div>
+                           <div class="form-group col-md-6">
+                              <label class="form-label">Kegiatan</label><br>
+                              <select name="komponen_kegiatan" class="form-control" id="komponen_kegiatan" data-style="py-0">
+                                 <?php if ($child_uuid_kegiatan != '') { ?>
+                                    <option value="<?php echo $child_uuid_kegiatan ?>"><?php echo $child_nama_kegiatan ?></option>
+                                 <?php } ?>
+                              </select>
                            </div>
                            <div class="form-group col-md-6">
                               <label class="form-label" for="fname">Status <span style="color: red;">*</span></label>
@@ -117,5 +126,32 @@
       </div>
       <?php $this->load->view('template/footer'); ?>
       <script>
-         $('.select2').select2();
+         $(document).ready(function() {
+            $('#komponen_kegiatan').select2({
+               width: '100%',
+               placeholder: 'Pilih Kegiatan',
+               ajax: {
+                  url: "<?php echo route('kegiatan.get-kegiatan') ?>",
+                  method: 'POST',
+                  dataType: 'json',
+                  delay: 250,
+                  data: function(params) {
+                     const token = $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val();
+                     return {
+                        query: params.term,
+                        <?php echo $this->security->get_csrf_token_name(); ?>: token != '' ? token : '<?php echo $this->security->get_csrf_hash(); ?>'
+                     };
+                  },
+                  processResults: function(data, params) {
+                     const newToken = data.newToken;
+                     $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val(newToken);
+
+                     return {
+                        results: data.listSatuan,
+                     };
+                  },
+                  cache: true
+               },
+            });
+         });
       </script>

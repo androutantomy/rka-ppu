@@ -3,13 +3,13 @@
 <body class="  ">
    <!-- loader Start -->
    <div id="loading">
-        <div class="loader simple-loader">
-            <div class="loader-body" style="position: relative;">
-                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
-                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
-            </div>
-        </div>
-    </div>
+      <div class="loader simple-loader">
+         <div class="loader-body" style="position: relative;">
+            <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+            <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
+         </div>
+      </div>
+   </div>
    <!-- loader END -->
    <?php $this->load->view('template/sidemenu'); ?>
    <main class="main-content">
@@ -20,18 +20,20 @@
       </div>
       <?php
       $update = $data->row();
-      $nama_standar_biaya  = set_value('nama_standar_biaya') == "" && !empty($update) ? $update->nama_standar_biaya : set_value('nama_standar_biaya');
-      $jumlah_standar_biaya  = set_value('jumlah_standar_biaya') == "" && !empty($update) ? $update->jumlah_standar_biaya : set_value('jumlah_standar_biaya');
-      $no_rekening      = set_value('kode_rekening_1') == "" && !empty($update) ? $update->no_rekening_standar_biaya : set_value('kode_rekening_1');
-      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = '';
+      $nama_standar_biaya = set_value('nama_standar_biaya') == "" && !empty($update) ? $update->nama_standar_biaya : set_value('nama_standar_biaya');
+      $jumlah_standar_biaya = set_value('jumlah_standar_biaya') == "" && !empty($update) ? $update->jumlah_standar_biaya : set_value('jumlah_standar_biaya');
+      $no_rekening = set_value('kode_rekening_1') == "" && !empty($update) ? $update->no_rekening_standar_biaya : set_value('kode_rekening_1');
+      $satuan_harga = set_value('satuan_harga') == "" && !empty($update) ? $update->satuan_harga : set_value('satuan_harga');
+      $value_harga = !empty($update) && $update->nama_satuan != '' ? $update->nama_satuan : '';
+      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = $kode_rekening_6 = '';
       if (!empty($update)) {
          $exp = explode('.', $update->no_rekening_standar_biaya);
-         $kode_rekening_1 = isset($exp[0]) ? $exp[0] : set_value('kode_rekening_1');;
-         $kode_rekening_2 = isset($exp[1]) ? $exp[1] : set_value('kode_rekening_2');;
-         $kode_rekening_3 = isset($exp[2]) ? $exp[2] : set_value('kode_rekening_3');;
-         $kode_rekening_4 = isset($exp[3]) ? $exp[3] : set_value('kode_rekening_4');;
-         $kode_rekening_5 = isset($exp[4]) ? $exp[4] : set_value('kode_rekening_5');;
-         $kode_rekening_6 = isset($exp[5]) ? $exp[5] : set_value('kode_rekening_6');;
+         $kode_rekening_1 = isset($exp[0]) ? $exp[0] : set_value('kode_rekening_1');
+         $kode_rekening_2 = isset($exp[1]) ? $exp[1] : set_value('kode_rekening_2');
+         $kode_rekening_3 = isset($exp[2]) ? $exp[2] : set_value('kode_rekening_3');
+         $kode_rekening_4 = isset($exp[3]) ? $exp[3] : set_value('kode_rekening_4');
+         $kode_rekening_5 = isset($exp[4]) ? $exp[4] : set_value('kode_rekening_5');
+         $kode_rekening_6 = isset($exp[5]) ? $exp[5] : set_value('kode_rekening_6');
       }
       $rekening_utama   = set_value('is_utama') == "" && !empty($update) ? $update->is_utama : set_value('is_utama');
       $flag             = set_value('flag') == "" && !empty($update) ? $update->flag : set_value('flag');
@@ -132,6 +134,17 @@
                                     <?php echo form_error('flag'); ?>
                                  </div>
                               </div>
+                              <div class="form-group col-md-6">
+                                 <label class="form-label" for="fname">Satuan Harga</label>
+                                 <select id="satuan_harga" name="satuan_harga" class="form-control">
+                                    <?php if ($satuan_harga != '') { ?>
+                                       <option selected value="<?php echo $satuan_harga ?>"><?php echo $value_harga ?></option>
+                                    <?php } ?>
+                                 </select>
+                                 <div style="color:red">
+                                    <?php echo form_error('satuan_harga'); ?>
+                                 </div>
+                              </div>
                            </div>
                            <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Perbaharui</button>
                            <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
@@ -143,4 +156,32 @@
             </div>
          </div>
       </div>
+      <script>
+         $(document).ready(function() {
+            $('#satuan_harga').select2({
+               ajax: {
+                  url: "<?php echo route('biaya.get-satuan') ?>",
+                  method: 'POST',
+                  dataType: 'json',
+                  delay: 250,
+                  data: function(params) {
+                     const token = $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val();
+                     return {
+                        query: params.term,
+                        <?php echo $this->security->get_csrf_token_name(); ?>: token != '' ? token : '<?php echo $this->security->get_csrf_hash(); ?>'
+                     };
+                  },
+                  processResults: function(data, params) {
+                     const newToken = data.newToken;
+                     $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val(newToken);
+
+                     return {
+                        results: data.listSatuan,
+                     };
+                  },
+                  cache: true
+               },
+            });
+         });
+      </script>
       <?php $this->load->view('template/footer'); ?>

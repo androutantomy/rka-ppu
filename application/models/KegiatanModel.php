@@ -12,7 +12,7 @@ Class KegiatanModel extends CI_model {
 
     function get_all_data($filter)
     {
-        $this->db->select('nama_kegiatan, no_rekening_kegiatan, uuid_kegiatan, flag');
+        $this->db->select('nama_kegiatan, no_rekening_kegiatan, uuid_kegiatan, parent_kegiatan, flag');
         
         $limit = $filter['limit'];
         if (isset($filter['start']) && !empty($filter['start'])) {
@@ -27,7 +27,7 @@ Class KegiatanModel extends CI_model {
             $this->db->like('nama_kegiatan', $filter['search'], 'both');
         }
 
-        $this->db->where('parent_kegiatan', null);
+        // $this->db->where('parent_kegiatan', null);
         $this->db->limit($limit, isset($offset)?$offset:0);
         $this->db->order_by('no_rekening_kegiatan', 'asc');
         $data = $this->db->get('mst_kegiatan');
@@ -51,8 +51,9 @@ Class KegiatanModel extends CI_model {
 
     function get_kegiatan_by_uuid($uuid) 
     {
-        $this->db->select('uuid_kegiatan, nama_kegiatan, no_rekening_kegiatan, flag');
-        $data = $this->db->get_where('mst_kegiatan', ['uuid_kegiatan' => $uuid]);
+        $this->db->select('mst_kegiatan.uuid_kegiatan, mst_kegiatan.nama_kegiatan, mst_kegiatan.no_rekening_kegiatan, mst_kegiatan.flag, b.uuid_kegiatan as child_uuid_kegiatan, b.nama_kegiatan as nama_child');
+        $this->db->join('mst_kegiatan b', 'b.uuid_kegiatan = mst_kegiatan.parent_kegiatan', 'left');
+        $data = $this->db->get_where('mst_kegiatan', ['mst_kegiatan.uuid_kegiatan' => $uuid]);
 
         return $data;
     }
@@ -82,6 +83,16 @@ Class KegiatanModel extends CI_model {
         }
 
         $data = $this->db->from('mst_kegiatan')->count_all_results();
+
+        return $data;
+    }
+
+    function get_kegiatan_terkait_by_norek($norek)
+    {
+        $this->db->select('*');
+        $this->db->like('no_rekening_kegiatan', $norek, 'after')->where('flag', '1');
+        $this->db->order_by('no_rekening_kegiatan', 'ASC');
+        $data = $this->db->get('mst_kegiatan');
 
         return $data;
     }

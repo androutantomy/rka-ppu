@@ -14,17 +14,21 @@ class SubKegiatanModel extends CI_Model
     function get_all_data($filter)
     {
         $this->db->select('nama_kegiatan, no_rekening_kegiatan, uuid_kegiatan, flag');
-        if ($filter['search'] != '') {
+        if (isset($filter['search']) && $filter['search'] != '') {
             $this->db->like('nama_kegiatan', $filter['search'], 'both');
         }
 
-        $limit = $filter['limit'];
-        if (isset($filter['start']) && !empty($filter['start'])) {
-            $offset = ($filter['start'] * $limit) - 10;
+        if (isset($filter['limit']) && $filter['limit'] > 0) {
+            $limit = $filter['limit'];
+            if (isset($filter['start']) && !empty($filter['start'])) {
+                $offset = ($filter['start'] * $limit) - 10;
+            }
         }
 
         $this->db->where('parent_kegiatan', $filter['parent']);
-        $this->db->limit($limit, isset($offset) ? $offset : 0);
+        if ($filter['limit'] > 0) {
+            $this->db->limit($limit, isset($offset) ? $offset : 0);
+        }
         $this->db->order_by('no_rekening_kegiatan', 'asc');
         $data = $this->db->get('mst_kegiatan');
 
@@ -41,5 +45,25 @@ class SubKegiatanModel extends CI_Model
         $data = $this->db->select('nama_kegiatan')->from('mst_kegiatan')->count_all_results();
 
         return $data;
+    }
+
+    function get_total_belanja_by_id_kegiatan($filter)
+    {
+        $uuid_user = $this->session->userdata('uuid_user');
+        if (isset($filter['uuid_user']) && $filter['uuid_user'] != '-') {
+            $uuid_user = $filter['uuid_user'];
+        }
+
+        $this->db->where('uuid_user', $uuid_user);
+        $data = $this->db->select("SUM(total_belanja) as total_rincian")
+        ->get_where('rincian_belanja', 
+        ['tahun_anggaran' => $this->session->userdata('anggaran'),
+        'uuid_kegiatan' => $filter['uuid_kegiatan']])->row();
+
+        $res = 0;
+        if (!empty($data)) {
+            $res = $data->total_rincian;
+        }
+        return $res;
     }
 }

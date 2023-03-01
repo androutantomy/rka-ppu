@@ -22,7 +22,7 @@
       $update = $data->row();
       $nama_kegiatan  = set_value('nama_kegiatan') == "" && !empty($update) ? $update->nama_kegiatan : set_value('nama_kegiatan');
       $no_rekening      = set_value('kode_rekening_1') == "" && !empty($update) ? $update->no_rekening_kegiatan : set_value('kode_rekening_1');
-      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = '';
+      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = $kode_rekening_6 = '';
       if (!empty($update)) {
          $exp = explode('.', $update->no_rekening_kegiatan);
          $kode_rekening_1 = isset($exp[0]) ? $exp[0] : set_value('kode_rekening_1');;
