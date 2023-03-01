@@ -3,27 +3,27 @@
 <body class="  ">
    <!-- loader Start -->
    <div id="loading">
-        <div class="loader simple-loader">
-            <div class="loader-body" style="position: relative;">
-                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
-                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
-            </div>
-        </div>
-    </div>
+      <div class="loader simple-loader">
+         <div class="loader-body" style="position: relative;">
+            <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+            <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
+         </div>
+      </div>
+   </div>
    <!-- loader END -->
    <?php $this->load->view('template/sidemenu'); ?>
    <main class="main-content">
       <div class="position-relative  iq-banner ">
          <!--Nav Start-->
          <?php $this->load->view('template/header'); ?>
-         
+
       </div>
       <?php
       $update = $data->row();
       $nama_pendapatan  = set_value('nama_pendapatan') == "" && !empty($update) ? $update->nama_pendapatan : set_value('nama_pendapatan');
       $jumlah_pendapatan  = set_value('jumlah_pendapatan') == "" && !empty($update) ? $update->jumlah_pendapatan : set_value('jumlah_pendapatan');
       $no_rekening      = set_value('kode_rekening_1') == "" && !empty($update) ? $update->no_rekening_pendapatan : set_value('kode_rekening_1');
-      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = '';
+      $kode_rekening_1 = $kode_rekening_2 = $kode_rekening_3 = $kode_rekening_4 = $kode_rekening_5 = $kode_rekening_6 = '';
       if (!empty($update)) {
          $exp = explode('.', $update->no_rekening_pendapatan);
          $kode_rekening_1 = isset($exp[0]) ? $exp[0] : set_value('kode_rekening_1');;

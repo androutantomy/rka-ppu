@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/customizer.min.css?v=1.0.1">
 
     <!-- RTL Css -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/rtl.min.css?v=1.0.1">
+    <!-- <link rel="stylesheet" href="<?php // echo base_url() ?>assets/css/rtl.min.css?v=1.0.1"> -->
     <!-- Choisejs css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/choiceJS/style/choices.min.css">
     <!-- css untuk select2 -->

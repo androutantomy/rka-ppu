@@ -83,7 +83,7 @@
                                                         <td>
                                                             <?php echo $result->is_utama != "" ? '<strong>' . strtoupper($result->nama_standar_biaya) . '</strong>' : ucwords(strtolower($result->nama_standar_biaya)) ?>
                                                         </td>
-                                                        <td><?php echo 'Rp. ' . number_format($result->jumlah_standar_biaya, 0, ',', '.') ?></td>
+                                                        <td><?php echo $result->jumlah_standar_biaya != "" ? 'Rp. ' . number_format($result->jumlah_standar_biaya, 0, ',', '.') : ''; ?></td>
                                                         <td><span class="badge bg-<?php echo $result->flag == "1" ? "success" : "danger" ?>"><?php echo $result->flag == "1" ? "Aktif" : "Tidak Aktif" ?></span></td>
                                                         <td class="text-center">
                                                             <div class="flex align-items-center list-user-action">

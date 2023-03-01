@@ -100,8 +100,8 @@ class TahunAnggaranController extends CI_Controller
                 $budget_admin = [];
                 foreach ($admin->result() as $admin) {
                     $budget = [
-                        'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))),
-                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))))
+                        'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))),
+                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))))
                     ];
 
                     array_push($budget_admin, $budget);
@@ -139,8 +139,8 @@ class TahunAnggaranController extends CI_Controller
                 $budget_admin = [];
                 foreach ($admin->result() as $admin) {
                     $budget = [
-                        'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))),
-                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))))
+                        'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))),
+                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))))
                     ];
 
                     array_push($budget_admin, $budget);

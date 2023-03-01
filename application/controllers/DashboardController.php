@@ -26,6 +26,7 @@ class DashboardController extends CI_Controller
         $data['total'] = $this->AktifitasModel->get_total_data($filter);
         $data['start'] = $start;
         $data['search'] = $search;
+        $data['rincian_belanja'] = get_list_total_anggaran();
 
         $this->load->view('dashboard/index', $data);
     }

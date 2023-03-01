@@ -119,7 +119,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" id="tokenCustom" value="">
                                     <button type="submit" class="btn btn-primary" style="margin-top:20px;background:#009E3D !important;border:1px solid #009E3D !important;">Tambahkan</button>
                                     <a href="<?php echo route($this->uri->segment(1) . '.home') ?>" role="button" class="btn btn-primary" style="margin-top:20px;">Kembali</a>
                                     </form>
@@ -133,24 +132,28 @@
         <script>
             $(document).ready(function() {
                 $('#satuan_harga').select2({
-                    allowClear: true,
-                    placeholder: 'Satuan harga',
                     ajax: {
+                        url: "<?php echo route('biaya.get-satuan') ?>",
+                        method: 'POST',
                         dataType: 'json',
-                        url: '<?php echo route('biaya.get-satuan') ?>',
-                        delay: 800,
+                        delay: 250,
                         data: function(params) {
+                            const token = $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val();
                             return {
                                 query: params.term,
-                                <?php echo $this->security->get_csrf_token_name(); ?>: tokenCustom == '' ? '<?php echo $this->security->get_csrf_hash(); ?>' : tokenCustom
-                            }
-                        },
-                        processResults: function(data, page) {
-                            return {
-                                results: data
+                                <?php echo $this->security->get_csrf_token_name(); ?>: token != '' ? token : '<?php echo $this->security->get_csrf_hash(); ?>'
                             };
                         },
-                    }
+                        processResults: function(data, params) {
+                            const newToken = data.newToken;
+                            $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val(newToken);
+
+                            return {
+                                results: data.listSatuan,
+                            };
+                        },
+                        cache: true
+                    },
                 });
             });
         </script>

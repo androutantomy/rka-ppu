@@ -40,7 +40,8 @@ Class StandarBiayaModel extends CI_Model {
 
     function get_standar_biaya_by_uuid($uuid) 
     {
-        $this->db->select('uuid_standar_biaya, no_rekening_standar_biaya, is_utama, nama_standar_biaya, flag, jumlah_standar_biaya');
+        $this->db->select('uuid_standar_biaya, no_rekening_standar_biaya, is_utama, nama_standar_biaya, mst_standar_biaya.flag, b.nama_satuan, jumlah_standar_biaya, satuan_harga');
+        $this->db->join('mst_satuan b', 'mst_standar_biaya.satuan_harga = b.uuid_satuan', 'left');
         $data = $this->db->get_where('mst_standar_biaya', ['uuid_standar_biaya' => $uuid]);
 
         return $data;

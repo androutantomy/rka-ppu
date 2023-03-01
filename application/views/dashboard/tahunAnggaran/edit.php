@@ -97,7 +97,7 @@
                               ?>
                                     <div class="form-group col-md-3">
                                        <label class="form-label" for="lname">Anggaran <?php echo ucwords($admin->nama_user); ?></label>
-                                       <input type="text" name="budget_<?php echo str_replace(' ', '_', trim(strtolower($admin->nama_user))); ?>" value="<?php echo in_array('budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user))), array_keys($arr_anggaran)) ? $arr_anggaran['budget_' . str_replace(' ', '_', trim(strtolower($admin->nama_user)))] : '' ?>" class="form-control" id="budget_<?php echo str_replace(' ', '_', strtolower($admin->nama_user)); ?>" placeholder="Budget Tahun Anggaran">
+                                       <input type="text" name="budget_<?php echo str_replace(' ', '_', trim(strtolower($admin->uuid_user))); ?>" value="<?php echo in_array('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))), array_keys($arr_anggaran)) ? $arr_anggaran['budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user)))] : '' ?>" class="form-control" id="budget_<?php echo str_replace(' ', '_', strtolower($admin->uuid_user)); ?>" placeholder="Budget Tahun Anggaran">
                                     </div>
                                  <?php } ?>
                               <?php } ?>                              

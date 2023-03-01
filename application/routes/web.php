@@ -72,13 +72,19 @@ Route::group('', ['middleware' => ['AnggaranMiddleware', 'AktifitasMiddleware']]
         Route::post('get-satuan', 'StandarBiayaController@doGetSatuan')->name('biaya.get-satuan');
     });
     
-    
     Route::group('belanja', ['middleware' => ['AuthMiddleware']], function() {
         Route::get('/', 'BelanjaController@index')->name('belanja.home');
         Route::get('tambah', 'BelanjaController@add')->name('belanja.tambah');
         Route::get('ubah', 'BelanjaController@edit')->name('belanja.ubah');
-        Route::get('detail', 'BelanjaController@detail')->name('belanja.detail');
-        Route::get('cetak', 'BelanjaController@cetak')->name('belanja.cetak');
+        Route::get('detail/{uuid}', 'BelanjaController@detail')->name('belanja.detail');
+        Route::get('cetak/{uuid}', 'BelanjaController@cetak')->name('belanja.cetak');
+        Route::get('{prodi}/{num:start?}/{search?}', 'BelanjaController@index')->name('belanja.home2');
+        Route::post('get-komponen', 'BelanjaController@doGetKomponen')->name('belanja.get-komponen');
+        Route::post('get-biaya', 'BelanjaController@doGetBiayaByUuid')->name('belanja.get-biaya');
+        Route::post('simpan', 'BelanjaController@doSimpan')->name('belanja.simpan');
+        Route::get('detail/{uuid}/{num:start?}/{search?}', 'BelanjaController@detail')->name('belanja.detail2');
+        Route::post('hapus', 'BelanjaController@doHapus')->name('belanja.hapus');
+        Route::post('get-detail-update', 'BelanjaController@doGetDetailUpdate')->name('belanja.get-detail-update');
     });
     
     Route::group('kegiatan', ['middleware' => ['AuthMiddleware']], function() {
@@ -89,6 +95,7 @@ Route::group('', ['middleware' => ['AnggaranMiddleware', 'AktifitasMiddleware']]
         Route::post('simpan', 'KegiatanController@doSimpan')->name('kegiatan.simpan');
         Route::post('simpan-ubah', 'KegiatanController@doUbah')->name('kegiatan.simpan-ubah');
         Route::post('hapus', 'KegiatanController@doHapus')->name('kegiatan.hapus');
+        Route::post('get-komponen', 'KegiatanController@doGetKegiatan')->name('kegiatan.get-kegiatan');
     });
     
     Route::group('subkegiatan/{_locale_uuid}', ['middleware' => ['AuthMiddleware']], function() {
