@@ -32,10 +32,16 @@
     <!-- Choisejs css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/choiceJS/style/choices.min.css">
     <!-- css untuk select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
     <!-- js untuk select2  -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <!-- css untuk select2 -->
+    <link href="<?php echo base_url() ?>assets/new_assets/select2.min.css" rel="stylesheet" />
+    <!-- js untuk select2  -->
+    <script src="<?php echo base_url() ?>assets/new_assets/jquery.js"></script>
+    <script src="<?php echo base_url() ?>assets/new_assets/select2.min.js"></script>
+    
 
 
     <!-- Google Font -->
