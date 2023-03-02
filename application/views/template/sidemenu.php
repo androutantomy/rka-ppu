@@ -34,6 +34,7 @@
                         <span class="item-name">Dashboard</span>
                     </a>
                 </li>
+                <?php if ($this->session->userdata('level_user') == "1") { ?>
                 <li class="nav-item static-item" style="margin-top:20px;">
                     <a class="nav-link static-item disabled text-start" href="#" tabindex="-1">
                         <span class="default-icon">MASTER DATA</span>
@@ -107,6 +108,7 @@
                         <span class="item-name">Kegiatan</span>
                     </a>
                 </li>
+                <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $active != '' && $active == 'aktifitas' ? 'active' : '' ?>" aria-current="page" href="<?php echo route('aktifitas.home') ?>">
                         <i class="icon" data-bs-toggle="tooltip" title="Blank Page" data-bs-placement="right">
@@ -124,7 +126,7 @@
 
                 <li class="nav-item static-item">
                     <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                        <span class="default-icon">Pages</span>
+                        <span class="default-icon">Aktifitas</span>
                         <span class="mini-icon">-</span>
                     </a>
                 </li>

@@ -108,7 +108,7 @@ function get_list_total_anggaran()
             foreach ($anggaran_prodi as $prodi) {
                 $belanja_prodi += $prodi->budget;
                 if ($level_user != "1" && 'budget_' . $uuid_user == $prodi->admin) {
-                    $belanja_prodi = number_format($prodi->budget, 0, '.', ',');
+                    $belanja_prodi = $prodi->budget;
                 }
             }
         }
