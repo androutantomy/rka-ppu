@@ -126,12 +126,13 @@ function get_list_total_anggaran()
     return $res;
 }
 
-function currency_formatter($number = '')
+function currency_formatter($number = '', $with_currency = true)
 {
     $num = '';
+    $currency = $with_currency ? 'Rp. ' : '';
 
     if ($number != '') {
-        $num = "Rp. " . number_format($number, 0);
+        $num = $currency . number_format($number, 0, ',', '.');
     }
 
     return $num;

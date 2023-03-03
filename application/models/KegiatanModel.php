@@ -97,4 +97,15 @@ Class KegiatanModel extends CI_model {
         return $data;
     }
 
+    function get_total_kegiatan_by_norek($norek)
+    {
+        $this->db->select('SUM(b.total_belanja) total_belanja');
+        $this->db->like('no_rekening_kegiatan', $norek, 'after')->where('flag', '1')
+                ->join('rincian_belanja b', 'b.uuid_kegiatan = mst_kegiatan.uuid_kegiatan', 'left');
+        $this->db->order_by('no_rekening_kegiatan', 'ASC');
+        $data = $this->db->get('mst_kegiatan');
+
+        return $data;
+    }
+
 }

@@ -12,6 +12,10 @@
       font-size: 10pt;
       background-color: white
     }
+
+    table tr td {
+      padding: 3px;
+    }
   </style>
 </head>
 
@@ -75,32 +79,59 @@
   <table style="border-collapse: collapse;" border="0" width="100%">
     <thead>
       <tr>
-        <td style="border: 1px solid black" colspan="13" style="text-align: center"><center>RINCIAN BELANJA SUB KEGIATAN</center></td>
+        <td style="border: 1px solid black" colspan="13" style="text-align: center">
+          <center>RINCIAN BELANJA SUB KEGIATAN</center>
+        </td>
       </tr>
       <tr>
-        <td style="border: 1px solid black" rowspan="5" width="10%">Kode Rekening</td>
-        <td style="border: 1px solid black" rowspan="5" width="20%" style="text-align: center;"><center>Uraian</center></td>
-        <td style="border: 1px solid black" colspan="5" style="text-align: center;" width="30%"><center>Asli</center></td>
-        <td style="border: 1px solid black" colspan="5" style="text-align: center;" width="30%"><center>Perubahan</center></td>
-        <td style="border: 1px solid black" rowspan="4" style="text-align: center;"><center>Bertambah / Berkurang</center></td>
+        <td style="border: 1px solid black" colspan="2" rowspan="5" width="30%" style="text-align: center;">
+          <center>Uraian</center>
+        </td>
+        <td style="border: 1px solid black" colspan="5" style="text-align: center;" width="30%">
+          <center>Asli</center>
+        </td>
+        <td style="border: 1px solid black" colspan="5" style="text-align: center;" width="30%">
+          <center>Perubahan</center>
+        </td>
+        <td style="border: 1px solid black" rowspan="4" style="text-align: center;">
+          <center>Bertambah / Berkurang</center>
+        </td>
       </tr>
       <tr>
-        <td style="border: 1px solid black" colspan="4" style="text-align: center;"><center>Rincian Perhitungan</center></td>
-        <td style="border: 1px solid black" rowspan="3" style="text-align: center;"><center>Jumlah</center></td>
-        <td style="border: 1px solid black" colspan="4" style="text-align: center;"><center>Rincian Perhitungan</center></td>
-        <td style="border: 1px solid black" rowspan="3" style="text-align: center;"><center>Jumlah</center></td>
+        <td style="border: 1px solid black" rowspan="3" style="text-align: center;">
+          <center>Koefisien</center>
+        </td>
+        <td style="border: 1px solid black" rowspan="3" style="text-align: center;">
+          <center>Satuan</center>
+        </td>
       </tr>
       <tr>
-        <td style="border: 1px solid black" rowspan="2"><center>Koefisien</center></td>
-        <td style="border: 1px solid black" rowspan="2"><center>Satuan</center></td>
-        <td style="border: 1px solid black" rowspan="2"><center>Satuan</center></td>
-        <td style="border: 1px solid black" rowspan="2"><center>PPN</center></td>
+        <td style="border: 1px solid black" rowspan="2">
+          <center>Harga Satuan</center>
+        </td>
+        <td style="border: 1px solid black" rowspan="2">
+          <center>PPN</center>
+        </td>
+        <td style="border: 1px solid black" rowspan="2">
+          <center>Total</center>
+        </td>
+        <td style="border: 1px solid black" rowspan="2">
+          <center>Koefisien</center>
+        </td>
       </tr>
       <tr>
-        <td style="border: 1px solid black"><center>Koefisien</center></td>
-        <td style="border: 1px solid black"><center>Satuan</center></td>
-        <td style="border: 1px solid black"><center>Satuan</center></td>
-        <td style="border: 1px solid black"><center>PPN</center></td>
+        <td style="border: 1px solid black">
+          <center>Satuan</center>
+        </td>
+        <td style="border: 1px solid black">
+          <center>Harga Satuan</center>
+        </td>
+        <td style="border: 1px solid black">
+          <center>PPN</center>
+        </td>
+        <td style="border: 1px solid black">
+          <center>Total</center>
+        </td>
       </tr>
     </thead>
     <tbody>
@@ -111,8 +142,8 @@
       ?>
           <tr>
             <td style="border: 1px solid black"><?php echo $result->no_rekening_kegiatan; ?></td>
-            <td style="border: 1px solid black" colspan="5"><?php echo $result->nama_kegiatan; ?></td>
-            <td style="border: 1px solid black"></td>
+            <td style="border: 1px solid black" colspan="5"><strong><?php echo strtoupper($result->nama_kegiatan); ?></strong></td>
+            <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($result->total_belanja, false) ?></td>
             <td style="border: 1px solid black" colspan="4"></td>
             <td style="border: 1px solid black"></td>
             <td style="border: 1px solid black"></td>
@@ -122,13 +153,21 @@
           ?>
               <tr>
                 <td style="border: 1px solid black"></td>
+                <td style="border: 1px solid black" colspan="5"><strong>[Ket] <?php echo $belanja->keterangan; ?></strong></td>
+                <td style="border: 1px solid black"></td>
+                <td style="border: 1px solid black" colspan="4"></td>
+                <td style="border: 1px solid black"></td>
+                <td style="border: 1px solid black"></td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid black"></td>
                 <td style="border: 1px solid black"><?php echo $belanja->nama_standar_biaya; ?></td>
-                <td style="border: 1px solid black"><?php echo $belanja->koefisien_1; ?></td>
-                <td style="border: 1px solid black"><?php echo $belanja->nama_satuan; ?></td>
-                <td style="border: 1px solid black"><?php echo $belanja->jumlah_standar_biaya; ?></td>
+                <td style="border: 1px solid black"><?php echo $belanja->koefisien_1 ?><?php echo $belanja->volume_2 != "" ? ' X ' : '' ?><?php echo $belanja->volume_2 != "" ? $belanja->volume_2 : '' ?> <?php echo $belanja->nama_satuan; ?></td>
+                <td style="border: 1px solid black"><?php echo $belanja->satuan_nama; ?></td>
+                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->jumlah_standar_biaya, false); ?></td>
                 <td style="border: 1px solid black"><?php echo $belanja->pajak == '1' ? $this->config->item('ppn_value') : ''; ?></td>
-                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja);
-                    $grand_total += $belanja->total_belanja; ?></td>
+                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja, false);
+                                                                        $grand_total += $belanja->total_belanja; ?></td>
                 <td style="border: 1px solid black" colspan="4"></td>
                 <td style="border: 1px solid black"></td>
                 <td style="border: 1px solid black"></td>
@@ -139,27 +178,33 @@
       <?php } ?>
       <tr>
         <td style="border: 1px solid black" colspan="6" style="text-align: center;"><strong>Grand Total</strong> :</td>
-        <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($grand_total) ?></td>
+        <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($grand_total, false) ?></td>
         <td style="border: 1px solid black" colspan="5"></td>
         <td style="border: 1px solid black"></td>
       </tr>
-      <tr>
-        <td style="border: 1px solid black" colspan="7" style="text-align: center;"></td>
-        <td style="border: 1px solid black" colspan="7" style="text-align: center;"><center>Samarinda, <?php echo date('d-m-Y'); ?></center></td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid black" colspan="7" style="text-align: center;">
-          <center>Pembina <?php echo $this->session->userdata('nama_user') ?>
-          <br><br><br><br>
-          Prof. Dr. Awang Faroek Ishak, M.M</center>
-        </td>
-        <td style="border: 1px solid black" colspan="7" style="text-align: center;">
-          <center>Ketua <?php echo $this->session->userdata('nama_user') ?>
-          <br><br><br><br>
-          Dayang Donna Walfiaries Tania, S.Psi, M.M</center>
-        </td>
-      </tr>
     </tbody>
+  </table>
+  <table width="100%">
+    <tr>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;">
+        <center>Samarinda, <?php echo date('d-m-Y'); ?></center>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">
+        <center>Pembina <?php echo $this->config->item('yayasan_name') ?>
+          <br><br><br><br><br><br>
+          Prof. Dr. H. Awang Faroek Ishak, M.M
+        </center>
+      </td>
+      <td style="text-align: center;">
+        <center>Ketua <?php echo $this->config->item('yayasan_name') ?>
+          <br><br><br><br><br><br>
+          Hj. Dayang Donna Walfiaries Tania, S.Psi, M.M
+        </center>
+      </td>
+    </tr>
   </table>
   <script>
     window.print();

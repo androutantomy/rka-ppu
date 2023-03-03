@@ -113,7 +113,7 @@
                                                 <tr>
                                                     <td><?php echo date('d-m-Y', strtotime($result->tanggal_belanja)) ?></td>
                                                     <td><?php echo $result->no_rekening_standar_biaya . ' ' . $result->nama_standar_biaya ?></td>
-                                                    <td class="text-center"><?php echo $result->koefisien_1; ?></td>
+                                                    <td class="text-center"><?php echo $result->koefisien_1 ?><?php echo $result->volume_2 != "" ? ' X ' : '' ?><?php echo $result->volume_2 != "" ? $result->volume_2 : '' ?> <?php echo $result->nama_satuan; ?> </td>
                                                     <td class="text-center"><?php echo $result->pajak == "1" ? $this->config->item('ppn_value') : ''; ?></td>
                                                     <td class="text-center"><?php echo 'Rp. ' . number_format($result->total_belanja, 0, '.', ',') ?></td>
                                                     <td class="text-center">
@@ -169,17 +169,17 @@
                                             <div class="row">
                                                 <input type="hidden" name="uuid_rincian_belanja" id="uuid_rincian_belanja">
                                                 <input type="hidden" id="<?php echo $this->security->get_csrf_token_name(); ?>" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-4">
                                                     <label class="form-label" for="tanggal_belanja">Tanggal</label>
                                                     <input type="date" name="tanggal_belanja" class="form-control" id="tanggal_belanja">
                                                 </div>
                                                 <div class="col-md-6"></div>
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-7">
                                                     <label class="form-label">Komponen</label><br>
                                                     <select name="komponen_belanja" class="form-control" id="komponen_belanja" data-style="py-0"></select>
                                                 </div>
 
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-5">
                                                     <label class="form-label" for="lname">Harga Satuan (Rp)</label>
                                                     <div class="row">
                                                         <div class="col-md-7">
@@ -191,12 +191,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-2">
                                                     <label class="form-label" for="lname">Koefisien</label>
                                                     <input type="text" class="form-control" id="koefisien_1" name="koefisien_1" placeholder="Koefisien">
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-2">
                                                     <label class="form-label" for="lname">Volume</label><br>
+                                                    <input type="text" id="volume_2" name="volume_2" placeholder="Volume" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label class="form-label" for="lname">Satuan</label><br>
                                                     <select class="form-control" id="volume_1" name="volume_1" placeholder="Volume"></select>
                                                 </div>
                                                 <div class="col-md-4"></div>
@@ -381,35 +385,7 @@
 
             $('#volume_1').select2({
                 width: '100%',
-                placeholder: 'Pilih Volume',
-                dropdownParent: $('#exampleModalCenter'),
-                ajax: {
-                    url: "<?php echo route('biaya.get-satuan') ?>",
-                    method: 'POST',
-                    dataType: 'json',
-                    delay: 250,
-                    data: function(params) {
-                        const token = $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val();
-                        return {
-                            query: params.term,
-                            <?php echo $this->security->get_csrf_token_name(); ?>: token != '' ? token : '<?php echo $this->security->get_csrf_hash(); ?>'
-                        };
-                    },
-                    processResults: function(data, params) {
-                        const newToken = data.newToken;
-                        $("input[name='<?php echo $this->security->get_csrf_token_name(); ?>']").val(newToken);
-
-                        return {
-                            results: data.listSatuan,
-                        };
-                    },
-                    cache: true
-                },
-            });
-
-            $('#volume_2').select2({
-                width: '100%',
-                placeholder: 'Pilih Volume',
+                placeholder: 'Pilih Satuan',
                 dropdownParent: $('#exampleModalCenter'),
                 ajax: {
                     url: "<?php echo route('biaya.get-satuan') ?>",
@@ -479,6 +455,7 @@
                         $("#komponen_belanja").html(komponen);
                         $("#koefisien_1").val(data.koefisien_1);
                         $("#volume_1").html(volume_1);
+                        $("#volume_2").val(data.volume_2);
                         if (data.pajak == '0') {
                             $('#pajak_tidak').prop('checked', true);
                         } else {
@@ -510,6 +487,7 @@
                     $("#komponen_belanja").html('');
                     $("#koefisien_1").val('');
                     $("#volume_1").html('');
+                    $("#volume_2").html('');
                     $('#pajak_tidak').prop('checked', false);
                     $('#pajak_ya').prop('checked', false);
                     $("#keterangan").val('');

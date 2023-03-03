@@ -106,16 +106,20 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-lg-3">
-                                        <select class="form-select" name="prodi_search" id="prodi_search">
-                                            <option value="-">----- Pilih -----</option>
-                                            <?php 
-                                            if ($admin_prodi->num_rows() > 0) { 
-                                                foreach ($admin_prodi->result() as $admin) {
-                                            ?>
-                                            <option value="<?php echo $admin->uuid_user ?>"><?php echo $admin->nama_user; ?></option>
+                                        <?php
+                                        if ($this->session->userdata('level_user') == '1') {
+                                        ?>
+                                            <select class="form-select" name="prodi_search" id="prodi_search">
+                                                <option value="-">----- Pilih -----</option>
+                                                <?php
+                                                if ($admin_prodi->num_rows() > 0) {
+                                                    foreach ($admin_prodi->result() as $admin) {
+                                                ?>
+                                                        <option <?php echo $admin->uuid_user == $prodi_value ? 'selected' : ''; ?> value="<?php echo $admin->uuid_user ?>"><?php echo $admin->nama_user; ?></option>
+                                                    <?php } ?>
+                                                <?php } ?>
                                             <?php } ?>
-                                            <?php } ?>
-                                        </select>
+                                            </select>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control float-right" value="<?php echo $search ?>" name="search" id="search" placeholder="Search...">
@@ -156,7 +160,7 @@
                                             ?>
                                                     <tr>
                                                         <td><?php echo $result->no_rekening_kegiatan . ' <strong>' . strtoupper($result->nama_kegiatan) . '' ?></strong></td>
-                                                        <td class="text-center"></td>
+                                                        <td class="text-center"><?php echo currency_formatter($result->total_belanja) ?></td>
                                                         <td class="text-center"></td>
                                                     </tr>
                                                     <?php if (!empty($result->child)) {
@@ -206,7 +210,7 @@
                 const searchValue = document.getElementById('search');
                 const prodi = document.getElementById('prodi_search');
 
-                window.location = '<?php echo site_url("belanja/") ?>'+ prodi.value + '/' + '1/' + searchValue.value;
+                window.location = '<?php echo site_url("belanja/") ?>' + prodi.value + '/' + '1/' + searchValue.value;
             }
         </script>
         <!-- Settings sidebar end here -->

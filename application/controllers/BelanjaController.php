@@ -34,6 +34,7 @@ class BelanjaController extends CI_Controller
             foreach ($datatable->result() as $parent) {
                 $filter['parent'] = $parent->uuid_kegiatan;
                 $parent->child = $this->SubKegiatanModel->get_all_data($filter)->result();
+                $parent->total_belanja = $this->KegiatanModel->get_total_kegiatan_by_norek($parent->no_rekening_kegiatan)->row()->total_belanja;
                 if (!empty($parent->child)) {
                     foreach ($parent->child as $child) {
                         $filter2 = [
@@ -56,6 +57,7 @@ class BelanjaController extends CI_Controller
         $data['num_of_pages'] = $num_of_pages;
         $data['next'] = $next;
         $data['prev'] = $prev;
+        $data['prodi_value'] = $prodi_value;
         $data['rincian_belanja'] = get_list_total_anggaran();
         $data['admin_prodi'] = $this->UserModel->get_all_admin_prodi();
         $data['prodi_value'] = $prodi_value;
@@ -122,6 +124,7 @@ class BelanjaController extends CI_Controller
         if ($get_kegiatan_terkait->num_rows() > 0) {
             foreach ($get_kegiatan_terkait->result() as $kegiatan) {
                 $filter['uuid_kegiatan'] = $kegiatan->uuid_kegiatan;
+                $kegiatan->total_belanja = $this->KegiatanModel->get_total_kegiatan_by_norek($kegiatan->no_rekening_kegiatan)->row()->total_belanja;
                 $kegiatan->belanja = $this->BelanjaModel->get_all_data_sub_kegiatan($filter)->result();
             }
         }
@@ -215,20 +218,14 @@ class BelanjaController extends CI_Controller
             die;
         }
 
-        if ($this->input->post('koefisien_2') != '' && $this->input->post('volume_2') == '') {
-            $res->message = 'Koefisien 2 tidak boleh kosong';
-            echo json_encode($res);
-            die;
-        }
-
-        if ($this->input->post('koefisien_2') == '' && $this->input->post('volume_2') != '') {
-            $res->message = 'Volume 2 tidak boleh kosong';
+        if ($this->input->post('volume_2') == '0' && $this->input->post('volume_2') == '') {
+            $res->message = 'Volume tidak boleh kosong atau 0';
             echo json_encode($res);
             die;
         }
 
         if ($this->input->post('volume_1') == '' || $this->input->post('volume_1') == '0') {
-            $res->message = 'Volume tidak boleh kosong atau 0';
+            $res->message = 'Satuan tidak boleh kosong atau 0';
             echo json_encode($res);
             die;
         }
@@ -243,7 +240,7 @@ class BelanjaController extends CI_Controller
                 die;
             }
 
-            $total = $harga * $this->input->post('koefisien_1');
+            $total = ($this->input->post('koefisien_1') * $this->input->post('volume_2'))*$harga;
             if ($this->input->post('koefisien_2') != "") {
                 $total = $total * $this->input->post('koefisien_2');
             }

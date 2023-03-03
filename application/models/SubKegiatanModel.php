@@ -29,6 +29,7 @@ class SubKegiatanModel extends CI_Model
         if ($filter['limit'] > 0) {
             $this->db->limit($limit, isset($offset) ? $offset : 0);
         }
+        $this->db->where('flag', '1');
         $this->db->order_by('no_rekening_kegiatan', 'asc');
         $data = $this->db->get('mst_kegiatan');
 
