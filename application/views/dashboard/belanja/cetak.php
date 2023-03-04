@@ -70,12 +70,11 @@
     </tr>
     <tr>
       <td>Jumlah 2023</td>
-      <td>: Rp. <?php echo isset($total_belanja) && !empty($total_belanja) ? number_format($total_belanja->total_belanja, 0, '.', ',') : '-' ?></td>
+      <td>: <?php echo isset($total_belanja) && !empty($total_belanja) ? currency_formatter($total_belanja->total_belanja) : '-' ?></td>
     </tr>
   </table>
   <br>
   <br>
-
   <table style="border-collapse: collapse;" border="0" width="100%">
     <thead>
       <tr>
@@ -84,7 +83,7 @@
         </td>
       </tr>
       <tr>
-        <td style="border: 1px solid black" colspan="2" rowspan="5" width="30%" style="text-align: center;">
+        <td style="border: 1px solid black" colspan="2" rowspan="5" width="20%" style="text-align: center;">
           <center>Uraian</center>
         </td>
         <td style="border: 1px solid black" colspan="5" style="text-align: center;" width="30%">
@@ -93,7 +92,7 @@
         <td style="border: 1px solid black" colspan="5" style="text-align: center;" width="30%">
           <center>Perubahan</center>
         </td>
-        <td style="border: 1px solid black" rowspan="4" style="text-align: center;">
+        <td style="border: 1px solid black" rowspan="4" style="text-align: center;" width="10%">
           <center>Bertambah / Berkurang</center>
         </td>
       </tr>
@@ -150,12 +149,16 @@
           </tr>
           <?php if (!empty($result->belanja)) {
             foreach ($result->belanja as $belanja) {
+              $history = $belanja->history;
+              $cr_total = $belanja->total_belanja;
+              $hs_total = $history != "" ? $history->total_belanja : 0;
+              $dif_total = abs($cr_total - $hs_total) > 0 ? currency_formatter(abs($cr_total - $hs_total), false) : '';
           ?>
               <tr>
                 <td style="border: 1px solid black"></td>
                 <td style="border: 1px solid black" colspan="5"><strong>[Ket] <?php echo $belanja->keterangan; ?></strong></td>
                 <td style="border: 1px solid black"></td>
-                <td style="border: 1px solid black" colspan="4"></td>
+                <td style="border: 1px solid black" colspan="4"><strong>[Ket] <?php echo $history != "" ? $history->keterangan : ''; ?></strong></td>
                 <td style="border: 1px solid black"></td>
                 <td style="border: 1px solid black"></td>
               </tr>
@@ -166,11 +169,15 @@
                 <td style="border: 1px solid black"><?php echo $belanja->satuan_nama; ?></td>
                 <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->jumlah_standar_biaya, false); ?></td>
                 <td style="border: 1px solid black"><?php echo $belanja->pajak == '1' ? $this->config->item('ppn_value') : ''; ?></td>
-                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja, false);
-                                                                        $grand_total += $belanja->total_belanja; ?></td>
-                <td style="border: 1px solid black" colspan="4"></td>
-                <td style="border: 1px solid black"></td>
-                <td style="border: 1px solid black"></td>
+                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja, false); $grand_total += $belanja->total_belanja; ?></td>
+
+                <!-- History -->
+                <td style="border: 1px solid black"><?php echo $history != "" ? $history->koefisien_1 : ''; ?><?php echo $history != "" && $history->volume_2 != "" ? ' X ' : '' ?><?php echo $history != "" && $history->volume_2 != "" ? $history->volume_2 : '' ?> <?php echo $history != "" ? $history->nama_satuan : ''; ?></td>
+                <td style="border: 1px solid black"><?php echo $history != "" ? $history->satuan_belanja : ''; ?></td>
+                <td style="border: 1px solid black; text-align: right;"><?php echo $history != "" ? currency_formatter($history->jumlah_standar_biaya, false) : ''; ?></td>
+                <td style="border: 1px solid black"><?php echo $history != "" && $history->pajak == "1" ? $this->config->item('ppn_value') : ''; ?></td>
+                <td style="border: 1px solid black; text-align: right;"><?php echo $history != "" ? currency_formatter($history->total_belanja, false) : ''; ?></td>
+                <td style="border: 1px solid black; text-align: right;"><?php echo $dif_total; ?></td>
               </tr>
             <?php } ?>
           <?php } ?>
@@ -184,7 +191,7 @@
       </tr>
     </tbody>
   </table>
-  <table width="100%">
+  <table width="100%" style="page-break-inside: avoid;">
     <tr>
       <td style="text-align: center;"></td>
       <td style="text-align: center;">

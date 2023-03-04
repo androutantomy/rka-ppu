@@ -97,31 +97,34 @@ function get_list_total_anggaran()
     
     $get_total_rincian = $CI->BelanjaModel->get_total_rincian_belanja();
     if (!empty($get_total_rincian)) {
-        $rincian_belanja = number_format($get_total_rincian->total_belanja, 0, '.', ',');
+        $rincian_belanja = $get_total_rincian->total_belanja;
     }
 
     if (!empty($anggaran)) {
-        $belanja_yayasan = number_format($anggaran->budget_tahun_anggaran, 0, '.', ',');
+        $belanja_yayasan = $anggaran->budget_tahun_anggaran;
 
         $anggaran_prodi = $anggaran->anggaran_prodi != "" ? json_decode($anggaran->anggaran_prodi) : '';
         if ($anggaran_prodi != "") {
             foreach ($anggaran_prodi as $prodi) {
-                $belanja_prodi += $prodi->budget;
                 if ($level_user != "1" && 'budget_' . $uuid_user == $prodi->admin) {
                     $belanja_prodi = $prodi->budget;
+                } else if ($CI->session->userdata('level_user') == '1') {
+                    $belanja_prodi += $prodi->budget;
                 }
             }
         }
         $get_total_prodi = $CI->BelanjaModel->get_total_belanja_prodi();
         if (!empty($get_total_prodi)) {
-            $total_prodi = number_format($get_total_prodi->total_belanja, 0, '.', ',');
+            $total_prodi = $get_total_prodi->total_belanja;
         }
     }
 
-    $res->belanja_yayasan = $belanja_yayasan;
-    $res->belanja_prodi = number_format($belanja_prodi, 0, '.', ',');;
-    $res->total_prodi = $total_prodi;
-    $res->rincian_belanja = $rincian_belanja;
+    $res->belanja_yayasan = currency_formatter($belanja_yayasan);
+    $res->belanja_prodi = currency_formatter($belanja_prodi);
+    $res->total_prodi = currency_formatter($total_prodi);
+    $res->rincian_belanja = currency_formatter($rincian_belanja);
+    $res->color_total_prodi = $total_prodi > $belanja_prodi && $CI->session->userdata('level_user') ? 'red' : '#F16A1B';
+    $res->mssg_total_prodi = $total_prodi > $belanja_prodi && $CI->session->userdata('level_user') ? 'Nilai Belanja Lebih dari Pagu' : '';
 
     return $res;
 }

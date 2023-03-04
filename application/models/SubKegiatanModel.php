@@ -55,7 +55,9 @@ class SubKegiatanModel extends CI_Model
             $uuid_user = $filter['uuid_user'];
         }
 
-        $this->db->where('uuid_user', $uuid_user);
+        if ($this->session->userdata('level_user') != '1') {
+            $this->db->where('uuid_user', $uuid_user);
+        }
         $data = $this->db->select("SUM(total_belanja) as total_rincian")
         ->get_where('rincian_belanja', 
         ['tahun_anggaran' => $this->session->userdata('anggaran'),

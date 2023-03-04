@@ -12,6 +12,7 @@ class BelanjaController extends CI_Controller
         $this->load->model('SubKegiatanModel');
         $this->load->model('KegiatanModel');
         $this->load->model('StandarBiayaModel');
+        $this->load->model('TahunAnggaranModel');
         $this->load->model('UserModel');
     }
 
@@ -103,7 +104,12 @@ class BelanjaController extends CI_Controller
         $data['next'] = $next;
         $data['prev'] = $prev;
         $data['data'] = $this->KegiatanModel->get_kegiatan_by_uuid($uuid);
+        $data['anggaran'] = $this->TahunAnggaranModel->get_tahun_anggaran_by_name($this->session->userdata('anggaran'));
         $data['total_belanja'] = $total_belanja;
+
+        if (date('Y-m-d') > $data['anggaran']->akhir_input_anggaran) {
+            $this->session->set_flashdata('error', 'Masa input rincian anggaran sudah berakhir');
+        }
 
         $this->load->view('dashboard/belanja/detail', $data);
     }
@@ -126,6 +132,12 @@ class BelanjaController extends CI_Controller
                 $filter['uuid_kegiatan'] = $kegiatan->uuid_kegiatan;
                 $kegiatan->total_belanja = $this->KegiatanModel->get_total_kegiatan_by_norek($kegiatan->no_rekening_kegiatan)->row()->total_belanja;
                 $kegiatan->belanja = $this->BelanjaModel->get_all_data_sub_kegiatan($filter)->result();
+                if (!empty($kegiatan->belanja)) {
+                    foreach ($kegiatan->belanja as $belanja) {
+                        $update = $this->BelanjaModel->get_belanja_by_uuid_history($belanja->uuid_belanja);
+                        $belanja->history = $update->num_rows() > 0 ? $update->row() : '';
+                    }
+                }
             }
         }
 
@@ -270,6 +282,8 @@ class BelanjaController extends CI_Controller
         if ($this->input->post('uuid_rincian_belanja') == '') {
             $simpan = $this->BelanjaModel->simpan_belanja($data);
         } else {
+            $get_current_belanja = $this->BelanjaModel->get_belanja_plain_by_uuid($this->input->post('uuid_rincian_belanja'));
+            $this->BelanjaModel->simpan_belanja_history((array)$get_current_belanja->row());
             $simpan = $this->BelanjaModel->edit_belanja_by_uuid($data, $this->input->post('uuid_rincian_belanja'));
         }
 

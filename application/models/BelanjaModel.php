@@ -11,6 +11,19 @@ class BelanjaModel extends CI_Model
         return $data;
     }
 
+    function simpan_belanja_history($data)
+    {   
+        $get = $this->db->where('uuid_belanja', $data['uuid_belanja'])->get('rincian_belanja_history')->row();
+        if (empty($get)) {
+            $this->db->set('uuid_belanja_history', 'UUID()', FALSE);
+            $data = $this->db->insert('rincian_belanja_history', $data);
+        } else {
+            $data = $this->db->where('uuid_belanja', $data['uuid_belanja'])->update('rincian_belanja_history', $data);
+        }
+
+        return $data;
+    }
+
     function get_all_data($filter)
     {
         $this->db->select('mst_kegiatan.nama_kegiatan, mst_kegiatan.no_rekening_kegiatan, mst_kegiatan.uuid_kegiatan, mst_kegiatan.flag');
@@ -50,8 +63,8 @@ class BelanjaModel extends CI_Model
     {
         $this->db->select('d.nama_satuan as satuan_nama, c.nama_satuan, uuid_belanja, b.no_rekening_standar_biaya, b.jumlah_standar_biaya, b.nama_standar_biaya, tanggal_belanja, rincian_belanja.uuid_kegiatan, rincian_belanja.uuid_standar_biaya, koefisien_1, koefisien_2, volume_1, volume_2, pajak, total_belanja, keterangan');
         $this->db->join('mst_standar_biaya b', 'b.uuid_standar_biaya = rincian_belanja.uuid_standar_biaya', 'left');
-        $this->db->join('mst_satuan d', 'b.satuan_harga = d.uuid_satuan', 'left');
         $this->db->join('mst_satuan c', 'c.uuid_satuan = rincian_belanja.volume_1', 'left');
+        $this->db->join('mst_satuan d', 'b.satuan_harga = d.uuid_satuan', 'left');
 
         if ($filter['limit'] > 0) {
             $limit = $filter['limit'];
@@ -113,12 +126,24 @@ class BelanjaModel extends CI_Model
 
     function get_belanja_by_uuid($uuid)
     {
-        $this->db->select('a.uuid_belanja, a.tanggal_belanja, a.uuid_kegiatan, a.uuid_standar_biaya, a.koefisien_1, a.volume_1, a.volume_2, a.pajak, a.keterangan, a.uuid_user, a.edited, a.total_belanja, b.nama_kegiatan, c.nama_standar_biaya, c.jumlah_standar_biaya, d.nama_satuan, e.nama_satuan as satuan_belanja');
+        $this->db->select('a.uuid_belanja, a.tanggal_belanja, a.uuid_kegiatan, a.uuid_standar_biaya, a.koefisien_1, a.volume_1, a.volume_2, a.pajak, a.keterangan, a.uuid_user, a.edited, a.total_belanja, a.detail_belanja_history, b.nama_kegiatan, c.nama_standar_biaya, c.jumlah_standar_biaya, d.nama_satuan, e.nama_satuan as satuan_belanja');
         $this->db->join('mst_kegiatan b', 'b.uuid_kegiatan = a.uuid_kegiatan', 'left');
         $this->db->join('mst_standar_biaya c', 'c.uuid_standar_biaya = a.uuid_standar_biaya', 'left');
         $this->db->join('mst_satuan d', 'd.uuid_satuan = a.volume_1', 'left');
-        $this->db->join('mst_satuan e', 'c.satuan_harga = d.uuid_satuan', 'left');
+        $this->db->join('mst_satuan e', 'c.satuan_harga = e.uuid_satuan', 'left');
         $data = $this->db->get_where('rincian_belanja a', ['uuid_belanja' => $uuid]);
+
+        return $data;
+    }
+
+    function get_belanja_by_uuid_history($uuid)
+    {
+        $this->db->select('a.uuid_belanja, a.tanggal_belanja, a.uuid_kegiatan, a.uuid_standar_biaya, a.koefisien_1, a.volume_1, a.volume_2, a.pajak, a.keterangan, a.uuid_user, a.edited, a.total_belanja, a.detail_belanja_history, b.nama_kegiatan, c.nama_standar_biaya, c.jumlah_standar_biaya, d.nama_satuan, e.nama_satuan as satuan_belanja');
+        $this->db->join('mst_kegiatan b', 'b.uuid_kegiatan = a.uuid_kegiatan', 'left');
+        $this->db->join('mst_standar_biaya c', 'c.uuid_standar_biaya = a.uuid_standar_biaya', 'left');
+        $this->db->join('mst_satuan d', 'd.uuid_satuan = a.volume_1', 'left');
+        $this->db->join('mst_satuan e', 'c.satuan_harga = e.uuid_satuan', 'left');
+        $data = $this->db->get_where('rincian_belanja_history a', ['uuid_belanja' => $uuid]);
 
         return $data;
     }
@@ -144,6 +169,7 @@ class BelanjaModel extends CI_Model
         if ($this->session->userdata('level_user') != "1") {
             $this->db->where("uuid_user", $this->session->userdata('uuid_user'));
         }
+        $this->db->where('tahun_anggaran', $this->session->userdata('anggaran'));
 
         $data = $this->db->select('SUM(total_belanja) as total_belanja')->from('rincian_belanja')->get()->row();
 
@@ -155,6 +181,7 @@ class BelanjaModel extends CI_Model
         if ($this->session->userdata('level_user') != "1") {
             $this->db->where("uuid_user", $this->session->userdata('uuid_user'));
         }
+        $this->db->where('tahun_anggaran', $this->session->userdata('anggaran'));
 
         $data = $this->db->select('SUM(total_belanja) as total_belanja')->from('rincian_belanja')->get()->row();
 
@@ -166,6 +193,13 @@ class BelanjaModel extends CI_Model
         $data = $this->db->select("SUM(total_belanja) as total_belanja")
         ->where("tahun_anggaran", $this->session->userdata("anggaran"))
         ->get("rincian_belanja")->row();
+
+        return $data;
+    }
+
+    function get_belanja_plain_by_uuid($uuid)
+    {
+        $data = $this->db->get_where('rincian_belanja', ['uuid_belanja' => $uuid]);
 
         return $data;
     }

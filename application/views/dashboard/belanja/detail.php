@@ -4,8 +4,8 @@
     <div id="loading">
         <div class="loader simple-loader">
             <div class="loader-body" style="position: relative;">
-                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width="150px">
-                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width="60px">
+                <img style="position: absolute; width: 100px; height: 100px;" src="<?php echo base_url() ?>assets/images/logo.png" alt="Logo Untag" width=150px">
+                <img style="margin-top: 130px; width: 80px; height: 80px;" src="<?php echo base_url() ?>assets/loader/loader.gif" alt="Loader" width=60px">
             </div>
         </div>
     </div>
@@ -22,43 +22,43 @@
             <div>
                 <div class="row">
                     <div class="card">
-                        <table style="margin: 30px 0px 0px 30px;">
+                        <table style="margin: 15px 0px 10px 30px;">
                             <tbody>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Unit Organisasi</strong></td>
-                                    <td style="padding:10px !important;"> : <?php echo $this->config->item('yayasan_name'); ?></td>
+                                    <td style="padding:5px !important;"><strong>Unit Organisasi</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo $this->config->item('yayasan_name'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Sub Unit Organisasi</strong></td>
-                                    <td style="padding:10px !important;"> : <?php echo $this->session->userdata('nama_user') ?></td>
+                                    <td style="padding:5px !important;"><strong>Sub Unit Organisasi</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo $this->session->userdata('nama_user') ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Kegiatan</strong></td>
-                                    <td style="padding:10px !important;"> : <?php echo !empty($update) ? $update->nama_child : '-' ?></td>
+                                    <td style="padding:5px !important;"><strong>Kegiatan</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo !empty($update) ? $update->nama_child : '-' ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Sub Kegiatan</strong></td>
-                                    <td style="padding:10px !important;"> : <?php echo !empty($update) ? $update->nama_kegiatan : '-' ?></td>
+                                    <td style="padding:5px !important;"><strong>Sub Kegiatan</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo !empty($update) ? $update->nama_kegiatan : '-' ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Sumber Pendanaan</strong></td>
-                                    <td style="padding:10px !important;"> : <?php echo $this->config->item('pendapatan_yayasan_name'); ?></td>
+                                    <td style="padding:5px !important;"><strong>Sumber Pendanaan</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo $this->config->item('pendapatan_yayasan_name'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Lokasi Kegiatan</strong></td>
-                                    <td style="padding:10px !important;"> : <?php echo $this->config->item('alamat_yayasan'); ?></td>
+                                    <td style="padding:5px !important;"><strong>Lokasi Kegiatan</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo $this->config->item('alamat_yayasan'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Waktu Pelaksanaan</strong></td>
-                                    <td style="padding:10px !important;"> : Januari s.d. Desember</td>
+                                    <td style="padding:5px !important;"><strong>Waktu Pelaksanaan</strong></td>
+                                    <td style="padding:5px !important;"> : Januari s.d. Desember</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px !important;"><strong>Jumlah 2023</strong></td>
-                                    <td style="padding:10px !important;"> : Rp. <?php echo isset($total_belanja) && !empty($total_belanja) ? number_format($total_belanja->total_belanja, 0, '.', ',') : '-' ?></td>
+                                    <td style="padding:5px !important;"><strong>Jumlah 2023</strong></td>
+                                    <td style="padding:5px !important;"> : <?php echo isset($total_belanja) && !empty($total_belanja) ? currency_formatter($total_belanja->total_belanja) : '-' ?></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <span id="messageDisplay"></span>
+
                         <?php if ($this->session->flashdata('message') != "") { ?>
                             <div class="alert alert-success alert-dismissible fade show " role="alert">
                                 <span><i class="far fa-life-ring"></i></span>
@@ -72,8 +72,8 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php } ?>
-
                         <div class="card-body">
+                            <span id="messageDisplay"></span>
                             <div style="float:right;">
                                 <a href="<?php echo route('belanja.cetak', ['uuid' => $this->uri->segment(3)]) ?>" target="blank" class="btn btn-primary" style="background:#1AA053 !important;border:1px solid #1AA053 !important;color:white;">
                                     <svg width="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,12 +82,14 @@
                                     </svg>
                                     Cetak
                                 </a>
-                                <a class="btn btn-primary" style="background:darkred;color:white;" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" id="settingbutton">
-                                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                    </svg>
-                                    Tambah
-                                </a>
+                                <?php if (date('Y-m-d') <= $anggaran->akhir_input_anggaran) { ?>
+                                    <a class="btn btn-primary" style="background:darkred;color:white;" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" id="settingbutton">
+                                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                        Tambah
+                                    </a>
+                                <?php } ?>
                             </div>
                             <div class="table-responsive border rounded" style="margin-top:50px;">
                                 <table id="user-list-table" class="table table-striped" role="grid">
@@ -115,7 +117,7 @@
                                                     <td><?php echo $result->no_rekening_standar_biaya . ' ' . $result->nama_standar_biaya ?></td>
                                                     <td class="text-center"><?php echo $result->koefisien_1 ?><?php echo $result->volume_2 != "" ? ' X ' : '' ?><?php echo $result->volume_2 != "" ? $result->volume_2 : '' ?> <?php echo $result->nama_satuan; ?> </td>
                                                     <td class="text-center"><?php echo $result->pajak == "1" ? $this->config->item('ppn_value') : ''; ?></td>
-                                                    <td class="text-center"><?php echo 'Rp. ' . number_format($result->total_belanja, 0, '.', ',') ?></td>
+                                                    <td class="text-center"><?php echo currency_formatter($result->total_belanja) ?></td>
                                                     <td class="text-center">
                                                         <div class="flex align-items-center list-user-action">
                                                             <a class="btn btn-sm btn-icon btn-warning rounded btn-update-belanja" data-uuid="<?php echo $result->uuid_belanja ?>" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" id="settingbutton">
