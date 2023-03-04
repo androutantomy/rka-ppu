@@ -1190,3 +1190,7 @@ body.uikit .btn-download {
   text-decoration: none;
   opacity: .75;
 }
+.sidebar.sidebar-default .nav-link:not(.static-item):hover:not(.active):not([aria-expanded=true]) {
+  background: darkred !important;
+  color: white !important;
+}
