@@ -29,7 +29,7 @@
                             </div>
                             <div class="">
                                 <div>
-                                    <h4 style="float:right;margin-top:0px;color:green;font-weight: 400;">Rp. <?php echo $rincian_belanja->belanja_yayasan ?></h4>
+                                    <h4 style="float:right;margin-top:0px;color:green;font-size:16px;font-weight: 500;">Rp. <?php echo $rincian_belanja->belanja_yayasan ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="">
                                 <div>
-                                    <h4 style="float:right;margin-top:0px;color:green;font-weight: 400;">Rp. <?php echo $rincian_belanja->belanja_prodi ?></h4>
+                                    <h4 style="float:right;margin-top:0px;color:green;font-size:16px;font-weight: 500;">Rp. <?php echo $rincian_belanja->belanja_prodi ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="">
                                 <div>
-                                    <h4 style="float:right;margin-top:0px;color:#F16A1B;font-weight: 400;">Rp. <?php echo $rincian_belanja->total_prodi ?></h4>
+                                    <h4 style="float:right;margin-top:0px;color:#F16A1B;font-size:16px;font-weight: 500;">Rp. <?php echo $rincian_belanja->total_prodi ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="">
                                 <div>
-                                    <h4 style="float:right;margin-top:0px;color:#F16A1B;font-weight: 400;">Rp. <?php echo $rincian_belanja->rincian_belanja ?></h4>
+                                    <h4 style="float:right;margin-top:0px;color:#F16A1B;font-size:16px;font-weight: 500;">Rp. <?php echo $rincian_belanja->rincian_belanja ?></h4>
                                 </div>
                             </div>
                         </div>
