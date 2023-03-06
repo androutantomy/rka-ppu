@@ -67,7 +67,7 @@
                               </div>
                               <div class="form-group col-md-6">
                                  <label class="form-label" for="lname">Budget Anggaran <span style="color: red;">*</span></label>
-                                 <input type="text" name="budget_tahun_anggaran" value="<?php echo $budget_tahun_anggaran; ?>" class="form-control" id="budget" placeholder="Budget Tahun Anggaran">
+                                 <input type="text" name="budget_tahun_anggaran" value="<?php echo currency_formatter($budget_tahun_anggaran, false); ?>" class="form-control rupiah" id="budget" placeholder="Budget Tahun Anggaran">
                                  <div style="color:red">
                                     <?php echo form_error('budget_tahun_anggaran'); ?>
                                  </div>
@@ -97,7 +97,7 @@
                               ?>
                                     <div class="form-group col-md-3">
                                        <label class="form-label" for="lname">Anggaran <?php echo ucwords($admin->nama_user); ?></label>
-                                       <input type="text" name="budget_<?php echo str_replace(' ', '_', trim(strtolower($admin->uuid_user))); ?>" value="<?php echo in_array('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))), array_keys($arr_anggaran)) ? $arr_anggaran['budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user)))] : '' ?>" class="form-control" id="budget_<?php echo str_replace(' ', '_', strtolower($admin->uuid_user)); ?>" placeholder="Budget Tahun Anggaran">
+                                       <input type="text" name="budget_<?php echo str_replace(' ', '_', trim(strtolower($admin->uuid_user))); ?>" value="<?php echo in_array('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))), array_keys($arr_anggaran)) ? currency_formatter($arr_anggaran['budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user)))], false) : '' ?>" class="form-control rupiah" id="budget_<?php echo str_replace(' ', '_', strtolower($admin->uuid_user)); ?>" placeholder="Budget Tahun Anggaran">
                                     </div>
                                  <?php } ?>
                               <?php } ?>                              

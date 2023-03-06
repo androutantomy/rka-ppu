@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="form-label" for="fname">Nominal Pendapatan</label>
-                                            <input type="text" class="form-control" id="jumlah_pendapatan" placeholder="Nominal Pendapatan" value="<?php echo set_value('jumlah_pendapatan'); ?>" name="jumlah_pendapatan">
+                                            <input type="text" class="form-control rupiah" id="jumlah_pendapatan" placeholder="Nominal Pendapatan" value="<?php echo set_value('jumlah_pendapatan'); ?>" name="jumlah_pendapatan">
                                             <div style="color:red">
                                                 <?php echo form_error('jumlah_pendapatan'); ?>
                                             </div>

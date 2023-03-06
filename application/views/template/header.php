@@ -5,6 +5,30 @@
       for (let i = 0; i < mandatory.length; i++) {
          mandatory[i].innerHTML = '<small>Tanda ( <span style="color: red;">*</span> ) wajib diisi</small>';
       }
+
+      let tanpa_rupiah = document.getElementsByClassName('rupiah');
+
+      for (let i = 0; i < tanpa_rupiah.length; i++) {
+         tanpa_rupiah[i].addEventListener('keyup', function(e) {
+            tanpa_rupiah[i].value = formatRupiah(this.value);
+         });
+      }
+
+      function formatRupiah(angka, prefix) {
+         let number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+         if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+         }
+
+         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+      }
    }
 </script>
 <nav class="nav navbar navbar-expand-xl navbar-light iq-navbar" style="background: rgba(0,0,0,0);">
@@ -84,16 +108,28 @@
                   <h1><?php echo menu_list($url); ?></h1>
                   <p><?php echo $this->config->item('client_name'); ?></p>
                </div>
-               <?php if (!in_array($this->uri->segment(2), ['tambah', 'ubah']) && !in_array($this->uri->segment(1), ['aktifitas', 'dashboard', 'belanja'])) { ?>
-                  <div>
-                     <a href="<?php echo $url != "" ? route($url . '.tambah') : '' ?>" class="btn btn-link btn-soft-light">
-                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        Add New
-                     </a>
-                  </div>
-               <?php } ?>
+               <div class="d-flex justify-content-between">
+                  <?php if (!in_array($this->uri->segment(2), ['tambah', 'ubah']) && !in_array($this->uri->segment(1), ['aktifitas', 'dashboard', 'belanja'])) { ?>
+                     <div style="margin-right: 5px;">
+                        <a href="<?php echo $url != "" ? route($url . '.tambah') : '' ?>" class="btn btn-link btn-soft-light">
+                           <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                           </svg>
+                           Add New
+                        </a>
+                     </div>
+                  <?php }
+                  if (!in_array($this->uri->segment(2), ['tambah', 'ubah']) && in_array($this->uri->segment(1), ['biaya'])) { ?>
+                     <div>
+                        <a href="<?php echo $url != "" ? route($url . '.import') : '' ?>" class="btn btn-link btn-soft-light">
+                           <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                           </svg>
+                           Import
+                        </a>
+                     </div>
+                  <?php } ?>
+               </div>
             </div>
          </div>
       </div>

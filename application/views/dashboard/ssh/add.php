@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="form-label" for="fname">Nominal Standar Harga</label>
-                                            <input type="text" class="form-control" id="jumlah_standar_biaya" placeholder="Nominal Standar Harga" value="<?php echo set_value('jumlah_standar_biaya'); ?>" name="jumlah_standar_biaya">
+                                            <input type="text" class="form-control rupiah" id="jumlah_standar_biaya" placeholder="Nominal Standar Harga" value="<?php echo set_value('jumlah_standar_biaya'); ?>" name="jumlah_standar_biaya">
                                             <div style="color:red">
                                                 <?php echo form_error('jumlah_standar_biaya'); ?>
                                             </div>

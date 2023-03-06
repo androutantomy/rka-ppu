@@ -274,7 +274,7 @@ class BelanjaController extends CI_Controller
             'volume_2' => $this->input->post('volume_2'),
             'keterangan' => $this->input->post('keterangan'),
             'uuid_user' => $this->session->userdata('uuid_user'),
-            'edited' => $this->input->post('uuid_rincian_belanja') != "" && $this->session->userdata('level_user') != "1" ? "1" : "0",
+            'edited' => "0",
             'total_belanja' => $total,
             'tahun_anggaran' => $this->session->userdata('anggaran')
         ];

@@ -123,8 +123,8 @@ function get_list_total_anggaran()
     $res->belanja_prodi = currency_formatter($belanja_prodi);
     $res->total_prodi = currency_formatter($total_prodi);
     $res->rincian_belanja = currency_formatter($rincian_belanja);
-    $res->color_total_prodi = $total_prodi > $belanja_prodi && $CI->session->userdata('level_user') ? 'red' : '#F16A1B';
-    $res->mssg_total_prodi = $total_prodi > $belanja_prodi && $CI->session->userdata('level_user') ? 'Nilai Belanja Lebih dari Pagu' : '';
+    $res->color_total_prodi = $total_prodi > $belanja_prodi && $CI->session->userdata('level_user') != '1' ? 'red' : '#F16A1B';
+    $res->mssg_total_prodi = $total_prodi > $belanja_prodi && $CI->session->userdata('level_user') != '1' ? 'Nilai Belanja Lebih dari Pagu' : '';
 
     return $res;
 }
@@ -134,7 +134,7 @@ function currency_formatter($number = '', $with_currency = true)
     $num = '';
     $currency = $with_currency ? 'Rp. ' : '';
 
-    if ($number != '') {
+    if ($number != '' && is_numeric($number)) {
         $num = $currency . number_format($number, 0, ',', '.');
     }
 

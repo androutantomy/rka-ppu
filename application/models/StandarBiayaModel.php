@@ -54,6 +54,13 @@ Class StandarBiayaModel extends CI_Model {
         return $update;
     }
 
+    function edit_standar_biaya_by_id($data)
+    {
+        $update = $this->db->update_batch("mst_standar_biaya", $data, "id_standar_biaya");
+
+        return $update;
+    }
+
     function hapus_standar_biaya_by_uuid($uuid)
     {
         $hapus = $this->db->where("uuid_standar_biaya", $uuid)->delete('mst_standar_biaya');
@@ -74,5 +81,14 @@ Class StandarBiayaModel extends CI_Model {
         $data = $this->db->from('mst_standar_biaya')->count_all_results();
 
         return $data;
+    }
+
+    function get_all_standar_biaya()
+    {
+        $this->db->select('id_standar_biaya, no_rekening_standar_biaya, nama_standar_biaya, jumlah_standar_biaya');
+        $this->db->where('is_utama IS NULL')->where('flag', '1')->order_by('no_rekening_standar_biaya', 'ASC');
+        $get = $this->db->get('mst_standar_biaya');
+
+        return $get;
     }
 }

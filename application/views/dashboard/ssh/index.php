@@ -36,14 +36,6 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div style="float:right;">
-                                    <a class="btn btn-primary" style="background:darkred;color:white;" id="settingbutton" data-bs-toggle="offcanvas" data-bs-target="#live-customizer">
-                                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                        </svg>
-                                        Import
-                                    </a>
-                                </div>
                                 <div class="table-responsive border rounded" style="margin-top:50px;">
                                     <?php if ($this->session->flashdata('message') != "") { ?>
                                         <div class="alert alert-success alert-dismissible fade show " role="alert">
@@ -58,7 +50,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php } ?>
-                                    <table id="user-list-table" class="table table-striped" role="grid">
+                                    <table id="user-list-table" class="table table-bordered" role="grid">
                                         <thead>
                                             <tr class="ligth">
                                                 <th width="8%"></th>

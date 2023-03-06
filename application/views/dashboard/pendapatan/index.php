@@ -50,7 +50,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php } ?>
-                                    <table id="user-list-table" class="table" role="grid">
+                                    <table id="user-list-table" class="table table-bordered" role="grid">
                                         <thead>
                                             <tr class="ligth">
                                                 <th width="8%"></th>
@@ -75,7 +75,7 @@
                                                         <td>
                                                             <?php echo $result->is_utama != "" ? '<strong>' . strtoupper($result->nama_pendapatan) . '</strong>' : ucwords(strtolower($result->nama_pendapatan)) ?>
                                                         </td>
-                                                        <td><?php echo 'Rp. ' . number_format($result->jumlah_pendapatan, 0, ',', '.') ?></td>
+                                                        <td><?php echo currency_formatter($result->jumlah_pendapatan) ?></td>
                                                         <td><span class="badge bg-<?php echo $result->flag == "1" ? "success" : "danger" ?>"><?php echo $result->flag == "1" ? "Aktif" : "Tidak Aktif" ?></span></td>
                                                         <td class="text-center">
                                                             <div class="flex align-items-center list-user-action">

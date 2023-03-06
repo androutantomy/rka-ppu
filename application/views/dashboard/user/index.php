@@ -50,10 +50,10 @@
                                     </div>
                                 <?php } ?>
                                 <div class="table-responsive border rounded">
-                                    <table id="user-list-table" class="table table-striped" role="grid">
+                                    <table id="user-list-table" class="table table-bordered" role="grid">
                                         <thead>
                                             <tr class="ligth">
-                                                <th class="text-center">No</th>
+                                                <th class="text-center" width="5%">No</th>
                                                 <th class="text-center">Nama</th>
                                                 <th class="text-center">Email</th>
                                                 <th class="text-center">Role</th>

@@ -125,7 +125,7 @@ class PendapatanController extends CI_Controller
 
             $data = [
                 'nama_pendapatan' => $this->input->post('nama_pendapatan'),
-                'jumlah_pendapatan' => $this->input->post('jumlah_pendapatan') != "" ? str_replace('.', '', $this->input->post('jumlah_pendapatan')) : null,
+                'jumlah_pendapatan' => $this->input->post('jumlah_pendapatan') != "" ?  preg_replace('/[^0-9]/', '', str_replace('.', '', $this->input->post('jumlah_pendapatan'))) : null,
                 'no_rekening_pendapatan' => implode('.', $no_rekening),
                 'tahun_anggaran'    => $this->session->userdata('anggaran'),
                 'is_utama' => $this->input->post('rekening_utama') != "" ? $this->input->post('rekening_utama') : null,
@@ -171,7 +171,7 @@ class PendapatanController extends CI_Controller
 
             $data = [
                 'nama_pendapatan' => $this->input->post('nama_pendapatan'),
-                'jumlah_pendapatan' => $this->input->post('jumlah_pendapatan') != "" ? str_replace('.', '', $this->input->post('jumlah_pendapatan')) : null,
+                'jumlah_pendapatan' => $this->input->post('jumlah_pendapatan') != "" ?  preg_replace('/[^0-9]/', '', str_replace('.', '', $this->input->post('jumlah_pendapatan'))) : null,
                 'no_rekening_pendapatan' => implode('.', $no_rekening),
                 'is_utama' => $this->input->post('rekening_utama') != "" ? $this->input->post('rekening_utama') : null,
                 'flag'  => $this->input->post('flag')

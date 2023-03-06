@@ -67,6 +67,14 @@ class TahunAnggaranController extends CI_Controller
                     'required' => 'Status tidak boleh kosong'
                 ]
             ],
+            [
+                'field' => 'akhir_input_anggaran',
+                'label' => 'Akhir Input Anggaran',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Akhir Input Anggaran tidak boleh kosong'
+                ]
+            ],
         ];
 
         $this->form_validation->set_rules($config);
@@ -91,7 +99,7 @@ class TahunAnggaranController extends CI_Controller
         } else {
             $data = [
                 'nama_tahun_anggaran' => $this->input->post('nama_tahun_anggaran'),
-                'budget_tahun_anggaran'  => str_replace('.', '', $this->input->post('budget_tahun_anggaran')),
+                'budget_tahun_anggaran'  => preg_replace('/[^0-9]/', '', $this->input->post('budget_tahun_anggaran')),
                 'flag'  => $this->input->post('status_tahun_anggaran'),
                 'akhir_input_anggaran' => $this->input->post('akhir_input_anggaran'),
             ];
@@ -101,7 +109,7 @@ class TahunAnggaranController extends CI_Controller
                 foreach ($admin->result() as $admin) {
                     $budget = [
                         'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))),
-                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))))
+                        'budget' => preg_replace('/[^0-9]/', '', $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user)))))
                     ];
 
                     array_push($budget_admin, $budget);
@@ -130,7 +138,7 @@ class TahunAnggaranController extends CI_Controller
         } else {
             $data = [
                 'nama_tahun_anggaran' => $this->input->post('nama_tahun_anggaran'),
-                'budget_tahun_anggaran'  => str_replace('.', '', $this->input->post('budget_tahun_anggaran')),
+                'budget_tahun_anggaran'  => preg_replace('/[^0-9]/', '', $this->input->post('budget_tahun_anggaran')),
                 'flag'  => $this->input->post('status_tahun_anggaran'),
                 'akhir_input_anggaran' => $this->input->post('akhir_input_anggaran'),
             ];
@@ -140,7 +148,7 @@ class TahunAnggaranController extends CI_Controller
                 foreach ($admin->result() as $admin) {
                     $budget = [
                         'admin' => 'budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))),
-                        'budget' => $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user))))
+                        'budget' => preg_replace('/[^0-9]/', '', $this->input->post('budget_' . str_replace(' ', '_', trim(strtolower($admin->uuid_user)))))
                     ];
 
                     array_push($budget_admin, $budget);

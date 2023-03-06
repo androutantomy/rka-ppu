@@ -60,10 +60,10 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php } ?>
-                                    <table id="user-list-table" class="table table-striped" role="grid">
+                                    <table id="user-list-table" class="table table-bordered" role="grid">
                                         <thead>
                                             <tr class="ligth">
-                                                <th class="text-center">No</th>
+                                                <th class="text-center" width="5%">No</th>
                                                 <th class="text-center">Tahun Anggaran</th>
                                                 <th class="text-center">Budget Anggaran</th>
                                                 <th class="text-center">Status</th>

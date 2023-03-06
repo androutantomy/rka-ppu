@@ -70,6 +70,8 @@ Route::group('', ['middleware' => ['AnggaranMiddleware', 'AktifitasMiddleware']]
         Route::post('hapus', 'StandarBiayaController@doHapus')->name('biaya.hapus');
         Route::post('simpan-ubah', 'StandarBiayaController@doUbah')->name('biaya.simpan-ubah');
         Route::post('get-satuan', 'StandarBiayaController@doGetSatuan')->name('biaya.get-satuan');
+        Route::get('template', 'StandarBiayaController@doGetTemplate')->name('biaya.template');
+        Route::post('import-data', 'StandarBiayaController@doImport')->name('biaya.import-data');
     });
     
     Route::group('belanja', ['middleware' => ['AuthMiddleware']], function() {
