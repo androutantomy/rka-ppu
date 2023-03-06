@@ -336,6 +336,7 @@ class StandarBiayaController extends CI_Controller
         }
 
         $update = $this->StandarBiayaModel->edit_standar_biaya_by_id($list_import);
+        unlink($inputFileName);
 
         $response->resCode  = '200';
         $response->resMsg   = 'Berhasil import data';
