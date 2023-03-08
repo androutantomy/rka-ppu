@@ -94,7 +94,7 @@ function get_list_total_anggaran()
     $level_user = $CI->session->userdata("level_user");
 
     $anggaran = $CI->TahunAnggaranModel->get_tahun_anggaran_by_name($tahun_anggaran);
-    
+
     $get_total_rincian = $CI->BelanjaModel->get_total_rincian_belanja();
     if (!empty($get_total_rincian)) {
         $rincian_belanja = $get_total_rincian->total_belanja;
@@ -139,4 +139,19 @@ function currency_formatter($number = '', $with_currency = true)
     }
 
     return $num;
+}
+
+function generate_uuid()
+{
+    return sprintf(
+        '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+        mt_rand(0, 0xffff),
+        mt_rand(0, 0xffff),
+        mt_rand(0, 0xffff),
+        mt_rand(0, 0x0fff) | 0x4000,
+        mt_rand(0, 0x3fff) | 0x8000,
+        mt_rand(0, 0xffff),
+        mt_rand(0, 0xffff),
+        mt_rand(0, 0xffff)
+    );
 }

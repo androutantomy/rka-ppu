@@ -27,6 +27,16 @@ Class SatuanModel extends CI_Model {
         return $data;
     }
 
+    function get_all_data_no_limit()
+    {
+        $this->db->select('uuid_satuan, nama_satuan, flag');
+        
+        $this->db->order_by('id_satuan', 'desc');
+        $data = $this->db->get('mst_satuan');
+
+        return $data;
+    }
+
     function get_total_data($filter)
     {
         if ($filter['search'] != '') {

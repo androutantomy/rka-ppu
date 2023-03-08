@@ -252,9 +252,9 @@ class BelanjaController extends CI_Controller
                 die;
             }
 
-            $total = ($this->input->post('koefisien_1') * $this->input->post('volume_2'))*$harga;
+            $total = (preg_replace('/[^0-9]/', '', $this->input->post('koefisien_1')) * preg_replace('/[^0-9]/', '', $this->input->post('volume_2')))*$harga;
             if ($this->input->post('koefisien_2') != "") {
-                $total = $total * $this->input->post('koefisien_2');
+                $total = $total * preg_replace('/[^0-9]/', '', $this->input->post('koefisien_2'));
             }
 
             if ($this->input->post('pajak') == '1') {
@@ -268,10 +268,10 @@ class BelanjaController extends CI_Controller
             'uuid_kegiatan' => $this->input->post('uuid_kegiatan'),
             'uuid_standar_biaya' => $this->input->post('komponen'),
             'pajak' => $this->input->post('pajak'),
-            'koefisien_1' => $this->input->post('koefisien_1'),
-            'koefisien_2' => $this->input->post('koefisien_2'),
-            'volume_1' => $this->input->post('volume_1'),
-            'volume_2' => $this->input->post('volume_2'),
+            'koefisien_1' => preg_replace('/[^0-9]/', '', $this->input->post('koefisien_1')),
+            'koefisien_2' => preg_replace('/[^0-9]/', '', $this->input->post('koefisien_2')),
+            'volume_1' => preg_replace('/[^0-9]/', '', $this->input->post('volume_1')),
+            'volume_2' => preg_replace('/[^0-9]/', '', $this->input->post('volume_2')),
             'keterangan' => $this->input->post('keterangan'),
             'uuid_user' => $this->session->userdata('uuid_user'),
             'edited' => "0",
@@ -329,6 +329,8 @@ class BelanjaController extends CI_Controller
         $row = $update->row();
         if (!empty($row)) {
             $row->jumlah_standar_biaya = number_format($row->jumlah_standar_biaya, 0, '.', ',');
+            $row->volume_2 = number_format($row->volume_2, 0, ',', '.');
+            $row->koefisien_1 = number_format($row->koefisien_1, 0, ',', '.');
         }
 
         $res->data = $row;

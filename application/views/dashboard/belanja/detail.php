@@ -115,7 +115,7 @@
                                                 <tr>
                                                     <td><?php echo date('d-m-Y', strtotime($result->tanggal_belanja)) ?></td>
                                                     <td><?php echo $result->no_rekening_standar_biaya . ' ' . $result->nama_standar_biaya ?></td>
-                                                    <td class="text-center"><?php echo $result->koefisien_1 ?><?php echo $result->volume_2 != "" ? ' X ' : '' ?><?php echo $result->volume_2 != "" ? $result->volume_2 : '' ?> <?php echo $result->nama_satuan; ?> </td>
+                                                    <td class="text-center"><?php echo currency_formatter($result->koefisien_1, false) ?><?php echo $result->volume_2 != "" ? ' X ' : '' ?><?php echo $result->volume_2 != "" ? currency_formatter($result->volume_2, false) : '' ?> <?php echo $result->nama_satuan; ?> </td>
                                                     <td class="text-center"><?php echo $result->pajak == "1" ? $this->config->item('ppn_value') : ''; ?></td>
                                                     <td class="text-center"><?php echo currency_formatter($result->total_belanja) ?></td>
                                                     <td class="text-center">
@@ -195,32 +195,22 @@
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label class="form-label" for="lname">Koefisien</label>
-                                                    <input type="text" class="form-control" id="koefisien_1" name="koefisien_1" placeholder="Koefisien">
+                                                    <input type="text" class="form-control rupiah" id="koefisien_1" name="koefisien_1" placeholder="Koefisien">
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label class="form-label" for="lname">Volume</label><br>
-                                                    <input type="text" id="volume_2" name="volume_2" placeholder="Volume" class="form-control">
+                                                    <input type="text" id="volume_2" name="volume_2" placeholder="Volume" class="form-control rupiah">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label class="form-label" for="lname">Satuan</label><br>
                                                     <select class="form-control" id="volume_1" name="volume_1" placeholder="Volume"></select>
                                                 </div>
                                                 <div class="col-md-4"></div>
-                                                <div class="form-group col-md-2">
+                                                <div class="form-group col-md-4">
                                                     <label class="form-label">PPN (11%)</label>
-                                                    <div class="d-flex align-items-center form-group mb-0">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio" value="0" name="pajak" id="pajak_tidak">
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                Tidak
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check ms-3">
-                                                            <input class="form-check-input" type="radio" value="1" name="pajak" id="pajak_ya">
-                                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                                Ya
-                                                            </label>
-                                                        </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" name="pajak" id="pajak">
+                                                        <label class="form-check-label" for="flexSwitchCheckDefault">Klik Jika Terkena Pajak</label>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-md-4"></div>
@@ -330,7 +320,7 @@
                     uuid_kegiatan: '<?php echo $this->uri->segment(3); ?>',
                     tanggal_belanja: $("#tanggal_belanja").val(),
                     komponen: $("#komponen_belanja").val(),
-                    pajak: $('input[name="pajak_tidak"]:checked').val() ? '0' : '1',
+                    pajak: $('#pajak').is(':checked') ? '1' : '0',
                     koefisien_1: $("#koefisien_1").val(),
                     koefisien_2: $("#koefisien_2").val(),
                     volume_1: $("#volume_1").val(),
@@ -338,6 +328,7 @@
                     keterangan: $("#keterangan").val(),
                     uuid_rincian_belanja: $("#uuid_rincian_belanja").val()
                 };
+                console.log(data);
 
                 $.ajax({
                     url: '<?php echo route("belanja.simpan") ?>',
@@ -459,9 +450,9 @@
                         $("#volume_1").html(volume_1);
                         $("#volume_2").val(data.volume_2);
                         if (data.pajak == '0') {
-                            $('#pajak_tidak').prop('checked', true);
+                            $('#pajak').prop('checked', false);
                         } else {
-                            $('#pajak_ya').prop('checked', true);
+                            $('#pajak').prop('checked', true);
                         }
                         $("#keterangan").val(data.keterangan);
 
@@ -490,8 +481,7 @@
                     $("#koefisien_1").val('');
                     $("#volume_1").html('');
                     $("#volume_2").html('');
-                    $('#pajak_tidak').prop('checked', false);
-                    $('#pajak_ya').prop('checked', false);
+                    $('#pajak').prop('checked', false);
                     $("#keterangan").val('');
                     $("#tambahkan_rincian").removeAttr('disabled');
                     $("#responseMessage").html('')

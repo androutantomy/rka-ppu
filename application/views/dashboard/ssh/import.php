@@ -46,10 +46,11 @@
                            <br>
                            <ul style="list-style-type: none;">
                               <li><strong>Perhatian</strong> <span style="color: red;">*</span></li>
-                              <li>1. Menu import digunakan untuk mengupdate data yang sudah ada dalam sistem</li>
-                              <li>2. Pastikan anda sudah mendownload template terbaru untuk mengupdate data</li>
-                              <li>3. Kolom <strong>id</strong> pada template <strong>tidak boleh dihapus atau diganti</strong>, untuk memudahkan proses import data</li>
-                              <li>4. Pastikan untuk <strong>tidak mengganti nama kolom</strong> pada template</li>
+                              <li><strong>-</strong> Untuk mengupdate data pastikan anda sudah mendownload template terbaru</li>
+                              <li><strong>-</strong> Kolom <strong>id</strong> pada template <strong>tidak boleh dihapus atau diganti</strong>, untuk memudahkan proses update data yang sudah ada</li>
+                              <li><strong>-</strong> Pastikan untuk <strong>tidak mengganti nama kolom</strong> pada template</li>
+                              <li><strong>-</strong> Untuk menambahkan data baru, cukup dengan <strong>mengosongkan kolom id</strong></li>
+                              <li><strong>-</strong> Untuk data baru, pastikan penulisan satuan harga <strong>sesuai dengan data master satuan harga yang sudah ada dalam sistem</strong>.</li>
                            </ul>
                         </div>
                      </div>

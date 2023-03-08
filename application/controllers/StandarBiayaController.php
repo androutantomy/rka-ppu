@@ -241,7 +241,7 @@ class StandarBiayaController extends CI_Controller
 
         $object->setActiveSheetIndex(0);
 
-        $table_columns = array("Id", "No Rekening", "Nama", "Nominal Standar Biaya");
+        $table_columns = array("Id", "No Rekening", "Nama", "Nominal Standar Biaya", "Satuan Harga");
 
         $column = 0;
 
@@ -258,6 +258,7 @@ class StandarBiayaController extends CI_Controller
                 $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->no_rekening_standar_biaya);
                 $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->nama_standar_biaya);
                 $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->jumlah_standar_biaya);
+                $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->nama_satuan);
                 $excel_row++;
             }
         }
@@ -273,6 +274,7 @@ class StandarBiayaController extends CI_Controller
 
     public function doImport()
     {
+        $all_satuan = [];
         $response = new stdClass;
         $response->token = $this->security->get_csrf_hash();
 
@@ -280,7 +282,14 @@ class StandarBiayaController extends CI_Controller
         $exp = explode('.', $fileName);
         $fileName = $exp[0] . '_' . date('his') . rand(0000, 9999) . '.' . $exp[1];
 
-        $config['upload_path'] = 'uploads/';
+        $filePath = 'uploads/import/';
+
+        if (!file_exists($filePath)) {
+            mkdir($filePath, 0777, true);
+            fopen($filePath . "index.php", "w");
+        }
+
+        $config['upload_path'] = $filePath;
         $config['file_name'] = $fileName;
         $config['allowed_types'] = 'xls|xlsx|csv';
         $config['max_size'] = 10000;
@@ -294,7 +303,13 @@ class StandarBiayaController extends CI_Controller
             die;
         }
 
-        $inputFileName = 'uploads/' . $fileName;
+        $inputFileName = $filePath . $fileName;
+        $get_all_satuan = $this->SatuanModel->get_all_data_no_limit();
+        if ($get_all_satuan->num_rows()) {
+            foreach ($get_all_satuan->result() as $satuan) {
+                $all_satuan[$satuan->nama_satuan] = $satuan->uuid_satuan;
+            }
+        }
 
         try {
             $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
@@ -309,32 +324,42 @@ class StandarBiayaController extends CI_Controller
         $highestColumn      = $sheet->getHighestColumn();
 
         $rowIndex = $sheet->rangeToArray('A1:' . $highestColumn . '1', NULL, TRUE, FALSE);
-        $idRow = $rowIndex[0][0];
-        $rekRow = $rowIndex[0][1];
-        $namaRow = $rowIndex[0][2];
-        $biayaRow = $rowIndex[0][3];
+        $idRow = isset($rowIndex[0][0]) ? $rowIndex[0][0] : '-';
+        $rekRow = isset($rowIndex[0][1]) ? $rowIndex[0][1] : '-';
+        $namaRow = isset($rowIndex[0][2]) ? $rowIndex[0][2] : '-';
+        $biayaRow = isset($rowIndex[0][3]) ? $rowIndex[0][3] : '-';
+        $satuanRow = isset($rowIndex[0][4]) ? $rowIndex[0][4] : '-';
 
-        if ($idRow != "Id" && $rekRow != "No Rekening" && $namaRow != "Nama" && $biayaRow != "Nominal Standar Biaya") {
+        if ($idRow != "Id" || $rekRow != "No Rekening" || $namaRow != "Nama" || $biayaRow != "Nominal Standar Biaya" || $satuanRow != "Satuan Harga") {
             $response->resMsg = 'Format template yang digunakan tidak sesuai';
             echo json_encode($response);
             die;
         }
 
         $list_import = [];
+        $list_import_baru = [];
         for ($row = 2; $row <= $highestRow; $row++) {
             $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
-            if ($rowData[0][0] != "" && $rowData[0][1] != "" && $rowData[0][2] != "" && $rowData[0][3] != "") {
+            if ($rowData[0][1] != "" && $rowData[0][2] != "" && $rowData[0][3] != "") {
                 $data = array(
                     "id_standar_biaya" => $rowData[0][0],
                     "no_rekening_standar_biaya" => $rowData[0][1],
                     "nama_standar_biaya" => trim($rowData[0][2]),
-                    "jumlah_standar_biaya" => preg_replace('/[^0-9]/', '', $rowData[0][3])
+                    "jumlah_standar_biaya" => preg_replace('/[^0-9]/', '', $rowData[0][3]),
+                    "satuan_harga" => $all_satuan[trim($rowData[0][4])]
                 );
 
-                array_push($list_import, $data);
+                if ($rowData[0][0] != "") {
+                    array_push($list_import, $data);
+                } else if ($rowData[0][0] == "") {
+                    $data["uuid_standar_biaya"] = generate_uuid();
+                    $data["flag"] = "1";
+                    array_push($list_import_baru, $data);
+                }
             }
         }
 
+        $insert = $this->StandarBiayaModel->tambah_standar_biaya_batch($list_import_baru);
         $update = $this->StandarBiayaModel->edit_standar_biaya_by_id($list_import);
         unlink($inputFileName);
 

@@ -8,6 +8,7 @@ $templates = $template->result();
             <td style="border: 1px solid black">No Rekening</td>
             <td style="border: 1px solid black">Nama</td>
             <td style="border: 1px solid black">Nominal Standar Biaya</td>
+            <td style="border: 1px solid black">Satuan Harga</td>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@ $templates = $template->result();
                     <td style="border: 1px solid black; text-align: left;"><?php echo $value->id_standar_biaya ?></td>
                     <td style="border: 1px solid black; text-align: left;"><?php echo $value->no_rekening_standar_biaya ?></td>
                     <td style="border: 1px solid black"><?php echo $value->nama_standar_biaya ?></td>
+                    <td style="border: 1px solid black"><?php echo $value->jumlah_standar_biaya ?></td>
                     <td style="border: 1px solid black"><?php echo $value->jumlah_standar_biaya ?></td>
                 </tr>
             <?php } ?>

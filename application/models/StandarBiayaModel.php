@@ -54,6 +54,13 @@ Class StandarBiayaModel extends CI_Model {
         return $update;
     }
 
+    function tambah_standar_biaya_batch($data)
+    {
+        $insert = $this->db->insert_batch('mst_standar_biaya', $data);
+
+        return $insert;
+    }
+
     function edit_standar_biaya_by_id($data)
     {
         $update = $this->db->update_batch("mst_standar_biaya", $data, "id_standar_biaya");
@@ -85,9 +92,10 @@ Class StandarBiayaModel extends CI_Model {
 
     function get_all_standar_biaya()
     {
-        $this->db->select('id_standar_biaya, no_rekening_standar_biaya, nama_standar_biaya, jumlah_standar_biaya');
-        $this->db->where('is_utama IS NULL')->where('flag', '1')->order_by('no_rekening_standar_biaya', 'ASC');
-        $get = $this->db->get('mst_standar_biaya');
+        $this->db->select('b.nama_satuan, a.id_standar_biaya, a.no_rekening_standar_biaya, a.nama_standar_biaya, a.jumlah_standar_biaya');
+        $this->db->join('mst_satuan b', 'a.satuan_harga = b.uuid_satuan', 'left');
+        $this->db->where('a.is_utama IS NULL')->where('a.flag', '1')->order_by('a.no_rekening_standar_biaya', 'ASC');
+        $get = $this->db->get('mst_standar_biaya a');
 
         return $get;
     }
