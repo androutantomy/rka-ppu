@@ -43,7 +43,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $active != '' && $active == 'user' ? 'active' : '' ?>" aria-current="page" href="<?php echo route('user.home') ?>">
-                        <i class="icon" data-bs-toggle="tooltip" title="Users" data-bs-placement="right">
+                        <i class="icon" data-bs-toggle="tooltip" title="User Management" data-bs-placement="right">
                             <svg width="20" class="icon-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.9488 14.54C8.49884 14.54 5.58789 15.1038 5.58789 17.2795C5.58789 19.4562 8.51765 20.0001 11.9488 20.0001C15.3988 20.0001 18.3098 19.4364 18.3098 17.2606C18.3098 15.084 15.38 14.54 11.9488 14.54Z" fill="currentColor"></path>
                                 <path opacity="0.4" d="M11.949 12.467C14.2851 12.467 16.1583 10.5831 16.1583 8.23351C16.1583 5.88306 14.2851 4 11.949 4C9.61293 4 7.73975 5.88306 7.73975 8.23351C7.73975 10.5831 9.61293 12.467 11.949 12.467Z" fill="currentColor"></path>
