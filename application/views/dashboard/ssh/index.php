@@ -63,7 +63,7 @@
                                         <tbody>
                                             <?php
                                             if ($datatabel->num_rows() > 0) {
-                                                $mulai = isset($start) ? ($start * 10) - 9 : 1;
+                                                $mulai = isset($start) ? ($start * 25) - 24 : 1;
                                                 $no = $mulai - 1;
                                                 $sampai = ($mulai + $datatabel->num_rows()) - 1;
                                                 foreach ($datatabel->result() as $result) {

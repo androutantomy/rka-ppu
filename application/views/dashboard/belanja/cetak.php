@@ -112,33 +112,32 @@
       $grand_total = 0;
       if ($datatabel->num_rows() > 0) {
         foreach ($datatabel->result() as $result) {
+          if ($result->total_belanja > 0) {
       ?>
-          <tr>
-            <td style="border: 1px solid black"><?php echo $result->no_rekening_kegiatan; ?></td>
-            <td style="border: 1px solid black" colspan="5"><strong><?php echo strtoupper($result->nama_kegiatan); ?></strong></td>
-            <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($result->total_belanja, false) ?></td>
-          </tr>
-          <?php if (!empty($result->belanja)) {
-            foreach ($result->belanja as $belanja) {
-              $history = $belanja->history;
-              $cr_total = $belanja->total_belanja;
-              $hs_total = $history != "" ? $history->total_belanja : 0;
-              $dif_total = abs($cr_total - $hs_total) > 0 ? currency_formatter(abs($cr_total - $hs_total), false) : '';
-          ?>
-              <tr>
-                <td style="border: 1px solid black"></td>
-                <td style="border: 1px solid black" colspan="5"><strong>[Ket] <?php echo $belanja->keterangan; ?></strong></td>
-                <td style="border: 1px solid black"></td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid black"></td>
-                <td style="border: 1px solid black"><?php echo $belanja->nama_standar_biaya; ?></td>
-                <td style="border: 1px solid black"><?php echo $belanja->koefisien_1 ?><?php echo $belanja->volume_2 != "" ? ' X ' : '' ?><?php echo $belanja->volume_2 != "" ? $belanja->volume_2 : '' ?> <?php echo $belanja->nama_satuan; ?></td>
-                <td style="border: 1px solid black; text-align: center;"><?php echo $belanja->satuan_nama; ?></td>
-                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->jumlah_standar_biaya, false); ?></td>
-                <td style="border: 1px solid black; text-align: center;"><?php echo $belanja->pajak == '1' ? $this->config->item('ppn_value') : ''; ?></td>
-                <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja, false); $grand_total += $belanja->total_belanja; ?></td>
-              </tr>
+            <tr>
+              <td style="border: 1px solid black"><?php echo $result->no_rekening_kegiatan; ?></td>
+              <td style="border: 1px solid black" colspan="5"><strong><?php echo strtoupper($result->nama_kegiatan); ?></strong></td>
+              <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($result->total_belanja, false) ?></td>
+            </tr>
+            <?php if (!empty($result->belanja)) {
+              foreach ($result->belanja as $belanja) {
+            ?>
+                <tr>
+                  <td style="border: 1px solid black"></td>
+                  <td style="border: 1px solid black" colspan="5"><strong>[Ket] <?php echo $belanja->keterangan; ?></strong></td>
+                  <td style="border: 1px solid black"></td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid black"></td>
+                  <td style="border: 1px solid black"><?php echo $belanja->nama_standar_biaya; ?></td>
+                  <td style="border: 1px solid black"><?php echo $belanja->koefisien_1 ?><?php echo $belanja->volume_2 != "" ? ' X ' : '' ?><?php echo $belanja->volume_2 != "" ? $belanja->volume_2 : '' ?> <?php echo $belanja->nama_satuan; ?></td>
+                  <td style="border: 1px solid black; text-align: center;"><?php echo $belanja->satuan_nama; ?></td>
+                  <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->jumlah_standar_biaya, false); ?></td>
+                  <td style="border: 1px solid black; text-align: center;"><?php echo $belanja->pajak == '1' ? $this->config->item('ppn_value') : ''; ?></td>
+                  <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja, false);
+                                                                          $grand_total += $belanja->total_belanja; ?></td>
+                </tr>
+              <?php } ?>
             <?php } ?>
           <?php } ?>
         <?php } ?>

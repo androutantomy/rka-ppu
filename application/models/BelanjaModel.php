@@ -112,6 +112,21 @@ class BelanjaModel extends CI_Model
         return $data;
     }
 
+    function get_total_data_with_all($filter)
+    {
+        if (isset($filter['search']) && $filter['search'] != '') {
+            $this->db->like('nama_kegiatan', $filter['search'], 'both');
+        }
+
+        $this->db->where('parent_kegiatan', "");
+        // if ($this->session->userdata('level_user') != "1") {
+        //     $this->db->where("uuid_user", $this->session->userdata('uuid_user'));
+        // }
+        $data = $this->db->select('nama_kegiatan')->from('mst_kegiatan')->count_all_results();
+
+        return $data;
+    }
+
     function get_total_data_sub_kegiatan($filter)
     {
         if (isset($filter['search']) && $filter['search'] != '') {

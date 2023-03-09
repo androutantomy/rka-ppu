@@ -19,7 +19,7 @@ Class StandarBiayaModel extends CI_Model {
 
         $limit = $filter['limit'];
         if (isset($filter['start']) && !empty($filter['start'])) {
-            $offset = ($filter['start']*$limit)-10;
+            $offset = ($filter['start']*$limit)-25;
         }
         $this->db->limit($limit, isset($offset)?$offset:0);
         $this->db->order_by('no_rekening_standar_biaya', 'ASC');

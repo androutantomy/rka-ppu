@@ -11,7 +11,7 @@
  Target Server Version : 100425
  File Encoding         : 65001
 
- Date: 06/03/2023 23:25:03
+ Date: 09/03/2023 22:32:58
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `log_aktifitas`  (
   `tanggal` datetime NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_aktifitas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 792 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 870 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of log_aktifitas
@@ -825,6 +825,84 @@ INSERT INTO `log_aktifitas` VALUES (788, 'anggaran', 'Superadmin UNTAG', 'Supera
 INSERT INTO `log_aktifitas` VALUES (789, 'anggaran', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:21:35', 'Update data Tahun Anggaran');
 INSERT INTO `log_aktifitas` VALUES (790, 'anggaran', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:22:10', 'Update data Tahun Anggaran');
 INSERT INTO `log_aktifitas` VALUES (791, 'anggaran', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:22:35', 'Update data Tahun Anggaran');
+INSERT INTO `log_aktifitas` VALUES (792, 'anggaran', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:25:18', 'Update data Tahun Anggaran');
+INSERT INTO `log_aktifitas` VALUES (793, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:36:20', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (794, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:37:08', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (795, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:37:24', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (796, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:38:25', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (797, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:38:58', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (798, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:41:13', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (799, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-06 17:41:47', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (800, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:01:52', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (801, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:01:55', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (802, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:01:59', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (803, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:02:27', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (804, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:02:39', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (805, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:04:00', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (806, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:06:18', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (807, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:06:23', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (808, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:06:25', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (809, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:06:33', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (810, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:06:37', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (811, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:06:51', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (812, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:08:12', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (813, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:10:32', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (814, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:10:36', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (815, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:11:46', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (816, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:11:50', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (817, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:11:53', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (818, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:11:56', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (819, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:12:56', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (820, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:13:21', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (821, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:14:39', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (822, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:15:27', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (823, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:15:31', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (824, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:15:35', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (825, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:24:04', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (826, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:35:42', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (827, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:38:55', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (828, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:39:30', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (829, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:39:41', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (830, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:41:02', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (831, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:41:44', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (832, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:42:16', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (833, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:43:10', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (834, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 15:44:01', 'Update data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (835, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:02:49', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (836, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:05:46', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (837, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:06:09', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (838, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:08:43', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (839, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:12:26', 'Tambah data Standar Biaya');
+INSERT INTO `log_aktifitas` VALUES (840, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:12:50', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (841, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:12:54', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (842, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:13:06', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (843, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:13:09', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (844, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:13:12', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (845, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:13:15', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (846, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:13:48', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (847, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:17:19', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (848, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:17:33', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (849, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:17:41', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (850, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:19:57', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (851, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:20:31', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (852, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:20:38', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (853, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:21:16', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (854, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:21:19', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (855, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:21:21', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (856, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:22:00', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (857, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:22:03', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (858, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:22:11', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (859, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:22:22', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (860, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:24:42', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (861, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:24:50', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (862, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:05', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (863, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:09', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (864, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:12', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (865, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:15', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (866, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:18', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (867, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:21', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (868, 'belanja', 'Superadmin UNTAG', 'Superadmin', '2023-03-08 16:25:26', 'Tambah data Rincian Belanja');
+INSERT INTO `log_aktifitas` VALUES (869, 'biaya', 'Superadmin UNTAG', 'Superadmin', '2023-03-09 16:12:24', 'Tambah data Standar Biaya');
 
 -- ----------------------------
 -- Table structure for mst_kegiatan
@@ -965,7 +1043,7 @@ CREATE TABLE `mst_standar_biaya`  (
   `flag` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `satuan_harga` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_standar_biaya`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_standar_biaya
@@ -974,8 +1052,8 @@ INSERT INTO `mst_standar_biaya` VALUES (8, 'fcaad192-b1c7-11ed-a156-5c60ba3647e7
 INSERT INTO `mst_standar_biaya` VALUES (9, '0793d0bb-b1c8-11ed-a156-5c60ba3647e7', 'BEBAN AKADEMIK', NULL, '5.1.0', '2023', '1', '1', NULL);
 INSERT INTO `mst_standar_biaya` VALUES (10, '12f8e6e9-b1c8-11ed-a156-5c60ba3647e7', 'BEBAN PENDIDIKAN DAN PENGAJARAN', NULL, '5.1.0.1', '2023', '1', '1', NULL);
 INSERT INTO `mst_standar_biaya` VALUES (11, '20a9a266-b1c8-11ed-a156-5c60ba3647e7', 'BEBAN GAJI DOSEN', NULL, '5.1.0.1.1', '2023', '1', '1', NULL);
-INSERT INTO `mst_standar_biaya` VALUES (12, '382fe42a-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (SMA/D1 - 0-4 Tahun)', '900000', '5.1.0.1.1.001', '2023', NULL, '1', '4c36c924-ae18-11ed-8f55-5c60ba3647e7');
-INSERT INTO `mst_standar_biaya` VALUES (13, '5825a01e-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (D2/D3 - 0-4 Tahun)', '966000', '5.1.0.1.1.002', '2023', NULL, '1', '4c36c924-ae18-11ed-8f55-5c60ba3647e7');
+INSERT INTO `mst_standar_biaya` VALUES (12, '382fe42a-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (SMA/D1 - 0-4 Tahun)', '975000', '5.1.0.1.1.001', '2023', NULL, '1', '4c36c924-ae18-11ed-8f55-5c60ba3647e7');
+INSERT INTO `mst_standar_biaya` VALUES (13, '5825a01e-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (D2/D3 - 0-4 Tahun)', '967000', '5.1.0.1.1.002', '2023', NULL, '1', '4c36c924-ae18-11ed-8f55-5c60ba3647e7');
 INSERT INTO `mst_standar_biaya` VALUES (14, '6ced82fb-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (S1/D4 - 0-4 Tahun)', '1127000', '5.1.0.1.1.003', '2023', NULL, '1', '4c36c924-ae18-11ed-8f55-5c60ba3647e7');
 INSERT INTO `mst_standar_biaya` VALUES (15, '7b30efdd-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (S2 - 0-4 Tahun)', '1288000', '5.1.0.1.1.004', '2023', NULL, '1', '8d69e63c-b5b6-11ed-ac46-5c60ba3647e7');
 INSERT INTO `mst_standar_biaya` VALUES (16, '89e211ad-b1c8-11ed-a156-5c60ba3647e7', 'Gaji Pokok Karyawan dan Dosen Tetap Yayasan (S3 - 0-4 Tahun)', '1449000', '5.1.0.1.1.005', '2023', NULL, '1', '4c36c924-ae18-11ed-8f55-5c60ba3647e7');
@@ -989,6 +1067,8 @@ INSERT INTO `mst_standar_biaya` VALUES (26, '84cda719-b5b7-11ed-ac46-5c60ba3647e
 INSERT INTO `mst_standar_biaya` VALUES (27, '9f45dda0-b5b7-11ed-ac46-5c60ba3647e7', 'Batterai Alkaline Kotak 9 Volt', '15000', '7.001', '2023', NULL, '1', '8d69e63c-b5b6-11ed-ac46-5c60ba3647e7');
 INSERT INTO `mst_standar_biaya` VALUES (28, '505b13be-b91b-11ed-b7d6-5c60ba3647e7', 'Pulpen Hitam', '12000', '7.002', '2023', NULL, '1', '8c2b6f81-b1cc-11ed-a156-5c60ba3647e7');
 INSERT INTO `mst_standar_biaya` VALUES (29, '2f3204fc-bc3a-11ed-8eb8-5c60ba3647e7', 'Beban harga', '12550', '5.1.0.1.1.015', '2023', NULL, '1', '6e02160c-b1cc-11ed-a156-5c60ba3647e7');
+INSERT INTO `mst_standar_biaya` VALUES (34, '3b9a2ef0-b79c-4e2f-857a-4a9fb8a7a723', 'Penggaris 30 Cm', '60000', '7003', NULL, NULL, '1', '8d69e63c-b5b6-11ed-ac46-5c60ba3647e7');
+INSERT INTO `mst_standar_biaya` VALUES (35, '28087ed7-9b7f-476b-8ef7-7d6cae873f85', 'Buku Tulis Putih', '4500', '7004', NULL, NULL, '1', '8c2b6f81-b1cc-11ed-a156-5c60ba3647e7');
 
 -- ----------------------------
 -- Table structure for mst_tahun_anggaran
@@ -1017,7 +1097,7 @@ INSERT INTO `mst_tahun_anggaran` VALUES (13, 'f7c3a9a8-b1ca-11ed-a156-5c60ba3647
 INSERT INTO `mst_tahun_anggaran` VALUES (14, '10dd4870-b1cb-11ed-a156-5c60ba3647e7', '2019', '345000000', '0', NULL, NULL);
 INSERT INTO `mst_tahun_anggaran` VALUES (15, '1e434ca7-b1cb-11ed-a156-5c60ba3647e7', '2020', '20000000', '0', NULL, NULL);
 INSERT INTO `mst_tahun_anggaran` VALUES (16, '583e4b67-b1cb-11ed-a156-5c60ba3647e7', '2021', '245000000', '0', NULL, NULL);
-INSERT INTO `mst_tahun_anggaran` VALUES (21, '46cd158b-bc36-11ed-8eb8-5c60ba3647e7', '2015', '2000000000', '1', '[{\"admin\":\"budget_6be904b9-ac71-11ed-ae87-5c60ba3647e7\",\"budget\":\"250000000\"},{\"admin\":\"budget_ebd1956c-b507-11ed-b206-5c60ba3647e7\",\"budget\":\"250000000\"},{\"admin\":\"budget_faa4df41-b507-11ed-b206-5c60ba3647e7\",\"budget\":\"250000000\"},{\"admin\":\"budget_76e7fd92-b771-11ed-bfe5-5c60ba3647e7\",\"budget\":\"250000000\"}]', '2023-03-10');
+INSERT INTO `mst_tahun_anggaran` VALUES (21, '46cd158b-bc36-11ed-8eb8-5c60ba3647e7', '2015', '2000000000', '0', '[{\"admin\":\"budget_6be904b9-ac71-11ed-ae87-5c60ba3647e7\",\"budget\":\"250000000\"},{\"admin\":\"budget_ebd1956c-b507-11ed-b206-5c60ba3647e7\",\"budget\":\"250000000\"},{\"admin\":\"budget_faa4df41-b507-11ed-b206-5c60ba3647e7\",\"budget\":\"250000000\"},{\"admin\":\"budget_76e7fd92-b771-11ed-bfe5-5c60ba3647e7\",\"budget\":\"250000000\"}]', '2023-03-10');
 
 -- ----------------------------
 -- Table structure for mst_users
@@ -1072,7 +1152,7 @@ CREATE TABLE `rincian_belanja`  (
 -- ----------------------------
 -- Records of rincian_belanja
 -- ----------------------------
-INSERT INTO `rincian_belanja` VALUES (13, 'e7e2b917-b913-11ed-b7d6-5c60ba3647e7', '2023-03-01', '72003dfa-b910-11ed-b7d6-5c60ba3647e7', '382fe42a-b1c8-11ed-a156-5c60ba3647e7', '1', '8d69e63c-b5b6-11ed-ac46-5c60ba3647e7', NULL, '32', 1, 'Gaji Bulan Februari', 'dca74e86-abb7-11ed-8468-5c60ba3647e9', '0', '28593600', '2023', NULL);
+INSERT INTO `rincian_belanja` VALUES (13, 'e7e2b917-b913-11ed-b7d6-5c60ba3647e7', '2023-03-01', '72003dfa-b910-11ed-b7d6-5c60ba3647e7', '382fe42a-b1c8-11ed-a156-5c60ba3647e7', '1', '8696356114656036477', '', '32', 0, 'Gaji Bulan Februari', 'dca74e86-abb7-11ed-8468-5c60ba3647e9', '0', '31200000', '2023', NULL);
 INSERT INTO `rincian_belanja` VALUES (14, '7d8e06a4-b916-11ed-b7d6-5c60ba3647e7', '2023-03-01', 'e670c63b-b910-11ed-b7d6-5c60ba3647e7', '382fe42a-b1c8-11ed-a156-5c60ba3647e7', '1', '8c2b6f81-b1cc-11ed-a156-5c60ba3647e7', NULL, '72', 1, 'Gaji Pegawai', '76e7fd92-b771-11ed-bfe5-5c60ba3647e7', '0', '64335600', '2023', NULL);
 INSERT INTO `rincian_belanja` VALUES (15, '6e387830-b91b-11ed-b7d6-5c60ba3647e7', '2023-03-01', '117a1017-b91b-11ed-b7d6-5c60ba3647e7', '505b13be-b91b-11ed-b7d6-5c60ba3647e7', '210', '8d69e63c-b5b6-11ed-ac46-5c60ba3647e7', NULL, '5', 1, '', '76e7fd92-b771-11ed-bfe5-5c60ba3647e7', '0', '13986000', '2023', NULL);
 INSERT INTO `rincian_belanja` VALUES (16, 'd3f78827-b9ec-11ed-afd4-5c60ba3647e7', '2023-03-01', '72003dfa-b910-11ed-b7d6-5c60ba3647e7', '89e211ad-b1c8-11ed-a156-5c60ba3647e7', '1', '8c2b6f81-b1cc-11ed-a156-5c60ba3647e7', NULL, '60', 1, '', 'faa4df41-b507-11ed-b206-5c60ba3647e7', '0', '96503400', '2023', NULL);
@@ -1108,6 +1188,7 @@ CREATE TABLE `rincian_belanja_history`  (
 -- ----------------------------
 -- Records of rincian_belanja_history
 -- ----------------------------
+INSERT INTO `rincian_belanja_history` VALUES (13, 'c8e1d1e9-bdb9-11ed-9f94-5c60ba3647e7', 'e7e2b917-b913-11ed-b7d6-5c60ba3647e7', '2023-03-01', '72003dfa-b910-11ed-b7d6-5c60ba3647e7', '382fe42a-b1c8-11ed-a156-5c60ba3647e7', '1', '8696356114656036477', '', '32', 1, 'Gaji Bulan Februari', 'dca74e86-abb7-11ed-8468-5c60ba3647e9', '0', '34632000', '2023', NULL);
 INSERT INTO `rincian_belanja_history` VALUES (18, '4fe95672-baad-11ed-8287-5c60ba3647e7', '59b510e0-ba90-11ed-8287-5c60ba3647e7', '2023-03-01', 'e2d808e3-b9e0-11ed-afd4-5c60ba3647e7', '5825a01e-b1c8-11ed-a156-5c60ba3647e7', '3', '8d69e63c-b5b6-11ed-ac46-5c60ba3647e7', NULL, '6', 1, '', 'faa4df41-b507-11ed-b206-5c60ba3647e7', '0', '19300680', '2023', NULL);
 INSERT INTO `rincian_belanja_history` VALUES (19, 'd8a8d01b-baa8-11ed-8287-5c60ba3647e7', 'ac824710-ba90-11ed-8287-5c60ba3647e7', '2023-03-01', '72003dfa-b910-11ed-b7d6-5c60ba3647e7', '6ced82fb-b1c8-11ed-a156-5c60ba3647e7', '2', '8c2b6f81-b1cc-11ed-a156-5c60ba3647e7', NULL, '36', 1, '', 'ebd1956c-b507-11ed-b206-5c60ba3647e7', '0', '90069840', '2023', '{\"uuid_belanja\":\"ac824710-ba90-11ed-8287-5c60ba3647e7\",\"tanggal_belanja\":\"2023-03-01\",\"uuid_kegiatan\":\"72003dfa-b910-11ed-b7d6-5c60ba3647e7\",\"uuid_standar_biaya\":\"6ced82fb-b1c8-11ed-a156-5c60ba3647e7\",\"koefisien_1\":\"1\",\"volume_1\":\"8c2b6f81-b1cc-11ed-a156-5c60ba3647e7\",\"volume_2\":\"36\",\"pajak\":\"1\",\"keterangan\":\"\",\"uuid_user\":\"ebd1956c-b507-11ed-b206-5c60ba3647e7\",\"edited\":\"0\",\"total_belanja\":\"45034920\",\"detail_belanja_history\":null,\"nama_kegiatan\":\"   Gaji Dosen S1\",\"nama_standar_biaya\":\"Gaji Pokok Karyawan dan Dosen Tetap Yayasan (S1\\/D4 - 0-4 Tahun)\",\"jumlah_standar_biaya\":\"1,127,000\",\"nama_satuan\":\"unit\",\"satuan_belanja\":null}');
 
