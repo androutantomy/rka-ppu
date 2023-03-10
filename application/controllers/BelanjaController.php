@@ -31,7 +31,7 @@ class BelanjaController extends CI_Controller
 
         $datatable = $this->BelanjaModel->get_all_data($filter);
         $total =  $this->BelanjaModel->get_total_data_with_all($filter);
-        if ($total > 0) {
+        if ($datatable->num_rows() > 0) {
             foreach ($datatable->result() as $parent) {
                 $filter['parent'] = $parent->uuid_kegiatan;
                 $parent->child = $this->SubKegiatanModel->get_all_data($filter)->result();

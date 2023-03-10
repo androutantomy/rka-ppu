@@ -46,9 +46,21 @@ class BelanjaModel extends CI_Model
             $this->db->like('mst_kegiatan.nama_kegiatan', $filter['search'], 'both');
         }
 
+        $this->db->where('mst_kegiatan.flag', '1');
         $this->db->where('mst_kegiatan.parent_kegiatan', null);
         $this->db->or_where('mst_kegiatan.parent_kegiatan', '');
         $this->db->where('mst_kegiatan.flag', '1');
+        if (isset($filter['parent_kegiatan']) && $filter['parent_kegiatan'] != '') {
+            $this->db->where('mst_kegiatan.parent_kegiatan', $filter['parent_kegiatan']);
+        }
+
+        if (isset($filter['uuid_kegiatan']) && $filter['uuid_kegiatan'] != '') {
+            $this->db->where('mst_kegiatan.uuid_kegiatan', $filter['uuid_kegiatan']);
+        }
+
+        if (isset($filter['search']) && $filter['search'] != '') {
+            $this->db->like('mst_kegiatan.nama_kegiatan', $filter['search'], 'both');
+        }
         // $this->db->or_like('parent_kegiatan', '-');
         if ($filter['limit'] > 0) {
             $this->db->limit($limit, isset($offset) ? $offset : 0);
