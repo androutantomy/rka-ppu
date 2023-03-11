@@ -28,6 +28,25 @@ Class StandarBiayaModel extends CI_Model {
         return $data;
     }
 
+    function get_all_data_child($filter)
+    {
+        $this->db->select('uuid_standar_biaya, no_rekening_standar_biaya, is_utama, nama_standar_biaya, flag, jumlah_standar_biaya');
+        if ($filter['search'] != '') {
+            $this->db->like('nama_standar_biaya', $filter['search'], 'both');
+        }
+
+        $limit = $filter['limit'];
+        if (isset($filter['start']) && !empty($filter['start'])) {
+            $offset = ($filter['start']*$limit)-25;
+        }
+        $this->db->where('is_utama IS NULL');
+        $this->db->limit($limit, isset($offset)?$offset:0);
+        $this->db->order_by('no_rekening_standar_biaya', 'ASC');
+        $data = $this->db->get('mst_standar_biaya');
+
+        return $data;
+    }
+
     function get_total_data($filter)
     {
         if ($filter['search'] != '') {

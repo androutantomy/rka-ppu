@@ -160,7 +160,7 @@ class BelanjaController extends CI_Controller
         ];
 
         $res->newToken = $this->security->get_csrf_hash();
-        $datatable = $this->StandarBiayaModel->get_all_data($filter);
+        $datatable = $this->StandarBiayaModel->get_all_data_child($filter);
 
         if ($datatable->num_rows() > 0) {
             foreach ($datatable->result() as $result) {
