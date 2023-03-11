@@ -101,7 +101,7 @@ function get_list_total_anggaran()
     }
 
     if (!empty($anggaran)) {
-        $belanja_yayasan = $anggaran->budget_tahun_anggaran;
+        $belanja_yayasan = $anggaran->budget_tahun_anggaran != "" ? $anggaran->budget_tahun_anggaran : 0;
 
         $anggaran_prodi = $anggaran->anggaran_prodi != "" ? json_decode($anggaran->anggaran_prodi) : '';
         if ($anggaran_prodi != "") {
