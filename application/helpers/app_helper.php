@@ -107,9 +107,9 @@ function get_list_total_anggaran()
         if ($anggaran_prodi != "") {
             foreach ($anggaran_prodi as $prodi) {
                 if ($level_user != "1" && 'budget_' . $uuid_user == $prodi->admin) {
-                    $belanja_prodi = $prodi->budget;
+                    $belanja_prodi = $prodi->budget != "" ? $prodi->budget : 0;
                 } else if ($CI->session->userdata('level_user') == '1') {
-                    $belanja_prodi += $prodi->budget;
+                    $belanja_prodi += $prodi->budget != "" ? $prodi->budget : 0;
                 }
             }
         }
