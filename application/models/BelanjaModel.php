@@ -73,7 +73,7 @@ class BelanjaModel extends CI_Model
 
     function get_all_data_sub_kegiatan($filter)
     {
-        $this->db->select('d.nama_satuan as satuan_nama, c.nama_satuan, uuid_belanja, b.no_rekening_standar_biaya, b.jumlah_standar_biaya, b.nama_standar_biaya, tanggal_belanja, rincian_belanja.uuid_kegiatan, rincian_belanja.uuid_standar_biaya, koefisien_1, koefisien_2, volume_1, volume_2, pajak, total_belanja, keterangan');
+        $this->db->select('d.nama_satuan as satuan_nama, c.nama_satuan, uuid_belanja, b.no_rekening_standar_biaya, b.jumlah_standar_biaya, b.nama_standar_biaya, tanggal_belanja, rincian_belanja.uuid_kegiatan, rincian_belanja.uuid_standar_biaya, koefisien_1, koefisien_2, volume_1, volume_2, pajak, total_belanja, keterangan, rincian_belanja.cr_standar_biaya');
         $this->db->join('mst_standar_biaya b', 'b.uuid_standar_biaya = rincian_belanja.uuid_standar_biaya', 'left');
         $this->db->join('mst_satuan c', 'c.uuid_satuan = rincian_belanja.volume_1', 'left');
         $this->db->join('mst_satuan d', 'b.satuan_harga = d.uuid_satuan', 'left');

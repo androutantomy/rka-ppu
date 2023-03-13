@@ -121,6 +121,10 @@
             </tr>
             <?php if (!empty($result->belanja)) {
               foreach ($result->belanja as $belanja) {
+                $standar_biaya = isset($belanja->cr_standar_biaya) && $belanja->cr_standar_biaya != "" ? $belanja->cr_standar_biaya : 0;
+                if ($standar_biaya == "" || $standar_biaya == 0) {
+                  $standar_biaya = isset($belanja->jumlah_standar_biaya) && $belanja->jumlah_standar_biaya != "" ? $belanja->jumlah_standar_biaya : 0;
+                }
             ?>
                 <tr>
                   <td style="border: 1px solid black"></td>
@@ -132,7 +136,7 @@
                   <td style="border: 1px solid black"><?php echo $belanja->nama_standar_biaya; ?></td>
                   <td style="border: 1px solid black"><?php echo $belanja->koefisien_1 ?><?php echo $belanja->volume_2 != "" ? ' X ' : '' ?><?php echo $belanja->volume_2 != "" ? $belanja->volume_2 : '' ?> <?php echo $belanja->nama_satuan; ?></td>
                   <td style="border: 1px solid black; text-align: center;"><?php echo $belanja->satuan_nama; ?></td>
-                  <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->jumlah_standar_biaya, false); ?></td>
+                  <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($standar_biaya, false); ?></td>
                   <td style="border: 1px solid black; text-align: center;"><?php echo $belanja->pajak == '1' ? $this->config->item('ppn_value') : ''; ?></td>
                   <td style="border: 1px solid black; text-align: right;"><?php echo currency_formatter($belanja->total_belanja, false);
                                                                           $grand_total += $belanja->total_belanja; ?></td>

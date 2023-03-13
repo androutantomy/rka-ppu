@@ -276,7 +276,8 @@ class BelanjaController extends CI_Controller
             'uuid_user' => $this->session->userdata('uuid_user'),
             'edited' => "0",
             'total_belanja' => $total,
-            'tahun_anggaran' => $this->session->userdata('anggaran')
+            'tahun_anggaran' => $this->session->userdata('anggaran'),
+            'cr_standar_biaya' => isset($harga) ? $harga : 0
         ];
 
         if ($this->input->post('uuid_rincian_belanja') == '') {
